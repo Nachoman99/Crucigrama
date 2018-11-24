@@ -10,10 +10,5 @@ package crucigrama;
  * @author Nacho
  */
 public class Crossword {
-
-    /**
-     * @param args the command line arguments
-     */
-    
     
 }
