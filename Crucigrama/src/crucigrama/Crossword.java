@@ -12,7 +12,8 @@ package crucigrama;
 public class Crossword {
     private Letter[][] crossword;
 
-    public Crossword() {
+    public Crossword(int row, int column) {
+        crossword = new Letter[row][column];
     }
 
     public Crossword(Letter[][] crossword) {
@@ -32,5 +33,18 @@ public class Crossword {
         return "Crossword{" + "crossword=" + crossword + '}';
     }
     
+    public void setLetterPosition(int row, int column, Letter letter){
+        crossword[row][column] = letter;
+    }
     
+    public String print(){
+        String print ="";
+        for (int i = 0; i < crossword.length; i++) {
+            for (int j = 0; j < crossword[0].length; j++) {
+                print += " ("+crossword[i][j]+")";
+            }
+            print += "\n";
+        }
+        return print;
+    }
 }
