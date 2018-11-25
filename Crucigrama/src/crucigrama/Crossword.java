@@ -41,7 +41,7 @@ public class Crossword {
         String print ="";
         for (int i = 0; i < crossword.length; i++) {
             for (int j = 0; j < crossword[0].length; j++) {
-                print += " ("+crossword[i][j]+")";
+                print += " ("+crossword[i][j].getLetter()+")";
             }
             print += "\n";
         }
