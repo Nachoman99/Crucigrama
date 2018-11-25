@@ -10,5 +10,27 @@ package crucigrama;
  * @author Nacho
  */
 public class Letter {
+    private char letter;
+
+    public Letter() {
+    }
+
+    public Letter(char letter) {
+        this.letter = letter;
+    }
+
+    public char getLetter() {
+        return letter;
+    }
+
+    public void setLetter(char letter) {
+        this.letter = letter;
+    }
+
+    @Override
+    public String toString() {
+        return "Letter{" + "letter=" + letter + '}';
+    }
+    
     
 }
