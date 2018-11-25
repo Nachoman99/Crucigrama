@@ -15,7 +15,7 @@ public class Crossword {
     public Crossword(int row, int column) {
         crossword = new Letter[row][column];
         for (int i=0; i < crossword.length; i++){
-            for (int j=0; j<crossword.length; j++){
+            for (int j=0; j < crossword[0].length; j++){
                 Letter letter = new Letter('0');
                 crossword[i][j] = letter; 
             }
