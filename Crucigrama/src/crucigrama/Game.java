@@ -5,6 +5,8 @@
  */
 package crucigrama;
 
+import java.util.Arrays;
+
 /**
  *
  * @author Nacho
@@ -38,8 +40,13 @@ public class Game {
         crossword1.setLetterPosition(4, 1, N);
         System.out.println(crossword1.print());
         System.out.println(crossword1.validar(ejemplo, ejemplo));
+        System.out.println(crossword1.extraction(1, 1, 'V'));
+        System.out.println(crossword1.extraction(1, 1, 'H'));
         
         
+        String palabra1 = crossword1.extraction(1, 1, 'V');  
+        Letter[] palabra2 = crossword1.stringToLetter(palabra1);
+        System.out.println("Pruba final= "+ Arrays.toString(palabra2));
     }
     
 }

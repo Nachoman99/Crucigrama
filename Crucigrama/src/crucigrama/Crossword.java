@@ -70,5 +70,35 @@ public class Crossword {
             return validar(filas + 1, letra, crossword, letrasMalas);
         }
     }
-        
+    
+    public String extraction(int filaInicial,int columnaInicial, char verticalHorizontal){
+        String palabra = "";
+        Letter letter = new Letter('0');
+        if(verticalHorizontal == 'V'){
+            for (int i = columnaInicial; i < crossword[0].length; i++) {
+                if(crossword[filaInicial][i].getLetter() != letter.getLetter()){
+                    palabra += crossword[filaInicial][i].getLetter();
+                }
+            }
+        }else if(verticalHorizontal == 'H'){
+            for (int i = filaInicial; i < crossword.length; i++) {
+                if(crossword[i][columnaInicial].getLetter() != letter.getLetter()){
+                    palabra += crossword[i][columnaInicial].getLetter();
+                }
+            }
+        }
+
+        return palabra;
+    }
+
+    public Letter[] stringToLetter(String extraction){
+        Letter[] palabra = new Letter[extraction.length()];
+        for (int i = 0; i < extraction.length(); i++) {
+            char intemedio = extraction.charAt(i);
+            Letter letra = new Letter(intemedio);
+            palabra[i]=(letra); 
+        }
+        return palabra;
+    }
+  
 }
