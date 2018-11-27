@@ -45,8 +45,11 @@ public class Game {
         
         
         String palabra1 = crossword1.extraction(1, 1, 'V');  
-        Letter[] palabra2 = crossword1.stringToLetter(palabra1);
-        System.out.println("Pruba final= "+ Arrays.toString(palabra2));
+        String palabra2 = crossword1.extraction(1, 1, 'H'); 
+        Letter[] palabra3 = crossword1.stringToLetter(palabra1);
+        System.out.println("Pruba final= "+ Arrays.toString(palabra3));//puse el Arrays solo para probar no usarlo 
+        palabra3 = crossword1.stringToLetter(palabra2);
+        System.out.println("Pruba final= "+ Arrays.toString(palabra3));
     }
     
 }
