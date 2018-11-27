@@ -53,4 +53,22 @@ public class Crossword {
         }
         return print;
     }
+    
+    public int validar(Letter[] letra, Letter[] palabraCorrecta){
+        return validar(0, letra, palabraCorrecta, 0);
+    }
+    
+    private int validar(int filas, Letter[] letra, Letter[] crossword, int letrasMalas){
+        if (filas > letra.length-1) {
+           // System.out.println(letrasMalas + 1);
+            return letrasMalas;
+        } else {
+            if (letra[filas] != crossword[filas]) {
+                letrasMalas += 1;
+               // System.out.println("Hola");
+            }
+            return validar(filas + 1, letra, crossword, letrasMalas);
+        }
+    }
+        
 }
