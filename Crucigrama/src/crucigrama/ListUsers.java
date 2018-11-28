@@ -44,23 +44,19 @@ public class ListUsers {
         return "ListUsers{" + "list=" + list + ", usersCount=" + usersCount + '}';
     }
     
-    public void addUSer(User user){
+    public int addUSer(User user){
         if (user != null) {          
             for (int i = 0; i < list.length; i++) {
                 if (list[i] != null) {
                     duplicate();
                 }
-                if (list[i] == null) {
+                if (list[i] == null && verify(user.getID()) == 0) {
                     list[i] = user;
+                    return 0;
                 }
             }
-            /*if (list[usersCount++] != null) {
-                duplicate();
-            }
-            if (list[usersCount++] == null) {
-                list[usersCount++] = user;
-            }*/
         }
+        return -1;
     }
     
     private void duplicate(){
@@ -71,7 +67,7 @@ public class ListUsers {
         list = list2;
     }
     
-    public int verify(String userID){
+    private int verify(String userID){
         for (int i = 0; i < list.length; i++) {
             if (list[i].getID() == userID) {
                 return 1;

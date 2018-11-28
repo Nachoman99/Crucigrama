@@ -137,13 +137,11 @@ public class Register extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(this, "Por favor digite una contraseña de al menos 3 caracteres");
             instructions.setVisible(false);
         }else {
-           
             int result;
             user.setID(tfID.getText());
             user.setPassword(pfPassword.getText());
-            result = list.verify(user.getID());
+            result = list.addUSer(user);
             if (result == 0) {
-                list.addUSer(user);
                 instructions.setVisible(true);
             }else{
                 JOptionPane.showMessageDialog(this, "Por favor ingrese otra identificación, ya que esta ya ha sido usada");
