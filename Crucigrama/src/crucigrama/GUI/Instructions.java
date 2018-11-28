@@ -104,8 +104,8 @@ public class Instructions extends javax.swing.JDialog {
     }//GEN-LAST:event_cbNotShowActionPerformed
 
     private void btnContinueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContinueActionPerformed
-        //Level level = new Level(this, true);
-        //level.setVisible(true);
+        Level level = new Level(this, true);
+        level.setVisible(true);
     }//GEN-LAST:event_btnContinueActionPerformed
 
 
