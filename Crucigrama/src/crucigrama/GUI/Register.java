@@ -5,6 +5,8 @@
  */
 package crucigrama.GUI;
 
+import crucigrama.User;
+import crucigrama.ListUsers;
 import javax.swing.JOptionPane;
 
 /**
@@ -12,7 +14,9 @@ import javax.swing.JOptionPane;
  * @author Kevin Trejos
  */
 public class Register extends javax.swing.JDialog {
-
+    
+    User user = new User();
+    ListUsers list = new ListUsers();
     /**
      * Creates new form Register
      */
@@ -129,14 +133,22 @@ public class Register extends javax.swing.JDialog {
         if (tfID.getText().length() < 4) {
             JOptionPane.showMessageDialog(this, "Por favor digite una identificación de al menos 4 caracteres");
             instructions.setVisible(false);
-        } else {
-            instructions.setVisible(true);
-        }
-        if (pfPassword.getText().length() < 3) {
+        }if(pfPassword.getText().length() < 3){
             JOptionPane.showMessageDialog(this, "Por favor digite una contraseña de al menos 3 caracteres");
             instructions.setVisible(false);
-        } else {
-            instructions.setVisible(true);
+        }else {
+           
+            int result;
+            user.setID(tfID.getText());
+            user.setPassword(pfPassword.getText());
+            result = list.verify(user.getID());
+            if (result == 0) {
+                list.addUSer(user);
+                instructions.setVisible(true);
+            }else{
+                JOptionPane.showMessageDialog(this, "Por favor ingrese otra identificación, ya que esta ya ha sido usada");
+                instructions.setVisible(false);
+            }  
         }
     }//GEN-LAST:event_btnCheckInActionPerformed
 
