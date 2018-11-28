@@ -133,12 +133,7 @@ public class Enter extends javax.swing.JDialog {
     private void btnEnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnterActionPerformed
         // si la contraseña no está en el vector enviar mensaje de error, igual con la id
         //Si todo está correcto hace esto:
-        if(tfID.getText().length() < 4){
-            JOptionPane.showMessageDialog(this, "Por favor digite una identificación de al menos 4 caracteres");
-        }
-        if (pfPassword.getText().length() < 3) {
-            JOptionPane.showMessageDialog(this, "Digite una contraseña de al menos 3 caracteres");
-        }
+        
         Instructions instructions = new Instructions(this, true);
         instructions.setVisible(true);
     }//GEN-LAST:event_btnEnterActionPerformed

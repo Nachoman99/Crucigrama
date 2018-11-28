@@ -113,24 +113,23 @@ public class Register extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void tfIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfIDActionPerformed
-        if(tfID.getText().length() < 4){
-            JOptionPane.showMessageDialog(this, "Por favor digite una identificación de al menos 4 caracteres");
-        }else{
-            String iD = tfID.getText();
-        } 
+
+        String iD = tfID.getText();         
     }//GEN-LAST:event_tfIDActionPerformed
 
     private void pfPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pfPasswordActionPerformed
-        if (pfPassword.getText().length() < 3) {
-            JOptionPane.showMessageDialog(this, "Por favor digite una contraseña de al menos 3 caracteres");
-        }else{
-            String password = pfPassword.getText();
-        }
+       String password = pfPassword.getText();
     }//GEN-LAST:event_pfPasswordActionPerformed
 
     private void btnCheckInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCheckInActionPerformed
         //Verificar en el vector que esa id no está, si no está insertarla y mostrar la siguiente ventana
         //Si está entonces mandar un mensaje 
+        if (tfID.getText().length() < 4) {
+            JOptionPane.showMessageDialog(this, "Por favor digite una identificación de al menos 4 caracteres");
+        }
+        if (pfPassword.getText().length() < 3) {
+            JOptionPane.showMessageDialog(this, "Por favor digite una contraseña de al menos 3 caracteres");
+        }
         Instructions instructions = new Instructions(this, true);
         instructions.setVisible(true);
     }//GEN-LAST:event_btnCheckInActionPerformed
