@@ -40,6 +40,7 @@ public class Register extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("REGISTRARSE");
+        setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 14)); // NOI18N
         jLabel1.setText("Por favor ingrese los datos solicitados");
@@ -122,16 +123,21 @@ public class Register extends javax.swing.JDialog {
     }//GEN-LAST:event_pfPasswordActionPerformed
 
     private void btnCheckInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCheckInActionPerformed
+        Instructions instructions = new Instructions(this, true);
         //Verificar en el vector que esa id no está, si no está insertarla y mostrar la siguiente ventana
         //Si está entonces mandar un mensaje 
         if (tfID.getText().length() < 4) {
             JOptionPane.showMessageDialog(this, "Por favor digite una identificación de al menos 4 caracteres");
+            instructions.setVisible(false);
+        } else {
+            instructions.setVisible(true);
         }
         if (pfPassword.getText().length() < 3) {
             JOptionPane.showMessageDialog(this, "Por favor digite una contraseña de al menos 3 caracteres");
+            instructions.setVisible(false);
+        } else {
+            instructions.setVisible(true);
         }
-        Instructions instructions = new Instructions(this, true);
-        instructions.setVisible(true);
     }//GEN-LAST:event_btnCheckInActionPerformed
 
 

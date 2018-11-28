@@ -36,6 +36,7 @@ public class Level extends javax.swing.JDialog {
         btnVeryHard = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
 
         jLabel1.setText("Por favor elija el nivel de juego");
 
@@ -106,6 +107,7 @@ public class Level extends javax.swing.JDialog {
 
     private void btnMediumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMediumActionPerformed
         //Hacer las acciones para el nivel medio
+        
     }//GEN-LAST:event_btnMediumActionPerformed
 
     private void btnEasyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEasyActionPerformed

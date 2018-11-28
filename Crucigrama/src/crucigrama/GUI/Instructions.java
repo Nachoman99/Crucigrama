@@ -37,6 +37,7 @@ public class Instructions extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("INSTRUCCIONES");
+        setResizable(false);
 
         jLabel1.setText("Por favor lea las siguientes instrucciones:");
 
@@ -97,9 +98,9 @@ public class Instructions extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cbNotShowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbNotShowActionPerformed
-        if (cbNotShow.getAction().isEnabled() == false) {
+        
             //No volver a mostrar la ventana
-        }
+        
         //Mostrar la ventana
     }//GEN-LAST:event_cbNotShowActionPerformed
 

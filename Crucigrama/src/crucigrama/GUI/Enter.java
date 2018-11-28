@@ -41,6 +41,7 @@ public class Enter extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("ENTRADA");
+        setResizable(false);
 
         jLabel1.setText("Por favor ingrese los datos solicitados");
 
@@ -131,11 +132,16 @@ public class Enter extends javax.swing.JDialog {
     }//GEN-LAST:event_pfPasswordActionPerformed
 
     private void btnEnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnterActionPerformed
+        Instructions instructions = new Instructions(this, true);
         // si la contraseña no está en el vector enviar mensaje de error, igual con la id
         //Si todo está correcto hace esto:
+        if (instructions.isActive()) {
+            instructions.setVisible(false);
+        } else {
+            instructions.setVisible(true);
+        }
         
-        Instructions instructions = new Instructions(this, true);
-        instructions.setVisible(true);
+        
     }//GEN-LAST:event_btnEnterActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
