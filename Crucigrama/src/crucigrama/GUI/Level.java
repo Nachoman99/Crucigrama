@@ -107,7 +107,8 @@ public class Level extends javax.swing.JDialog {
 
     private void btnMediumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMediumActionPerformed
         //Hacer las acciones para el nivel medio
-        
+        GameWindow gameWindow = new GameWindow(this, true);
+        gameWindow.setVisible(true);
     }//GEN-LAST:event_btnMediumActionPerformed
 
     private void btnEasyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEasyActionPerformed
