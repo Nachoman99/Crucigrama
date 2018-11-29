@@ -38,6 +38,7 @@ public class Level extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
 
+        jLabel1.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 14)); // NOI18N
         jLabel1.setText("Por favor elija el nivel de juego");
 
         btnMedium.setText("Medio");
@@ -84,7 +85,7 @@ public class Level extends javax.swing.JDialog {
                             .addComponent(btnEasy)
                             .addComponent(btnHard)
                             .addComponent(btnVeryHard))))
-                .addContainerGap(101, Short.MAX_VALUE))
+                .addContainerGap(87, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -99,7 +100,7 @@ public class Level extends javax.swing.JDialog {
                 .addComponent(btnHard)
                 .addGap(18, 18, 18)
                 .addComponent(btnVeryHard)
-                .addContainerGap(101, Short.MAX_VALUE))
+                .addContainerGap(99, Short.MAX_VALUE))
         );
 
         pack();
