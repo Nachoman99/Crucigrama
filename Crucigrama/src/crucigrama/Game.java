@@ -19,8 +19,8 @@ public class Game {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        Welcome welcome = new Welcome();
-        welcome.setVisible(true);
+        //Welcome welcome = new Welcome();
+        //welcome.setVisible(true);
         Letter A = new Letter('A');
         Letter R = new Letter('R');
         Letter O = new Letter('O');

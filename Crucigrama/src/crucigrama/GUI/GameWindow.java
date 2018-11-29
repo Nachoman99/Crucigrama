@@ -117,13 +117,13 @@ public class GameWindow extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void initPanel(Crossword crossword){
-        int rows = crossword;
-        int columns = crossword[0].length;
+        int rows = crossword.rowlength();
+        int columns = crossword.columnLength();
         GridLayout grid = new GridLayout(rows, columns);
         tpCuadricula.setLayout(grid);
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < columns; j++) {
-                GridTextArea newGridTextArea = new GridTextArea(crossword[i][j].getLetters(i,j));
+                GridTextArea newGridTextArea = new GridTextArea(crossword.getLetters(i, j));
                 tpCuadricula.add(newGridTextArea);
             }
         }
