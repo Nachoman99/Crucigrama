@@ -6,8 +6,10 @@
 package crucigrama;
 
 /**
- *
- * @author Nacho
+ * 
+ * 
+ *@version 29/11/2018
+ * @author Jose Ignacio Zamora/Edwin Molina/Kevin Trejos
  */
 public class Letter {
     private char letter;

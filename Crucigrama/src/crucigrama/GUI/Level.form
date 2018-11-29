@@ -74,6 +74,9 @@
     <Component class="javax.swing.JButton" name="btnMedium">
       <Properties>
         <Property name="text" type="java.lang.String" value="Medio"/>
+        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+          <Color id="Cursor de Mano"/>
+        </Property>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnMediumActionPerformed"/>
@@ -82,6 +85,9 @@
     <Component class="javax.swing.JButton" name="btnEasy">
       <Properties>
         <Property name="text" type="java.lang.String" value="F&#xe1;cil"/>
+        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+          <Color id="Cursor de Mano"/>
+        </Property>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEasyActionPerformed"/>
@@ -90,6 +96,9 @@
     <Component class="javax.swing.JButton" name="btnHard">
       <Properties>
         <Property name="text" type="java.lang.String" value="Dif&#xed;cil"/>
+        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+          <Color id="Cursor de Mano"/>
+        </Property>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnHardActionPerformed"/>
@@ -98,6 +107,9 @@
     <Component class="javax.swing.JButton" name="btnVeryHard">
       <Properties>
         <Property name="text" type="java.lang.String" value="Muy dif&#xed;cil"/>
+        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+          <Color id="Cursor de Mano"/>
+        </Property>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVeryHardActionPerformed"/>

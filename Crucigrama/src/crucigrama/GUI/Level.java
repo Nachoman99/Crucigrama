@@ -42,6 +42,7 @@ public class Level extends javax.swing.JDialog {
         jLabel1.setText("Por favor elija el nivel de juego");
 
         btnMedium.setText("Medio");
+        btnMedium.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnMedium.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnMediumActionPerformed(evt);
@@ -49,6 +50,7 @@ public class Level extends javax.swing.JDialog {
         });
 
         btnEasy.setText("Fácil");
+        btnEasy.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnEasy.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEasyActionPerformed(evt);
@@ -56,6 +58,7 @@ public class Level extends javax.swing.JDialog {
         });
 
         btnHard.setText("Difícil");
+        btnHard.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnHard.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnHardActionPerformed(evt);
@@ -63,6 +66,7 @@ public class Level extends javax.swing.JDialog {
         });
 
         btnVeryHard.setText("Muy difícil");
+        btnVeryHard.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnVeryHard.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVeryHardActionPerformed(evt);
@@ -107,7 +111,7 @@ public class Level extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnMediumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMediumActionPerformed
-        //Hacer las acciones para el nivel medio
+        //Hacer las acciones para el nivel medio 
         GameWindow gameWindow = new GameWindow(this, true);
         gameWindow.setVisible(true);
     }//GEN-LAST:event_btnMediumActionPerformed
