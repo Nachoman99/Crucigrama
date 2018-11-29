@@ -43,6 +43,9 @@ public class Crossword {
     public void setLetterPosition(int row, int column, Letter letter){
         crossword[row][column] = letter;
     }
+       public int getLegth(Letter[] letter) {
+        return letter.length;
+    }
     
     public String print(){
         String print ="";
@@ -60,7 +63,7 @@ public class Crossword {
     }
     
     private int validar(int filas, Letter[] letra, Letter[] crossword, int letrasMalas){
-        if (filas > letra.length-1) {
+        if (filas > getLegth(letra)) {
            // System.out.println(letrasMalas + 1);
             return letrasMalas;
         } else {
