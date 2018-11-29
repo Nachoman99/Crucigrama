@@ -6,17 +6,17 @@
 package crucigrama.GUI;
 
 import crucigrama.Crossword;
+import java.awt.GridLayout;
 /**
  *
  * @author Kevin Trejos
  */
 public class GameWindow extends javax.swing.JDialog {
     
-    private Crossword crossword;
     /**
      * Creates new form Cuadricula
      */
-    public GameWindow(java.awt.Frame parent, boolean modal) {
+    public GameWindow(javax.swing.JDialog parent, boolean modal) {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(parent);
@@ -32,7 +32,15 @@ public class GameWindow extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
         jpCrossword = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tpCuadricula = new javax.swing.JTextPane();
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -47,19 +55,27 @@ public class GameWindow extends javax.swing.JDialog {
             .addGap(0, 228, Short.MAX_VALUE)
         );
 
+        jScrollPane2.setViewportView(tpCuadricula);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(52, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jpCrossword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(61, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jpCrossword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -67,13 +83,24 @@ public class GameWindow extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void initPanel(){
-        int rows;
-        int columns;
+    private void initPanel(Crossword[][] crossword){
+        int rows = crossword.length;
+        int columns = crossword[0].length;
+        GridLayout grid = new GridLayout(rows, columns);
+        tpCuadricula.setLayout(grid);
+        for (int i = 0; i < crossword.length; i++) {
+            for (int j = 0; j < crossword.length; j++) {
+                
+            }
+        }
         
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JPanel jpCrossword;
+    private javax.swing.JTextPane tpCuadricula;
     // End of variables declaration//GEN-END:variables
 }
