@@ -118,14 +118,20 @@ public class Level extends javax.swing.JDialog {
 
     private void btnEasyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEasyActionPerformed
         // Hacer las acciones para el nivel fácil
+        GameWindow gameWindow = new GameWindow(this, true);
+        gameWindow.setVisible(true);
     }//GEN-LAST:event_btnEasyActionPerformed
 
     private void btnHardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHardActionPerformed
         // Hacer las acciones para el nivel difícil
+        GameWindow gameWindow = new GameWindow(this, true);
+        gameWindow.setVisible(true);
     }//GEN-LAST:event_btnHardActionPerformed
 
     private void btnVeryHardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVeryHardActionPerformed
         // Hacer las acciones para el nivel muy difícil
+        GameWindow gameWindow = new GameWindow(this, true);
+        gameWindow.setVisible(true);
     }//GEN-LAST:event_btnVeryHardActionPerformed
 
     

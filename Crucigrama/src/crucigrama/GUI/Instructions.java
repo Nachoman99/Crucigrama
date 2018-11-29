@@ -5,13 +5,19 @@
  */
 package crucigrama.GUI;
 
+import crucigrama.Crossword;
 /**
  *
  * @author Kevin Trejos
  */
 public class Instructions extends javax.swing.JDialog {
+    
 
-    /**
+    
+    
+    
+
+            /**
      * Creates new form Instructions
      */
     public Instructions(javax.swing.JDialog parent, boolean modal) {
@@ -50,9 +56,11 @@ public class Instructions extends javax.swing.JDialog {
             }
         });
 
+        jTextArea1.setEditable(false);
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jTextArea1.setText("Aqui van las instrucciones del juego puto");
+        jTextArea1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         jScrollPane1.setViewportView(jTextArea1);
 
         btnContinue.setText("Continuar");
@@ -99,7 +107,7 @@ public class Instructions extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cbNotShowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbNotShowActionPerformed
-        
+     
             //No volver a mostrar la ventana
         
         //Mostrar la ventana
