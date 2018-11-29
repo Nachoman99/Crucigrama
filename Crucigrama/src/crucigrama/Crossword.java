@@ -43,7 +43,7 @@ public class Crossword {
     public void setLetterPosition(int row, int column, Letter letter){
         crossword[row][column] = letter;
     }
-       public int getLegth(Letter[] letter) {
+    public int getLegth(Letter[] letter) {
         return letter.length;
     }
     
@@ -103,6 +103,18 @@ public class Crossword {
             palabra[i]=(letra); 
         }
         return palabra;
+    }
+    
+    public Letter getLetters (int row,  int column){
+        return crossword[row][column];
+    }
+    
+    public int rowlength (){
+        return crossword.length;
+    }
+    
+    public int columnLength(){
+        return crossword[0].length;
     }
   
 }

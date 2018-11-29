@@ -32,7 +32,7 @@ public class Letter {
 
     @Override
     public String toString() {
-        return "Letter{" + "letter=" + letter + '}';
+        return letter + "";
     }
     
     

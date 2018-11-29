@@ -31,6 +31,7 @@ public class Game {
         Letter[] ejemplo = {A,T,U,N};
         Letter[] malo = {A,R,O,Z};
         Letter[] prueba = {N,U,A, O};
+        
         Crossword crossword1 = new Crossword(6, 7);
         crossword1.setLetterPosition(1, 1, A);
         crossword1.setLetterPosition(1, 2, R);
@@ -40,6 +41,7 @@ public class Game {
         crossword1.setLetterPosition(2, 1, T);
         crossword1.setLetterPosition(3, 1, U);
         crossword1.setLetterPosition(4, 1, N);
+        
         System.out.println(crossword1.print());
         System.out.println(crossword1.validar(ejemplo, ejemplo));
         System.out.println(crossword1.extraction(1, 1, 'V'));
