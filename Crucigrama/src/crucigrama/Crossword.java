@@ -43,10 +43,7 @@ public class Crossword {
     public void setLetterPosition(int row, int column, Letter letter){
         crossword[row][column] = letter;
     }
-    public int getLegth(Letter[] letter) {
-        return letter.length;
-    }
-    
+ 
     public String print(){
         String print ="";
         for (int i = 0; i < crossword.length; i++) {
@@ -62,8 +59,21 @@ public class Crossword {
         return validar(0, letra, palabraCorrecta, 0);
     }
     
-    private int validar(int filas, Letter[] letra, Letter[] crossword, int letrasMalas){
+    /*private int validar(int filas, Letter[] letra, Letter[] crossword, int letrasMalas){
         if (filas > getLegth(letra)) {
+           // System.out.println(letrasMalas + 1);
+            return letrasMalas;
+        } else {
+            if (letra[filas] != crossword[filas]) {
+                letrasMalas += 1;
+               // System.out.println("Hola");
+            }
+            return validar(filas + 1, letra, crossword, letrasMalas);
+        }
+    }*/
+    
+    private int validar(int filas, Letter[] letra, Letter[] crossword, int letrasMalas){
+        if (filas > letra.length-1) {
            // System.out.println(letrasMalas + 1);
             return letrasMalas;
         } else {
