@@ -145,7 +145,8 @@ public class Enter extends javax.swing.JDialog {
     }//GEN-LAST:event_btnEnterActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        dispose();
+        Welcome welcome = new Welcome();
+        welcome.setVisible(true);
     }//GEN-LAST:event_btnBackActionPerformed
 
     /**

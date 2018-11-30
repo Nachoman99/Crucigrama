@@ -5,10 +5,12 @@
  */
 package crucigrama.GUI;
 
+import crucigrama.GUI.Verify;
 import crucigrama.Crossword;
 import crucigrama.GridTextArea;
 import crucigrama.Letter;
 import java.awt.GridLayout;
+import javax.swing.JOptionPane;
 /**
  *
  * @author Kevin Trejos
@@ -58,8 +60,7 @@ public class GameWindow extends javax.swing.JDialog {
         jpCrossword = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tpCrossword = new javax.swing.JTextPane();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        tpEjemplo = new javax.swing.JTextPane();
+        btnVerify = new javax.swing.JButton();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -80,7 +81,12 @@ public class GameWindow extends javax.swing.JDialog {
 
         jScrollPane2.setViewportView(tpCrossword);
 
-        jScrollPane3.setViewportView(tpEjemplo);
+        btnVerify.setText("Verificar gane");
+        btnVerify.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVerifyActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -94,27 +100,45 @@ public class GameWindow extends javax.swing.JDialog {
                         .addComponent(jpCrossword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 30, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                .addGap(144, 144, 144)
+                .addComponent(btnVerify)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(104, 104, 104)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jpCrossword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(230, 230, 230))
+                .addGap(169, 169, 169)
+                .addComponent(btnVerify)
+                .addGap(38, 38, 38))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnVerifyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerifyActionPerformed
+        //Hacer un método para verificar gane
+        Crossword crossword = new Crossword();
+        String txt = tpCrossword.getText();
+        Letter[] letter = crossword.stringToLetter(txt);
+        int wrong = crossword.validar(letter, palabraCorrecta);//En palabraCorrecta va el archivo
+        if (wrong == 0) {
+            JOptionPane.showMessageDialog(this, "FELICIDADES HA GANADO ESTE NIVEL");
+            Level level = new Level(this, true);
+            level.setVisible(true);
+        }else{//acciones si el mae no contesta bien
+            
+        }
+        //En   el   caso   de   faltar   alguna   letra   por   ingresar   no   se
+        //realizará la revisión y se le indicará con el mensaje correspondiente al usuario.
+        //Hacer un método para verificar que ningún espacio es null
+    }//GEN-LAST:event_btnVerifyActionPerformed
 
     private void initPanel(Crossword crossword){
         int rows = crossword.rowlength();
@@ -131,12 +155,11 @@ public class GameWindow extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnVerify;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JPanel jpCrossword;
     private javax.swing.JTextPane tpCrossword;
-    private javax.swing.JTextPane tpEjemplo;
     // End of variables declaration//GEN-END:variables
 }

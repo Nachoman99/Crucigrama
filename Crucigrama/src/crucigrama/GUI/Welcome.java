@@ -122,12 +122,18 @@ public class Welcome extends javax.swing.JFrame {
 
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
         Register register = new Register(this, true);
+        Welcome welcome = new Welcome();
+        welcome.setVisible(false);
         register.setVisible(true);
+        
     }//GEN-LAST:event_btnRegisterActionPerformed
 
     private void btnEnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnterActionPerformed
         Enter enter = new Enter(this, true);
+        Welcome welcome = new Welcome();
+        welcome.setVisible(false);
         enter.setVisible(true);
+        
     }//GEN-LAST:event_btnEnterActionPerformed
 
     /**

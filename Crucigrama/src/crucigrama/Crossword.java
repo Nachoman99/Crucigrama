@@ -13,6 +13,9 @@ package crucigrama;
 public class Crossword {
     private Letter[][] crossword;
 
+    public Crossword() {
+    }
+
     public Crossword(int row, int column) {
         crossword = new Letter[row][column];
         for (int i=0; i < crossword.length; i++){
