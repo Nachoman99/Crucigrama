@@ -7,6 +7,9 @@ package crucigrama.GUI;
 
 import crucigrama.Crossword;
 import java.awt.Window;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import javax.swing.JFrame;
 /**
  *
  * @author Kevin Trejos
@@ -25,7 +28,7 @@ public class Instructions extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(parent);
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        closeX();
     }
 
     /**
@@ -136,10 +139,27 @@ public class Instructions extends javax.swing.JDialog {
         Enter enter = new Enter(welcome, true);
         this.dispose();
         enter.setVisible(true);
-        
     }//GEN-LAST:event_btnBackActionPerformed
 
-
+    public void closeX(){
+        try {
+            this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            addWindowListener(new WindowAdapter(){
+                public void windowClosing(WindowEvent e){
+                    confirm();
+                }
+            });
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    private void confirm(){
+        Welcome welcome = new Welcome();
+        this.dispose();
+        welcome.setVisible(true);
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnContinue;

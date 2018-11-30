@@ -5,7 +5,9 @@
  */
 package crucigrama.GUI;
 
+import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -14,6 +16,7 @@ import javax.swing.JOptionPane;
  */
 public class Enter extends javax.swing.JDialog {
 
+
     /**
      * Creates new form Enter
      */
@@ -21,7 +24,7 @@ public class Enter extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(parent);
-        
+        closeX();
     }
 
     /**
@@ -155,9 +158,24 @@ public class Enter extends javax.swing.JDialog {
         welcome.setVisible(true);
     }//GEN-LAST:event_btnBackActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    public void closeX(){
+        try {
+            this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            addWindowListener(new WindowAdapter(){
+                public void windowClosing(WindowEvent e){
+                    confirm();
+                }
+            });
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    private void confirm(){
+        Welcome welcome = new Welcome();
+        this.dispose();
+        welcome.setVisible(true);
+    }
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

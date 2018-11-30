@@ -6,6 +6,10 @@
 package crucigrama.GUI;
 
 import com.sun.javafx.scene.EnteredExitedHandler;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -20,8 +24,9 @@ public class Welcome extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        close();
+        
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -132,7 +137,23 @@ public class Welcome extends javax.swing.JFrame {
         this.dispose();
         enter.setVisible(true);
     }//GEN-LAST:event_btnEnterActionPerformed
-
+    
+    public void close(){
+        try {
+            this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            addWindowListener(new WindowAdapter(){
+                public void windowClosing(WindowEvent e){
+                    confirm();
+                }
+            });
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    private void confirm(){
+        JOptionPane.showMessageDialog(this, "Gracias por jugar");
+    }
     /**
      * @param args the command line arguments
      */

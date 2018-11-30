@@ -8,6 +8,10 @@ package crucigrama.GUI;
 import crucigrama.Crossword;
 import crucigrama.GridTextArea;
 import java.awt.GridLayout;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -23,6 +27,7 @@ public class VeryHardLevelWindow extends javax.swing.JDialog {
         initComponents();
         setLocationRelativeTo(parent);
             //initPanel();
+            closeX();
     }
 
     /**
@@ -84,8 +89,12 @@ public class VeryHardLevelWindow extends javax.swing.JDialog {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         Level level = new Level(this, true);
-        this.dispose();
-        level.setVisible(true);
+        int option;
+        option = JOptionPane.showConfirmDialog(this, "Está seguro que desea volver, perderá su progreso", "VOLVER", JOptionPane.YES_NO_OPTION);
+        if (option == JOptionPane.YES_OPTION) {
+            this.dispose();
+            level.setVisible(true);
+        }
     }//GEN-LAST:event_btnBackActionPerformed
 
     public void initPanel(Crossword crossword){
@@ -100,6 +109,31 @@ public class VeryHardLevelWindow extends javax.swing.JDialog {
             }
         }
    }
+    
+    public void closeX(){
+        try {
+            this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+            addWindowListener(new WindowAdapter(){
+                public void windowClosing(WindowEvent e){
+                    confirm();
+                }
+            });
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    private void confirm(){
+        Welcome welcome = new Welcome();
+        int result;
+        result = JOptionPane.showConfirmDialog(this, "Está seguro que desea salir, perderá su progreso", "CONFIRMACIÓN", JOptionPane.YES_NO_OPTION);
+        if (result == JOptionPane.YES_OPTION) {
+            this.dispose();
+            welcome.setVisible(true);
+        }else{
+            this.setVisible(true);
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;

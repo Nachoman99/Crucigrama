@@ -7,6 +7,9 @@ package crucigrama.GUI;
 
 import crucigrama.User;
 import crucigrama.ListUsers;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -24,7 +27,7 @@ public class Register extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(parent);
-        //setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        closeX();
     }
 
     /**
@@ -170,7 +173,25 @@ public class Register extends javax.swing.JDialog {
         welcome.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
-
+    public void closeX(){
+        try {
+            this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            addWindowListener(new WindowAdapter(){
+                public void windowClosing(WindowEvent e){
+                    confirm();
+                }
+            });
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    private void confirm(){
+        Welcome welcome = new Welcome();
+        this.dispose();
+        welcome.setVisible(true);
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCheckIn;
     private javax.swing.JButton jButton1;

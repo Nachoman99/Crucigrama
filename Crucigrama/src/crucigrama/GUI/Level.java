@@ -5,6 +5,10 @@
  */
 package crucigrama.GUI;
 
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import javax.swing.JFrame;
+
 /**
  *
  * @author Kevin Trejos
@@ -18,6 +22,7 @@ public class Level extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(parent);
+        closeX();
     }
 
     /**
@@ -156,7 +161,24 @@ public class Level extends javax.swing.JDialog {
         instructions.setVisible(true);
     }//GEN-LAST:event_btnBackActionPerformed
 
+    public void closeX(){
+        try {
+            this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            addWindowListener(new WindowAdapter(){
+                public void windowClosing(WindowEvent e){
+                    confirm();
+                }
+            });
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
     
+    private void confirm(){
+        Welcome welcome = new Welcome();
+        this.dispose();
+        welcome.setVisible(true);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
