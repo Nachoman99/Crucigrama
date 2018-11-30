@@ -10,8 +10,10 @@ import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
 
 /**
- *
- * @author Kevin Trejos
+ * This is the window to choose the level to play
+ * 
+ *@version 30/11/2018
+ * @author Kevin Trejos/Jose Ignacio Zamora/Edwin Molina
  */
 public class Level extends javax.swing.JDialog {
 

@@ -14,8 +14,10 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author Kevin Trejos
+ * In this window the crossword puzzle is displayed for the easy level
+ * 
+ *@version 30/11/2018
+ * @author Kevin Trejos/Jose Ignacio Zamora/Edwin Molina
  */
 public class EasyLevelWindow extends javax.swing.JDialog {
 

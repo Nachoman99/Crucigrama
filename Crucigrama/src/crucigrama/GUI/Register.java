@@ -13,8 +13,10 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author Kevin Trejos
+ *This is the window where the user registers
+ * 
+ * @version 30/11/2018
+ * @author Kevin Trejos/Jose Ignacio Zamora/Edwin Molina
  */
 public class Register extends javax.swing.JDialog {
     

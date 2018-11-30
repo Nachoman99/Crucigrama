@@ -5,15 +5,16 @@
  */
 package crucigrama.GUI;
 
-import com.sun.javafx.scene.EnteredExitedHandler;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author Kevin Trejos
+ * This is the main window and the welcome window
+ * 
+ *@version 30/11/2018
+ * @author Kevin Trejos/Jose Ignacio Zamora/Edwin Molina
  */
 public class Welcome extends javax.swing.JFrame {
 

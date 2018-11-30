@@ -11,16 +11,13 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
 /**
- *
- * @author Kevin Trejos
+ *In this window you will see the instructions to play
+ * 
+ * @version 30/11/2018
+ * @author Kevin Trejos/Jose Ignacio Zamora/Edwin Molina
  */
 public class Instructions extends javax.swing.JDialog {
-    
-
-    
-    
-    
-
+   
             /**
      * Creates new form Instructions
      */

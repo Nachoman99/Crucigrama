@@ -11,8 +11,11 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author Kevin Trejos
+ *This is the window where the user enters their registered data 
+ * to be able to play on their profile
+ * 
+ * @version 30/11/2018
+ * @author Kevin Trejos/Jose Ignacio Zamora/Edwin Molina
  */
 public class Enter extends javax.swing.JDialog {
 
