@@ -5,6 +5,7 @@
  */
 package crucigrama.GUI;
 
+import java.awt.event.WindowEvent;
 import javax.swing.JOptionPane;
 
 /**
@@ -20,6 +21,7 @@ public class Enter extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(parent);
+        
     }
 
     /**
@@ -90,10 +92,10 @@ public class Enter extends javax.swing.JDialog {
                 .addGap(101, 101, 101))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnBack)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel2)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(btnBack)
                         .addComponent(jLabel3)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -137,8 +139,11 @@ public class Enter extends javax.swing.JDialog {
         // si la contraseña no está en el vector enviar mensaje de error, igual con la id
         //Si todo está correcto hace esto:
         if (instructions.isActive()) {
+            Level level = new Level(this, true);
+            level.setVisible(true);
             instructions.setVisible(false);
         } else {
+            this.dispose();
             instructions.setVisible(true);
         }
         
@@ -146,6 +151,7 @@ public class Enter extends javax.swing.JDialog {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         Welcome welcome = new Welcome();
+        this.dispose();
         welcome.setVisible(true);
     }//GEN-LAST:event_btnBackActionPerformed
 

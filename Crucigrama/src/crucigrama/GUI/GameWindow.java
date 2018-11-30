@@ -126,7 +126,8 @@ public class GameWindow extends javax.swing.JDialog {
         Crossword crossword = new Crossword();
         String txt = tpCrossword.getText();
         Letter[] letter = crossword.stringToLetter(txt);
-        int wrong = crossword.validar(letter, palabraCorrecta);//En palabraCorrecta va el archivo
+        int wrong = 0;
+      //  int wrong = crossword.validar(letter, palabraCorrecta);//En palabraCorrecta va el archivo
         if (wrong == 0) {
             JOptionPane.showMessageDialog(this, "FELICIDADES HA GANADO ESTE NIVEL");
             Level level = new Level(this, true);

@@ -18,11 +18,11 @@ public class MediumLevelWindow extends javax.swing.JDialog {
     /**
      * Creates new form MediumLevelWindow
      */
-    public MediumLevelWindow(java.awt.Frame parent, boolean modal) {
+    public MediumLevelWindow(javax.swing.JDialog parent, boolean modal) {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(parent);
-        initPanel();
+       // initPanel();
     }
 
     /**
@@ -36,30 +36,90 @@ public class MediumLevelWindow extends javax.swing.JDialog {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         tpCrossword = new javax.swing.JTextPane();
+        btnVerify = new javax.swing.JButton();
+        btnHelp = new javax.swing.JButton();
+        btnBack = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
 
         jScrollPane1.setViewportView(tpCrossword);
+
+        btnVerify.setText("Verificar gane");
+        btnVerify.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnVerify.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVerifyActionPerformed(evt);
+            }
+        });
+
+        btnHelp.setText("Ayuda");
+        btnHelp.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnHelp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHelpActionPerformed(evt);
+            }
+        });
+
+        btnBack.setText("Atrás");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(114, 114, 114)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(82, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 20, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnHelp)
+                .addGap(72, 72, 72)
+                .addComponent(btnVerify)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnBack)
+                .addGap(39, 39, 39))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(82, 82, 82)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(47, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnVerify)
+                    .addComponent(btnHelp)
+                    .addComponent(btnBack))
+                .addGap(0, 11, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnVerifyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerifyActionPerformed
+        /*
+        deberá indicar la
+        cantidad   de   palabras   que   tienen   algún   error.  
+        */
+    }//GEN-LAST:event_btnVerifyActionPerformed
+
+    private void btnHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHelpActionPerformed
+        /*
+        se completará una letra de forma aleatoria de una palabra
+aleatoria, si ya se ha completado una letra de esa palabra se realizará para otra palabra. Cuando se ha
+completado   una   letra   en   todas   las   palabras   ya   no   será   posible   solicitar   más   ayuda,   lo   que   debe
+indicarse mediante un mensaje al usuario al presionar el botón de ayuda.  
+        */
+    }//GEN-LAST:event_btnHelpActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        Level level = new Level(this, true);
+        this.dispose();
+        level.setVisible(true);
+    }//GEN-LAST:event_btnBackActionPerformed
 
     public void initPanel(Crossword crossword){
        int rows = crossword.rowlength();
@@ -75,6 +135,9 @@ public class MediumLevelWindow extends javax.swing.JDialog {
    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnHelp;
+    private javax.swing.JButton btnVerify;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextPane tpCrossword;
     // End of variables declaration//GEN-END:variables

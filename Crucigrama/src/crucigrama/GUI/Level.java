@@ -34,6 +34,7 @@ public class Level extends javax.swing.JDialog {
         btnEasy = new javax.swing.JButton();
         btnHard = new javax.swing.JButton();
         btnVeryHard = new javax.swing.JButton();
+        btnBack = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -73,6 +74,13 @@ public class Level extends javax.swing.JDialog {
             }
         });
 
+        btnBack.setText("Atrás");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -80,15 +88,17 @@ public class Level extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(151, 151, 151)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(22, 22, 22)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnMedium)
                             .addComponent(btnEasy)
                             .addComponent(btnHard)
-                            .addComponent(btnVeryHard))))
+                            .addComponent(btnVeryHard)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(151, 151, 151)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnBack)
+                            .addComponent(jLabel1))))
                 .addContainerGap(87, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -104,7 +114,9 @@ public class Level extends javax.swing.JDialog {
                 .addComponent(btnHard)
                 .addGap(18, 18, 18)
                 .addComponent(btnVeryHard)
-                .addContainerGap(99, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                .addComponent(btnBack)
+                .addGap(24, 24, 24))
         );
 
         pack();
@@ -113,30 +125,41 @@ public class Level extends javax.swing.JDialog {
     private void btnMediumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMediumActionPerformed
         //Hacer las acciones para el nivel medio 
         MediumLevelWindow windowMedium = new MediumLevelWindow(this, true);
+        this.dispose();
         windowMedium.setVisible(true);
     }//GEN-LAST:event_btnMediumActionPerformed
 
     private void btnEasyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEasyActionPerformed
         // Hacer las acciones para el nivel fácil
         EasyLevelWindow windowEasy = new EasyLevelWindow(this, true);
+        this.dispose();
         windowEasy.setVisible(true);
     }//GEN-LAST:event_btnEasyActionPerformed
 
     private void btnHardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHardActionPerformed
         // Hacer las acciones para el nivel difícil
         HardLevelWindow windowHard = new HardLevelWindow(this, true);
+        this.dispose();
         windowHard.setVisible(true);
     }//GEN-LAST:event_btnHardActionPerformed
 
     private void btnVeryHardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVeryHardActionPerformed
         // Hacer las acciones para el nivel muy difícil
         VeryHardLevelWindow veryHardWindow = new VeryHardLevelWindow(this, true);
-        veryHardWindow(true);
+        this.dispose();
+        veryHardWindow.setVisible(true);
     }//GEN-LAST:event_btnVeryHardActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        Instructions instructions = new Instructions(this, true);
+        this.dispose();
+        instructions.setVisible(true);
+    }//GEN-LAST:event_btnBackActionPerformed
 
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnEasy;
     private javax.swing.JButton btnHard;
     private javax.swing.JButton btnMedium;
