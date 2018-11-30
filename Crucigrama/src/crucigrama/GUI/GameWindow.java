@@ -57,7 +57,7 @@ public class GameWindow extends javax.swing.JDialog {
         jTextArea1 = new javax.swing.JTextArea();
         jpCrossword = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        tpCuadricula = new javax.swing.JTextPane();
+        tpCrossword = new javax.swing.JTextPane();
         jScrollPane3 = new javax.swing.JScrollPane();
         tpEjemplo = new javax.swing.JTextPane();
 
@@ -75,10 +75,10 @@ public class GameWindow extends javax.swing.JDialog {
         );
         jpCrosswordLayout.setVerticalGroup(
             jpCrosswordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 228, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        jScrollPane2.setViewportView(tpCuadricula);
+        jScrollPane2.setViewportView(tpCrossword);
 
         jScrollPane3.setViewportView(tpEjemplo);
 
@@ -94,7 +94,7 @@ public class GameWindow extends javax.swing.JDialog {
                         .addComponent(jpCrossword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
@@ -110,7 +110,7 @@ public class GameWindow extends javax.swing.JDialog {
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jpCrossword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(230, 230, 230))
         );
 
         pack();
@@ -120,11 +120,11 @@ public class GameWindow extends javax.swing.JDialog {
         int rows = crossword.rowlength();
         int columns = crossword.columnLength();
         GridLayout grid = new GridLayout(rows, columns);
-        tpCuadricula.setLayout(grid);
+        tpCrossword.setLayout(grid);
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < columns; j++) {
                 GridTextArea newGridTextArea = new GridTextArea(crossword.getLetters(i, j));
-                tpCuadricula.add(newGridTextArea);
+                tpCrossword.add(newGridTextArea);
             }
         }
         
@@ -136,7 +136,7 @@ public class GameWindow extends javax.swing.JDialog {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JPanel jpCrossword;
-    private javax.swing.JTextPane tpCuadricula;
+    private javax.swing.JTextPane tpCrossword;
     private javax.swing.JTextPane tpEjemplo;
     // End of variables declaration//GEN-END:variables
 }
