@@ -5,7 +5,6 @@
  */
 package crucigrama.GUI;
 
-import crucigrama.GUI.Verify;
 import crucigrama.Crossword;
 import crucigrama.GridTextArea;
 import crucigrama.Letter;

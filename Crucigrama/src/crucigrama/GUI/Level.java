@@ -112,26 +112,26 @@ public class Level extends javax.swing.JDialog {
 
     private void btnMediumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMediumActionPerformed
         //Hacer las acciones para el nivel medio 
-        GameWindow gameWindow = new GameWindow(this, true);
-        gameWindow.setVisible(true);
+        MediumLevelWindow windowMedium = new MediumLevelWindow(this, true);
+        windowMedium.setVisible(true);
     }//GEN-LAST:event_btnMediumActionPerformed
 
     private void btnEasyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEasyActionPerformed
         // Hacer las acciones para el nivel fácil
-        GameWindow gameWindow = new GameWindow(this, true);
-        gameWindow.setVisible(true);
+        EasyLevelWindow windowEasy = new EasyLevelWindow(this, true);
+        windowEasy.setVisible(true);
     }//GEN-LAST:event_btnEasyActionPerformed
 
     private void btnHardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHardActionPerformed
         // Hacer las acciones para el nivel difícil
-        GameWindow gameWindow = new GameWindow(this, true);
-        gameWindow.setVisible(true);
+        HardLevelWindow windowHard = new HardLevelWindow(this, true);
+        windowHard.setVisible(true);
     }//GEN-LAST:event_btnHardActionPerformed
 
     private void btnVeryHardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVeryHardActionPerformed
         // Hacer las acciones para el nivel muy difícil
-        GameWindow gameWindow = new GameWindow(this, true);
-        gameWindow.setVisible(true);
+        VeryHardLevelWindow veryHardWindow = new VeryHardLevelWindow(this, true);
+        veryHardWindow(true);
     }//GEN-LAST:event_btnVeryHardActionPerformed
 
     
