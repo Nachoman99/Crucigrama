@@ -7,9 +7,11 @@ package crucigrama.GUI;
 
 import crucigrama.Crossword;
 import crucigrama.Letter;
+import java.awt.Color;
 import java.awt.GridLayout;
 import javax.swing.JTextField;
 import javax.swing.JOptionPane;
+import javax.swing.tree.DefaultTreeCellEditor;
 /**
  *
  * @author Kevin Trejos
@@ -143,7 +145,17 @@ public class GameWindow extends javax.swing.JDialog {
         //realizará la revisión y se le indicará con el mensaje correspondiente al usuario.
         //Hacer un método para verificar que ningún espacio es null
     }//GEN-LAST:event_btnVerifyActionPerformed
-
+    
+    private void maximunLetter(java.awt.event.KeyEvent evt) {                                   
+        // TODO add your handling code here:
+        JTextField txfielField = new JTextField();
+        int limite = 1;
+        if (txfielField.getText().length()== limite){ 
+            evt.consume();
+        }
+    }                                  
+    
+    
     private void initPanel(Crossword crossword){
         int rows = crossword.rowlength();
         int columns = crossword.columnLength();
@@ -155,10 +167,15 @@ public class GameWindow extends javax.swing.JDialog {
                 JTextField txField = new JTextField(txt, 1);
 //                GridTextArea newGridTextArea = new GridTextArea(crossword.getLetters(i, j));
 //                tfCrossword.add(newGridTextArea);
+                if(txt.equals("0")){
+                    txField.setBackground(Color.BLACK);
+                    txField.setEnabled(false);
+                    txField.setText("");
+                }
                 pnCrossword.add(txField);
             }
         }
-        
+       
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
