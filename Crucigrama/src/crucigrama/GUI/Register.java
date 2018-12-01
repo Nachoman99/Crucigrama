@@ -5,8 +5,9 @@
  */
 package crucigrama.GUI;
 
-import crucigrama.User;
-import crucigrama.ListUsers;
+import users.User;
+import filemanager.ReaderManager1;
+import filemanager.WriterManager1;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
@@ -20,7 +21,6 @@ import javax.swing.JOptionPane;
  */
 public class Register extends javax.swing.JDialog {
     User user = new User();
-    ListUsers list = new ListUsers();
     
     /**
      * Creates new form Register
@@ -160,16 +160,20 @@ public class Register extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(this, "Por favor digite una contraseña de al menos 3 caracteres");
             instructions.setVisible(false);
         }else {
+           // ReaderManager1 reader = new ReaderManager1();
+          //  reader.open("/users.sri");
+            
+            
             int result;
             user.setID(tfID.getText());
             user.setPassword(pfPassword.getText());
-            result = list.addUSer(user);
-            if (result == 0) {
-                instructions.setVisible(true);
-            }else{
-                JOptionPane.showMessageDialog(this, "Por favor ingrese otra identificación, ya que esta ya ha sido usada");
-                instructions.setVisible(false);
-            }  
+            //result = list.addUSer(user);
+//            if (result == 0) {
+//                instructions.setVisible(true);
+//            }else{
+//                JOptionPane.showMessageDialog(this, "Por favor ingrese otra identificación, ya que esta ya ha sido usada");
+//                instructions.setVisible(false);
+//            }  
         }
     }//GEN-LAST:event_btnCheckInActionPerformed
 

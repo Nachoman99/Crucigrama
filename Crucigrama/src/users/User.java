@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package crucigrama;
+package users;
 
 /**
  *
@@ -12,6 +12,7 @@ package crucigrama;
 public class User {
     private String ID;
     private String password;
+    private Progress progress;
 
     public User() {
         this("","");
@@ -41,6 +42,10 @@ public class User {
     @Override
     public String toString() {
         return "User{" + "ID=" + ID + ", password=" + password + '}';
+    }
+    
+    public String toFileString(){
+        return ID + "-" + password + "-" + progress.toFileString();
     }
     
 }
