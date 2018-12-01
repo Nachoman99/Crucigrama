@@ -122,6 +122,11 @@ indicarse mediante un mensaje al usuario al presionar el botón de ayuda.
         */
     }//GEN-LAST:event_btnHelpActionPerformed
 
+    /**
+     * Close the current window and open the previous window, asking first 
+     * if you want to exit
+     * @param evt the event that makes the button
+     */
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         Level level = new Level(this, true);
         int option;
@@ -132,6 +137,10 @@ indicarse mediante un mensaje al usuario al presionar el botón de ayuda.
         }
     }//GEN-LAST:event_btnBackActionPerformed
 
+    /**
+     * Will start the crossword puzzle
+     * @param crossword 
+     */
     public void initPanel(Crossword crossword){
        int rows = crossword.rowlength();
         int columns = crossword.columnLength();
@@ -145,7 +154,10 @@ indicarse mediante un mensaje al usuario al presionar el botón de ayuda.
         }
    }
     
-    public void closeX(){
+    /**
+     * Pressing the X returns to the main window
+     */
+    private void closeX(){
         try {
             this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
             addWindowListener(new WindowAdapter(){
@@ -158,6 +170,10 @@ indicarse mediante un mensaje al usuario al presionar el botón de ayuda.
         }
     }
     
+    /**
+     * Ask if you are sure to leave and return to the main window if yes, 
+     * if not stay in the same window
+     */
     private void confirm(){
         Welcome welcome = new Welcome();
         int result;

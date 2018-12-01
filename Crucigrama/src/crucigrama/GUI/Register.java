@@ -19,9 +19,9 @@ import javax.swing.JOptionPane;
  * @author Kevin Trejos/Jose Ignacio Zamora/Edwin Molina
  */
 public class Register extends javax.swing.JDialog {
-    
     User user = new User();
     ListUsers list = new ListUsers();
+    
     /**
      * Creates new form Register
      */
@@ -47,7 +47,7 @@ public class Register extends javax.swing.JDialog {
         jLabel3 = new javax.swing.JLabel();
         pfPassword = new javax.swing.JPasswordField();
         btnCheckIn = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        btnBack = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("REGISTRARSE");
@@ -80,10 +80,10 @@ public class Register extends javax.swing.JDialog {
             }
         });
 
-        jButton1.setText("Atrás");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnBack.setText("Atrás");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnBackActionPerformed(evt);
             }
         });
 
@@ -107,7 +107,7 @@ public class Register extends javax.swing.JDialog {
                             .addComponent(pfPassword)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(64, 64, 64)
-                        .addComponent(jButton1)
+                        .addComponent(btnBack)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 109, Short.MAX_VALUE)
                         .addComponent(btnCheckIn)))
                 .addContainerGap(81, Short.MAX_VALUE))
@@ -128,7 +128,7 @@ public class Register extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCheckIn)
-                    .addComponent(jButton1))
+                    .addComponent(btnBack))
                 .addGap(37, 37, 37))
         );
 
@@ -144,6 +144,11 @@ public class Register extends javax.swing.JDialog {
        String password = pfPassword.getText();
     }//GEN-LAST:event_pfPasswordActionPerformed
 
+    /**
+     * This method verifies if all the entered data are correct and 
+     * enters the user into the system
+     * @param evt the event that makes the button
+     */
     private void btnCheckInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCheckInActionPerformed
         Instructions instructions = new Instructions(this, true);
         //Verificar en el vector que esa id no está, si no está insertarla y mostrar la siguiente ventana
@@ -168,14 +173,21 @@ public class Register extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_btnCheckInActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    /**
+     * Return to the previous window
+     * @param evt the event that makes the button
+     */
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
 
         Welcome welcome = new Welcome();
         this.dispose();
         welcome.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnBackActionPerformed
 
-    public void closeX(){
+    /**
+     * Pressing the X returns to the main window
+     */
+    private void closeX(){
         try {
             this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
             addWindowListener(new WindowAdapter(){
@@ -188,6 +200,9 @@ public class Register extends javax.swing.JDialog {
         }
     }
     
+    /**
+     * Show the main window and close the current window
+     */
     private void confirm(){
         Welcome welcome = new Welcome();
         this.dispose();
@@ -195,8 +210,8 @@ public class Register extends javax.swing.JDialog {
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnCheckIn;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

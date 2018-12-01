@@ -19,14 +19,13 @@ import javax.swing.JOptionPane;
 public class Welcome extends javax.swing.JFrame {
 
     /**
-     * Creates new form Welcome
+     * Constructor that initializes the window
      */
     public Welcome() {
         initComponents();
         setLocationRelativeTo(null);
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        close();
-        
+        close();   
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -127,19 +126,30 @@ public class Welcome extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Open the register window
+     * @param evt the event that makes the button
+     */
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
         Register register = new Register(this, true);
         this.dispose();
         register.setVisible(true);
     }//GEN-LAST:event_btnRegisterActionPerformed
 
+    /**
+     * Open the login window
+     * @param evt the event that makes the button
+     */
     private void btnEnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnterActionPerformed
-        Enter enter = new Enter(this, true);
+        Login enter = new Login(this, true);
         this.dispose();
         enter.setVisible(true);
     }//GEN-LAST:event_btnEnterActionPerformed
     
-    public void close(){
+    /**
+     * This method shows an exit message when you press X
+     */
+    private void close(){
         try {
             this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             addWindowListener(new WindowAdapter(){
@@ -152,13 +162,12 @@ public class Welcome extends javax.swing.JFrame {
         }
     }
     
+    /**
+     * this method generates the message to be displayed
+     */
     private void confirm(){
         JOptionPane.showMessageDialog(this, "Gracias por jugar");
     }
-    /**
-     * @param args the command line arguments
-     */
-   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEnter;

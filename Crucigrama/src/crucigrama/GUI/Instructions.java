@@ -18,9 +18,9 @@ import javax.swing.JFrame;
  */
 public class Instructions extends javax.swing.JDialog {
    
-            /**
-     * Creates new form Instructions
-     */
+    /**
+    * Creates new form Instructions
+    */
     public Instructions(javax.swing.JDialog parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -118,27 +118,42 @@ public class Instructions extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * It does not show the instruction window
+     * @param evt the event that makes the button
+     */
     private void cbNotShowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbNotShowActionPerformed
      
-            //No volver a mostrar la ventana
+        //No volver a mostrar la ventana
         
         //Mostrar la ventana
     }//GEN-LAST:event_cbNotShowActionPerformed
 
+    /**
+     * Show the next window
+     * @param evt the event that makes the button
+     */
     private void btnContinueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContinueActionPerformed
         Level level = new Level(this, true);
         this.dispose();
         level.setVisible(true);
     }//GEN-LAST:event_btnContinueActionPerformed
 
+    /**
+     * Close the current window and show the previous one
+     * @param evt the event that makes the button
+     */
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         Welcome welcome = new Welcome();
-        Enter enter = new Enter(welcome, true);
+        Login enter = new Login(welcome, true);
         this.dispose();
         enter.setVisible(true);
     }//GEN-LAST:event_btnBackActionPerformed
 
-    public void closeX(){
+    /**
+     * Pressing the X returns to the main window
+     */
+    private void closeX(){
         try {
             this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
             addWindowListener(new WindowAdapter(){
@@ -151,6 +166,9 @@ public class Instructions extends javax.swing.JDialog {
         }
     }
     
+    /**
+     * Show the main window and close the current window
+     */
     private void confirm(){
         Welcome welcome = new Welcome();
         this.dispose();

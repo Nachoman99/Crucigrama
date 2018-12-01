@@ -129,6 +129,10 @@ public class Level extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Show the middle level window
+     * @param evt the event that makes the button
+     */
     private void btnMediumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMediumActionPerformed
         //Hacer las acciones para el nivel medio 
         MediumLevelWindow windowMedium = new MediumLevelWindow(this, true);
@@ -136,6 +140,10 @@ public class Level extends javax.swing.JDialog {
         windowMedium.setVisible(true);
     }//GEN-LAST:event_btnMediumActionPerformed
 
+    /**
+     * Show the easy level window
+     * @param evt the event that makes the button
+     */
     private void btnEasyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEasyActionPerformed
         // Hacer las acciones para el nivel fácil
         EasyLevelWindow windowEasy = new EasyLevelWindow(this, true);
@@ -143,6 +151,10 @@ public class Level extends javax.swing.JDialog {
         windowEasy.setVisible(true);
     }//GEN-LAST:event_btnEasyActionPerformed
 
+    /**
+     * Show the difficult level window
+     * @param evt the event that makes the button
+     */
     private void btnHardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHardActionPerformed
         // Hacer las acciones para el nivel difícil
         HardLevelWindow windowHard = new HardLevelWindow(this, true);
@@ -150,6 +162,10 @@ public class Level extends javax.swing.JDialog {
         windowHard.setVisible(true);
     }//GEN-LAST:event_btnHardActionPerformed
 
+    /**
+     * Show the window of the very difficult level
+     * @param evt the event that makes the button
+     */
     private void btnVeryHardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVeryHardActionPerformed
         // Hacer las acciones para el nivel muy difícil
         VeryHardLevelWindow veryHardWindow = new VeryHardLevelWindow(this, true);
@@ -157,13 +173,20 @@ public class Level extends javax.swing.JDialog {
         veryHardWindow.setVisible(true);
     }//GEN-LAST:event_btnVeryHardActionPerformed
 
+    /**
+     * Close the current window and open the previous window
+     * @param evt the event that makes the button
+     */
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         Instructions instructions = new Instructions(this, true);
         this.dispose();
         instructions.setVisible(true);
     }//GEN-LAST:event_btnBackActionPerformed
 
-    public void closeX(){
+    /**
+     * Pressing the X returns to the main window
+     */
+    private void closeX(){
         try {
             this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
             addWindowListener(new WindowAdapter(){
@@ -176,6 +199,9 @@ public class Level extends javax.swing.JDialog {
         }
     }
     
+    /**
+     * Show the main window and close the current window
+     */
     private void confirm(){
         Welcome welcome = new Welcome();
         this.dispose();

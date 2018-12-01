@@ -17,13 +17,13 @@ import javax.swing.JOptionPane;
  * @version 30/11/2018
  * @author Kevin Trejos/Jose Ignacio Zamora/Edwin Molina
  */
-public class Enter extends javax.swing.JDialog {
+public class Login extends javax.swing.JDialog {
 
 
     /**
-     * Creates new form Enter
+     * Creates new form Login
      */
-    public Enter(java.awt.Frame parent, boolean modal) {
+    public Login(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(parent);
@@ -140,6 +140,10 @@ public class Enter extends javax.swing.JDialog {
         String password = pfPassword.getText();
     }//GEN-LAST:event_pfPasswordActionPerformed
 
+    /**
+     * Check if the data is in the system and if they are displayed next window
+     * @param evt the event that makes the button
+     */
     private void btnEnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnterActionPerformed
         Instructions instructions = new Instructions(this, true);
         // si la contraseña no está en el vector enviar mensaje de error, igual con la id
@@ -155,13 +159,20 @@ public class Enter extends javax.swing.JDialog {
         
     }//GEN-LAST:event_btnEnterActionPerformed
 
+    /**
+     * Return to the previous window
+     * @param evt the event that makes the button
+     */
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         Welcome welcome = new Welcome();
         this.dispose();
         welcome.setVisible(true);
     }//GEN-LAST:event_btnBackActionPerformed
 
-    public void closeX(){
+    /**
+     * Pressing the X returns to the main window
+     */
+    private void closeX(){
         try {
             this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
             addWindowListener(new WindowAdapter(){
@@ -174,13 +185,15 @@ public class Enter extends javax.swing.JDialog {
         }
     }
     
+    /**
+     * Show the main window and close the current window
+     */
     private void confirm(){
         Welcome welcome = new Welcome();
         this.dispose();
         welcome.setVisible(true);
     }
    
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnEnter;

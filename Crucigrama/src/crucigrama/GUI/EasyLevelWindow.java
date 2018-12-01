@@ -44,7 +44,7 @@ public class EasyLevelWindow extends javax.swing.JDialog {
         jScrollPane2 = new javax.swing.JScrollPane();
         tpCrossword = new javax.swing.JTextPane();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnVerify = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -53,7 +53,12 @@ public class EasyLevelWindow extends javax.swing.JDialog {
 
         jButton1.setText("jButton1");
 
-        jButton2.setText("Verificar gane");
+        btnVerify.setText("Verificar gane");
+        btnVerify.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVerifyActionPerformed(evt);
+            }
+        });
 
         btnBack.setText("Atrás");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -75,7 +80,7 @@ public class EasyLevelWindow extends javax.swing.JDialog {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(btnBack)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
-                        .addComponent(jButton2)
+                        .addComponent(btnVerify)
                         .addGap(79, 79, 79)
                         .addComponent(jButton1)
                         .addGap(18, 18, 18))))
@@ -87,7 +92,7 @@ public class EasyLevelWindow extends javax.swing.JDialog {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
-                    .addComponent(jButton2)
+                    .addComponent(btnVerify)
                     .addComponent(btnBack))
                 .addGap(0, 11, Short.MAX_VALUE))
         );
@@ -95,6 +100,11 @@ public class EasyLevelWindow extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Close the current window and open the previous window, asking first 
+     * if you want to exit
+     * @param evt the event that makes the button
+     */
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         Level level = new Level(this, true);
         int option;
@@ -105,6 +115,18 @@ public class EasyLevelWindow extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_btnBackActionPerformed
 
+    /**
+     * check if the user won
+     * @param evt the event that makes the button
+     */
+    private void btnVerifyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerifyActionPerformed
+        // Verifica si el mae ganó
+    }//GEN-LAST:event_btnVerifyActionPerformed
+    
+    /**
+     * Will start the crossword puzzle
+     * @param crossword 
+     */
    public void initPanel(Crossword crossword){
        int rows = crossword.rowlength();
         int columns = crossword.columnLength();
@@ -118,7 +140,10 @@ public class EasyLevelWindow extends javax.swing.JDialog {
         }
    }
 
-   public void closeX(){
+   /**
+    * Pressing the X returns to the main window
+    */
+   private void closeX(){
         try {
             this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
             addWindowListener(new WindowAdapter(){
@@ -131,6 +156,10 @@ public class EasyLevelWindow extends javax.swing.JDialog {
         }
     }
     
+   /**
+    * Ask if you are sure to leave and return to the main window 
+    * if yes, if not stay in the same window
+    */
     private void confirm(){
         Welcome welcome = new Welcome();
         int result;
@@ -145,8 +174,8 @@ public class EasyLevelWindow extends javax.swing.JDialog {
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnVerify;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextPane tpCrossword;
     // End of variables declaration//GEN-END:variables
