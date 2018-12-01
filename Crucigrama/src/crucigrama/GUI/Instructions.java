@@ -62,7 +62,7 @@ public class Instructions extends javax.swing.JDialog {
         jTextArea1.setEditable(false);
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
-        jTextArea1.setText("Aqui van las instrucciones del juego puto");
+        jTextArea1.setText("Lea cada una de las definiciones que aparecerán \na continuación, luego encuentre en el crucigrama\nel número que corresponde a cada una de ellas,\nademás se le indicara si la palabra se encuentra\nde forma horizontal o vertical, luego complete \nlos espacios vacios con letras que correspondan \na la palabra de la definición. Cuando rellene \ntodos los espacios en blanco deberá precionar la\nopción de verificar gane, en caso de que alguna\npalabra este incorrecta se resaltará la primera\nletra de la palabra que este incorrecta, eso en \nel nivel fácil, en el nivel intermedio y en el \ndifíci solo se mostrará el número de palabras \nincorrectas.\n\nAdemás dependiendo del nivel de dificultad dis-\npondrá de la opción de ayuda; para el nivel \nfácil al precionar la opción de ayuda se comple-\ntará la primera letra de una palabra aleatoria,\nsi esta ya ha sido completada se completará la\núltima letra, así hasta que se hayan completado\nla primera y la última letra de cada palabra, \nluego la opción no podrá ser utilizada más, en\nel nivel medio, al presionar el boton de ayuda\nse completará una letra de una palabra al azar,\ncuando se hayan completado una letra de todas\nlas palabras la opción de ayuda ya no podra ser\nutilizada más.\n\n");
         jTextArea1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         jScrollPane1.setViewportView(jTextArea1);
 
