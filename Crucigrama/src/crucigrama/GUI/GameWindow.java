@@ -9,6 +9,7 @@ import crucigrama.Crossword;
 import crucigrama.Letter;
 import java.awt.Color;
 import java.awt.GridLayout;
+import java.awt.event.KeyEvent;
 import javax.swing.JTextField;
 import javax.swing.JOptionPane;
 import javax.swing.tree.DefaultTreeCellEditor;
@@ -33,10 +34,11 @@ public class GameWindow extends javax.swing.JDialog {
         Letter T = new Letter('T');
         Letter U = new Letter('U');
         Letter N = new Letter('N');
+        Letter vacio = new Letter(' ');
            
         Crossword crossword1 = new Crossword(6, 7);
-        crossword1.setLetterPosition(1, 1, A);
-        crossword1.setLetterPosition(1, 2, R);
+        crossword1.setLetterPosition(1, 1, vacio);
+        crossword1.setLetterPosition(1, 2, vacio);
         crossword1.setLetterPosition(1, 3, R);
         crossword1.setLetterPosition(1, 4, O);
         crossword1.setLetterPosition(1, 5, Z);
@@ -145,8 +147,7 @@ public class GameWindow extends javax.swing.JDialog {
         //realizará la revisión y se le indicará con el mensaje correspondiente al usuario.
         //Hacer un método para verificar que ningún espacio es null
     }//GEN-LAST:event_btnVerifyActionPerformed
-    
-    private void maximunLetter(java.awt.event.KeyEvent evt) {                                   
+    private void maximunLetter(KeyEvent evt) {                                   
         // TODO add your handling code here:
         JTextField txfielField = new JTextField();
         int limite = 1;
@@ -167,6 +168,33 @@ public class GameWindow extends javax.swing.JDialog {
                 JTextField txField = new JTextField(txt, 1);
 //                GridTextArea newGridTextArea = new GridTextArea(crossword.getLetters(i, j));
 //                tfCrossword.add(newGridTextArea);
+                if(txt.equals(" ")){
+                    txField.setText(null);
+                }
+
+                txField.addKeyListener(new java.awt.event.KeyListener() {
+                    @Override
+                    public void keyTyped(java.awt.event.KeyEvent e) {
+                        int limite = 1;
+                        if(txField.getText().length() == limite){
+                            e.consume();
+                        }
+                        char car = e.getKeyChar();
+                        if(Character.isLetter(car)){
+                        
+                        }else{
+                           e.consume();
+                        }
+                    }
+
+                    @Override
+                    public void keyPressed(java.awt.event.KeyEvent arg2) {
+                    }
+
+                    @Override
+                    public void keyReleased(java.awt.event.KeyEvent arg1) {
+                    }
+                });
                 if(txt.equals("0")){
                     txField.setBackground(Color.BLACK);
                     txField.setEnabled(false);
