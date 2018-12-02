@@ -162,7 +162,6 @@ public class Register extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(this, "Por favor digite una contraseña de al menos 3 caracteres");
             instructions.setVisible(false);
         }
-
         ReaderManagerBinary reader = new ReaderManagerBinary();
         try {
             reader.open("Users/userFile.ser");
@@ -181,24 +180,32 @@ public class Register extends javax.swing.JDialog {
         }
 
         WriterManagerBinary writer = new WriterManagerBinary();
-  
-//            if (tfID.getText().equals(Game.listManager.getID(i))) {
-//                JOptionPane.showMessageDialog(null, "Su identificacion ya esta registrata");
-//            }else{
+        boolean repeated = false;
+        for (int i = 0; i < Game.listManager.getCounter(); i++) {
+            if (tfID.getText() == Game.listManager.getID(i)) {
+                repeated = true;
+            }else{
+                repeated = false;
+            }
+        }
+
+        if (repeated == false) {
             Game.listManager.setCounter(1);
             user.setID(tfID.getText());
             user.setPassword(pfPassword.getText());
             Game.listManager.addStudent(user);
-
             try {
-            writer.open("Users/userFile.ser");  //probar el parametro apend en new FileWriter(fileName, true)
-            writer.write();
-            writer.close(); //importante cerrar el archivo 
-            System.out.println("Escritura exitosa");
-        } catch (IOException ex) {
-            System.err.println("error de archivo");
-            System.err.println(ex.getMessage());
-            //ex.printStackTrace();
+                writer.open("Users/userFile.ser");  //probar el parametro apend en new FileWriter(fileName, true)
+                writer.write();
+                writer.close(); //importante cerrar el archivo 
+                System.out.println("Escritura exitosa");
+                } catch (IOException ex) {
+                System.err.println("error de archivo");
+                System.err.println(ex.getMessage());
+                //ex.printStackTrace();
+                }
+            }else{
+            JOptionPane.showMessageDialog(this, "Su identificación ya ha sido usada, por favor digite otra");
         }
             
         
