@@ -14,8 +14,15 @@ public class Crossword {
     private Letter[][] crossword;
 
     public Crossword() {
+    
     }
-
+    /**
+     * Declaration public Crossword(int row, int column)
+     * This is a constructor method that initializes and
+     * gives the size of the crossword
+     * @param row the number of rows of the matrix
+     * @param column the number of columns of the matrix
+     */
     public Crossword(int row, int column) {
         crossword = new Letter[row][column];
         for (int i=0; i < crossword.length; i++){
@@ -42,10 +49,21 @@ public class Crossword {
     public String toString() {
         return "Crossword{" + "crossword=" + crossword + '}';
     }
-    
+     /**
+     * public void setLetterPosition(int row, int column, Letter letter)
+     * This method inserts a letter in the crossword
+     * @param row position in the row
+     * @param column the position in the column
+     * @param letter the letter to insert
+     */
     public void setLetterPosition(int row, int column, Letter letter){
         crossword[row][column] = letter;
     }
+     /**
+     * public String print()
+     * This method print the crossword matrix
+     * @return return the printed matrix
+     */
  
     public String print(){
         String print ="";
@@ -88,6 +106,14 @@ public class Crossword {
         }
     }
     
+    /**
+     * public String extraction(int filaInicial,int columnaInicial, char verticalHorizontal)
+     * This method extracts a word from the crossword
+     * @param filaInicial the 
+     * @param columnaInicial
+     * @param verticalHorizontal
+     * @return return the extract word
+     */
     public String extraction(int filaInicial,int columnaInicial, char verticalHorizontal){
         String palabra = "";
         Letter letter = new Letter('0');
@@ -107,7 +133,13 @@ public class Crossword {
 
         return palabra;
     }
-
+     /**
+     * public Letter[] stringToLetter(String extraction)
+     * This method converts the extraction string to a 
+     * array Letter
+     * @param extraction
+     * @return return the array of Letter
+     */
     public Letter[] stringToLetter(String extraction){
         Letter[] palabra = new Letter[extraction.length()];
         for (int i = 0; i < extraction.length(); i++) {
@@ -117,11 +149,21 @@ public class Crossword {
         }
         return palabra;
     }
-    
+     /**
+     * public Letter getLetters (int row,  int column)
+     * This method 
+     * @param row
+     * @param column
+     * @return return the letter of the position
+     */
     public Letter getLetters (int row,  int column){
         return crossword[row][column];
     }
-    
+     /**
+     * public Letter getLetters (int row,  int column)
+     * This method 
+     * @return 
+     */
     public int rowlength (){
         return crossword.length;
     }
@@ -129,5 +171,9 @@ public class Crossword {
     public int columnLength(){
         return crossword[0].length;
     }
+    
+    public char getChar (int row, int column) {
+    return crossword[row][column].getLetter();
+    } 
   
 }
