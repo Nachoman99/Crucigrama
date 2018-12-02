@@ -180,17 +180,19 @@ public class Register extends javax.swing.JDialog {
         }
 
         WriterManagerBinary writer = new WriterManagerBinary();
-        boolean repeated = false;
+        int repeated = 0;
         for (int i = 0; i < Game.listManager.getCounter(); i++) {
-            if (tfID.getText() == Game.listManager.getID(i)) {
-                repeated = true;
+            if (tfID.getText().equals(Game.listManager.getID(i))) {
+                repeated += 1;
+                System.err.println("Termina");
             }else{
-                repeated = false;
+                repeated += 0;
+                System.out.println("Continuar");
             }
         }
-
-        if (repeated == false) {
-            Game.listManager.setCounter(1);
+        
+        if (repeated<=0) {
+            
             user.setID(tfID.getText());
             user.setPassword(pfPassword.getText());
             Game.listManager.addStudent(user);
