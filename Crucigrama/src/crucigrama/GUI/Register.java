@@ -178,10 +178,13 @@ public class Register extends javax.swing.JDialog {
             System.err.println(ex.getMessage());
             //ex.printStackTrace();
         }
-            if (tfID.getText().toString() == Game.listManager.getListString()) {
-            
+        for (int i = 0; i < Game.listManager.getCounter(); i++) {
+            if (tfID.getText().equals(Game.listManager.getID(i))) {
+                JOptionPane.showMessageDialog(null, "Su identificacion ya esta registrata");
+            }
         }
-            
+        
+         
 //            int result;
 //            user.setID(tfID.getText());
 //            user.setPassword(pfPassword.getText());
