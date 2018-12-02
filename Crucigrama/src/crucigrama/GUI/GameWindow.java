@@ -157,6 +157,7 @@ public class GameWindow extends javax.swing.JDialog {
     }                                  
     
     
+    
     private void initPanel(Crossword crossword){
         int rows = crossword.rowlength();
         int columns = crossword.columnLength();

@@ -129,17 +129,17 @@ public class Instructions extends javax.swing.JDialog {
     private void cbNotShowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbNotShowActionPerformed
         WriterManagerBinary writer = new WriterManagerBinary();
 
-
+        User user = new User();
+        user.getUserCode();
         try {
-                writer.open("Users/userFile.ser");  //probar el parametro apend en new FileWriter(fileName, true)
-                writer.write();
-                writer.close(); //importante cerrar el archivo 
-                System.out.println("Escritura exitosa");
-                } catch (IOException ex) {
-                System.err.println("error de archivo");
-                System.err.println(ex.getMessage());
-                //ex.printStackTrace();
-                }
+            writer.open("Users/userFile.ser");  //probar el parametro apend en new FileWriter(fileName, true)
+            writer.write();
+            writer.close(); //importante cerrar el archivo 
+            System.out.println("Escritura exitosa");
+        } catch (IOException ex) {
+            System.err.println("error de archivo");
+            System.err.println(ex.getMessage());
+        }
 
         //No volver a mostrar la ventana
 

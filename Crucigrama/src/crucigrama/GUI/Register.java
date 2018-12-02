@@ -185,7 +185,6 @@ public class Register extends javax.swing.JDialog {
                 System.out.println("Continuar");
             }
         }
-        
         if (repeated<=0) {
             user.setID(tfID.getText());
             char[] passwoord = pfPassword.getPassword(); 
@@ -207,6 +206,8 @@ public class Register extends javax.swing.JDialog {
                 System.err.println("error de archivo");
                 System.err.println(ex.getMessage());
                 }
+            this.dispose();
+            instructions.setVisible(true);
             }else{
             JOptionPane.showMessageDialog(this, "Su identificación ya ha sido usada, por favor digite otra");
             } 

@@ -10,25 +10,75 @@ package crucigrama;
  * @author Kevin Trejos
  */
 public class Word {
-    
-    Letter[] letter;
+    int initRow;
+    int initColumn;
+    int index;
+    char verticalHorizontal;
+    String word;
+    String clue;
 
-    public Word(Letter[] letter) {
-        this.letter = letter;
+    public Word() {
     }
 
-    public Letter[] getLetter() {
-        return letter;
+    public Word(int initRow, int initColumn, int index, char verticalHorizontal, String word, String clue) {
+        this.initRow = initRow;
+        this.initColumn = initColumn;
+        this.index = index;
+        this.verticalHorizontal = verticalHorizontal;
+        this.word = word;
+        this.clue = clue;
     }
 
-    public void setLetter(Letter[] letter) {
-        this.letter = letter;
+    public int getInitRow() {
+        return initRow;
+    }
+
+    public void setInitRow(int initRow) {
+        this.initRow = initRow;
+    }
+
+    public int getInitColumn() {
+        return initColumn;
+    }
+
+    public void setInitColumn(int initColumn) {
+        this.initColumn = initColumn;
+    }
+
+    public int getIndex() {
+        return index;
+    }
+
+    public void setIndex(int index) {
+        this.index = index;
+    }
+
+    public char getVerticalHorizontal() {
+        return verticalHorizontal;
+    }
+
+    public void setVerticalHorizontal(char verticalHorizontal) {
+        this.verticalHorizontal = verticalHorizontal;
+    }
+
+    public String getWord() {
+        return word;
+    }
+
+    public void setWord(String word) {
+        this.word = word;
+    }
+
+    public String getClue() {
+        return clue;
+    }
+
+    public void setClue(String clue) {
+        this.clue = clue;
     }
 
     @Override
     public String toString() {
-        return "Word{" + "letter=" + letter + '}';
+        return "Word{" + "initRow=" + initRow + ", initColumn=" + initColumn + ", index=" + index + ", verticalHorizontal=" + verticalHorizontal + ", word=" + word + ", clue=" + clue + '}';
     }
-    
-    
 }
