@@ -49,6 +49,10 @@ public class UserList implements Serializable{
         userList[counter++] = user;
     }
     
+    public User getEspecificUser(int number){
+        return userList[number];
+    }
+    
     public void addInstructions(boolean instructions, int userCode){
         userList[userCode].setInstructions(instructions);
     }
