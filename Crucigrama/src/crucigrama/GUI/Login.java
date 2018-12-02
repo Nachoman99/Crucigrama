@@ -5,8 +5,11 @@
  */
 package crucigrama.GUI;
 
+import crucigrama.Game;
+import filemanager.ReaderManagerBinary;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.IOException;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -146,17 +149,43 @@ public class Login extends javax.swing.JDialog {
      */
     private void btnEnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnterActionPerformed
         Instructions instructions = new Instructions(this, true);
-        // si la contraseña no está en el vector enviar mensaje de error, igual con la id
-        //Si todo está correcto hace esto:
-        if (instructions.isActive()) {
-            Level level = new Level(this, true);
-            level.setVisible(true);
-            instructions.setVisible(false);
-        } else {
-            this.dispose();
-            instructions.setVisible(true);
+        ReaderManagerBinary reader = new ReaderManagerBinary();
+        try {
+            reader.open("Users/userFile.ser");
+            Game.listManager = reader.read();
+            reader.close(); //importante cerrar el archivo
+            System.out.println("Lectura exitosa");
+            System.out.println("Contenido de la lista:\n" + Game.listManager.getListString());
+        } catch (IOException ex) {
+            System.err.println("error de archivo");
+            System.err.println(ex.getMessage());
+            //ex.printStackTrace();
+        } catch (ClassNotFoundException ex) {
+            System.err.println("error de archivo");
+            System.err.println(ex.getMessage());
+            //ex.printStackTrace();
         }
-        
+        int repeated = 0;
+        String pass = new String(pfPassword.getPassword());
+        for (int i = 0; i < Game.listManager.getCounter(); i++) {
+            if (tfID.getText().equals(Game.listManager.getID(i))) {
+                if (pass.equals(Game.listManager.getPassword(i))) {
+                    repeated += 1;
+                }else{
+                    repeated += 0;
+                }
+                repeated += 1;
+            }else{
+                repeated += 0;
+            }
+        }
+        if (repeated != 0) {
+            instructions.setVisible(true);
+        }else{
+            instructions.setVisible(false);
+            JOptionPane.showMessageDialog(this, "Su identificación o contraseña no son correctas");
+        }
+    
     }//GEN-LAST:event_btnEnterActionPerformed
 
     /**
