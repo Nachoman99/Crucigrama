@@ -165,7 +165,7 @@ public class Register extends javax.swing.JDialog {
         WriterManagerBinary writer = new WriterManagerBinary();
         ReaderManagerBinary reader = new ReaderManagerBinary();
         try {
-            reader.open("Users/userFile.ser");
+            reader.open("User/userFile.ser");
             Game.listManager = reader.read();
             reader.close(); //importante cerrar el archivo
             System.out.println("Lectura exitosa");
@@ -184,7 +184,7 @@ public class Register extends javax.swing.JDialog {
                 JOptionPane.showMessageDialog(null, "Su identificacion ya esta registrata");
             }else{
                 try {
-            writer.open("studentsFile.ser");  //probar el parametro apend en new FileWriter(fileName, true)
+            writer.open("Users/userFile.ser");  //probar el parametro apend en new FileWriter(fileName, true)
             writer.write();
             writer.close(); //importante cerrar el archivo 
             System.out.println("Escritura exitosa");
