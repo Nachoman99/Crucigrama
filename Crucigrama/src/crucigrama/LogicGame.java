@@ -68,4 +68,7 @@ public class LogicGame {
        public int validar(Letter[] letra, Letter[] palabraCorrecta){
         return validar(0, letra, palabraCorrecta, 0);
     }
+       
+    
+    
 }

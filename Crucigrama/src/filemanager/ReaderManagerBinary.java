@@ -1,10 +1,10 @@
 package filemanager;
 
-//import dataset.StudentList;
-import crucigrama.Word;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import users.UserList;
 
 public class ReaderManagerBinary {
 
@@ -15,8 +15,8 @@ public class ReaderManagerBinary {
     }
 
     
-    public Word read() throws IOException, ClassNotFoundException {
-        return (Word) reader.readObject();
+    public UserList read() throws IOException, ClassNotFoundException {
+        return (UserList) reader.readObject();
     }
 
     public void close() throws IOException {

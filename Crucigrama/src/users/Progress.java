@@ -5,11 +5,13 @@
  */
 package users;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Kevin Trejos
  */
-public class Progress {
+public class Progress implements Serializable {
     private int levelEasy;
     private int levelMedium;
     private int levelHard;
