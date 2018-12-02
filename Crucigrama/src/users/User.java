@@ -12,6 +12,7 @@ import java.io.Serializable;
  * @author Kevin Trejos
  */
 public class User implements Serializable{
+    private boolean instructions;
     private String ID;
     private String password;
     private Progress progress;
@@ -19,10 +20,11 @@ public class User implements Serializable{
     public User() {
     }
 
-    public User(String ID, String password, Progress progress) {
+    public User(String ID, String password, Progress progress, boolean instructions) {
         this.ID = ID;
         this.password = password;
         this.progress = progress;
+        this.instructions = instructions;
     }
 
     public String getID() {
@@ -49,8 +51,16 @@ public class User implements Serializable{
         this.progress = progress;
     }
 
+    public boolean isInstructions() {
+        return instructions;
+    }
+
+    public void setInstructions(boolean instructions) {
+        this.instructions = instructions;
+    }
+
     @Override
     public String toString() {
-        return "User{" + "ID=" + ID + ", password=" + password + ", progress=" + progress + '}';
+        return "User{" + "instructions=" + instructions + ", ID=" + ID + ", password=" + password + ", progress=" + progress + '}';
     }
 }

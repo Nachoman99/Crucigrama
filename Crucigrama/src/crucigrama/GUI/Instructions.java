@@ -6,6 +6,7 @@
 package crucigrama.GUI;
 
 import crucigrama.Crossword;
+import filemanager.WriterManagerBinary;
 import java.awt.Window;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -105,9 +106,9 @@ public class Instructions extends javax.swing.JDialog {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cbNotShow)
                     .addComponent(btnContinue)
@@ -123,7 +124,7 @@ public class Instructions extends javax.swing.JDialog {
      * @param evt the event that makes the button
      */
     private void cbNotShowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbNotShowActionPerformed
-     
+        WriterManagerBinary writer = new WriterManagerBinary();
         //No volver a mostrar la ventana
         
         //Mostrar la ventana
