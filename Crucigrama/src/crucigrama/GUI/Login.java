@@ -174,7 +174,6 @@ public class Login extends javax.swing.JDialog {
                 }else{
                     repeated += 0;
                 }
-                repeated += 1;
             }else{
                 repeated += 0;
             }
@@ -184,8 +183,7 @@ public class Login extends javax.swing.JDialog {
         }else{
             instructions.setVisible(false);
             JOptionPane.showMessageDialog(this, "Su identificación o contraseña no son correctas");
-        }
-    
+        } 
     }//GEN-LAST:event_btnEnterActionPerformed
 
     /**
