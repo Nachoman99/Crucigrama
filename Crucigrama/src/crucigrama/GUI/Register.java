@@ -5,11 +5,13 @@
  */
 package crucigrama.GUI;
 
+import crucigrama.Game;
 import users.User;
 import filemanager.ReaderManagerBinary;
 import filemanager.WriterManagerBinary;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.IOException;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -159,14 +161,30 @@ public class Register extends javax.swing.JDialog {
         }if(pfPassword.getText().length() < 3){
             JOptionPane.showMessageDialog(this, "Por favor digite una contraseña de al menos 3 caracteres");
             instructions.setVisible(false);
-        }else {
-           // ReaderManager1 reader = new ReaderManager1();
-          //  reader.open("/users.sri");
+        }
+        ReaderManagerBinary reader = new ReaderManagerBinary();
+        try {
+            reader.open("Users/userFile.ser");
+            Game.listManager = reader.read();
+            reader.close(); //importante cerrar el archivo
+            System.out.println("Lectura exitosa");
+            System.out.println("Contenido de la lista:\n" + Game.listManager.getListString());
+        } catch (IOException ex) {
+            System.err.println("error de archivo");
+            System.err.println(ex.getMessage());
+            //ex.printStackTrace();
+        } catch (ClassNotFoundException ex) {
+            System.err.println("error de archivo");
+            System.err.println(ex.getMessage());
+            //ex.printStackTrace();
+        }
+            if (tfID.getText().toString() == Game.listManager.getListString()) {
             
+        }
             
-            int result;
-            user.setID(tfID.getText());
-            user.setPassword(pfPassword.getText());
+//            int result;
+//            user.setID(tfID.getText());
+//            user.setPassword(pfPassword.getText());
             //result = list.addUSer(user);
 //            if (result == 0) {
 //                instructions.setVisible(true);
@@ -174,7 +192,7 @@ public class Register extends javax.swing.JDialog {
 //                JOptionPane.showMessageDialog(this, "Por favor ingrese otra identificación, ya que esta ya ha sido usada");
 //                instructions.setVisible(false);
 //            }  
-        }
+        
     }//GEN-LAST:event_btnCheckInActionPerformed
 
     /**

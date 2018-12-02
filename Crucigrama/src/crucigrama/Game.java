@@ -8,19 +8,21 @@ package crucigrama;
 import java.util.Arrays;
 import crucigrama.GUI.Welcome;
 import static crucigrama.LogicGame.stringToLetter;
+import users.UserList;
 /**
  *
  * @version 29/11/2018
  * @author Jose Ignacio Zamora/Edwin Molina/Kevin Trejos
  */
 public class Game {
-
+    public static UserList listManager = new UserList();
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         // TODO code application logic here
         Welcome welcome = new Welcome();
+        
         welcome.setVisible(true);
         Letter A = new Letter('A');
         Letter R = new Letter('R');
