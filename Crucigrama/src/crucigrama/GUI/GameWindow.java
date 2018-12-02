@@ -166,12 +166,9 @@ public class GameWindow extends javax.swing.JDialog {
             for (int j = 0; j < columns; j++) {
                 String txt = crossword.getLetters(i, j).toString();
                 JTextField txField = new JTextField(txt, 1);
-//                GridTextArea newGridTextArea = new GridTextArea(crossword.getLetters(i, j));
-//                tfCrossword.add(newGridTextArea);
                 if(txt.equals(" ")){
                     txField.setText(null);
                 }
-
                 txField.addKeyListener(new java.awt.event.KeyListener() {
                     @Override
                     public void keyTyped(java.awt.event.KeyEvent e) {
@@ -186,7 +183,6 @@ public class GameWindow extends javax.swing.JDialog {
                            e.consume();
                         }
                     }
-
                     @Override
                     public void keyPressed(java.awt.event.KeyEvent arg2) {
                     }

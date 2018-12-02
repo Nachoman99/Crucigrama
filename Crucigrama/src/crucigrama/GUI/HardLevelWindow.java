@@ -6,11 +6,13 @@
 package crucigrama.GUI;
 
 import crucigrama.Crossword;
+import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 /**
  * In this window the crossword puzzle is displayed for the hard level
@@ -40,15 +42,12 @@ public class HardLevelWindow extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tpCrossword = new javax.swing.JTextPane();
         btnVerify = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
+        pnCrossword = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
-
-        jScrollPane1.setViewportView(tpCrossword);
 
         btnVerify.setText("Verificar gane");
         btnVerify.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -65,24 +64,37 @@ public class HardLevelWindow extends javax.swing.JDialog {
             }
         });
 
+        javax.swing.GroupLayout pnCrosswordLayout = new javax.swing.GroupLayout(pnCrossword);
+        pnCrossword.setLayout(pnCrosswordLayout);
+        pnCrosswordLayout.setHorizontalGroup(
+            pnCrosswordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        pnCrosswordLayout.setVerticalGroup(
+            pnCrosswordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 237, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 20, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addComponent(btnBack)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 180, Short.MAX_VALUE)
                 .addComponent(btnVerify)
                 .addGap(44, 44, 44))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(pnCrossword, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addComponent(pnCrossword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnVerify)
@@ -123,18 +135,50 @@ public class HardLevelWindow extends javax.swing.JDialog {
      * Will start the crossword puzzle
      * @param crossword 
      */
-    public void initPanel(Crossword crossword){
-       int rows = crossword.rowlength();
+    private void initPanel(Crossword crossword){
+        int rows = crossword.rowlength();
         int columns = crossword.columnLength();
         GridLayout grid = new GridLayout(rows, columns);
-        tpCrossword.setLayout(grid);
+        pnCrossword.setLayout(grid);
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < columns; j++) {
-                GridTextArea newGridTextArea = new GridTextArea(crossword.getLetters(i, j));
-                tpCrossword.add(newGridTextArea);
+                String txt = crossword.getLetters(i, j).toString();
+                JTextField txField = new JTextField(txt, 1);
+                if(txt.equals(" ")){
+                    txField.setText(null);
+                }
+                txField.addKeyListener(new java.awt.event.KeyListener() {
+                    @Override
+                    public void keyTyped(java.awt.event.KeyEvent e) {
+                        int limite = 1;
+                        if(txField.getText().length() == limite){
+                            e.consume();
+                        }
+                        char car = e.getKeyChar();
+                        if(Character.isLetter(car)){
+                        
+                        }else{
+                           e.consume();
+                        }
+                    }
+                    @Override
+                    public void keyPressed(java.awt.event.KeyEvent arg2) {
+                    }
+
+                    @Override
+                    public void keyReleased(java.awt.event.KeyEvent arg1) {
+                    }
+                });
+                if(txt.equals("0")){
+                    txField.setBackground(Color.BLACK);
+                    txField.setEnabled(false);
+                    txField.setText("");
+                }
+                pnCrossword.add(txField);
             }
         }
-   }
+       
+    }
     
     /**
      * Pressing the X returns to the main window
@@ -171,7 +215,6 @@ public class HardLevelWindow extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnVerify;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextPane tpCrossword;
+    private javax.swing.JPanel pnCrossword;
     // End of variables declaration//GEN-END:variables
 }
