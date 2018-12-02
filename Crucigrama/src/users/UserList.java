@@ -5,11 +5,13 @@
  */
 package users;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Nacho
  */
-public class UserList {
+public class UserList implements Serializable{
     private User[] userList;
     private int counter;
 

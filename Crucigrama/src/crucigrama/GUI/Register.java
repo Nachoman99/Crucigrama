@@ -162,10 +162,10 @@ public class Register extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(this, "Por favor digite una contraseña de al menos 3 caracteres");
             instructions.setVisible(false);
         }
-        WriterManagerBinary writer = new WriterManagerBinary();
+
         ReaderManagerBinary reader = new ReaderManagerBinary();
         try {
-            reader.open("User/userFile.ser");
+            reader.open("Users/userFile.ser");
             Game.listManager = reader.read();
             reader.close(); //importante cerrar el archivo
             System.out.println("Lectura exitosa");
@@ -179,11 +179,18 @@ public class Register extends javax.swing.JDialog {
             System.err.println(ex.getMessage());
             //ex.printStackTrace();
         }
-        for (int i = 0; i < Game.listManager.getCounter(); i++) {
-            if (tfID.getText().equals(Game.listManager.getID(i))) {
-                JOptionPane.showMessageDialog(null, "Su identificacion ya esta registrata");
-            }else{
-                try {
+
+        WriterManagerBinary writer = new WriterManagerBinary();
+  
+//            if (tfID.getText().equals(Game.listManager.getID(i))) {
+//                JOptionPane.showMessageDialog(null, "Su identificacion ya esta registrata");
+//            }else{
+            Game.listManager.setCounter(1);
+            user.setID(tfID.getText());
+            user.setPassword(pfPassword.getText());
+            Game.listManager.addStudent(user);
+
+            try {
             writer.open("Users/userFile.ser");  //probar el parametro apend en new FileWriter(fileName, true)
             writer.write();
             writer.close(); //importante cerrar el archivo 
@@ -193,8 +200,8 @@ public class Register extends javax.swing.JDialog {
             System.err.println(ex.getMessage());
             //ex.printStackTrace();
         }
-            }
-        }
+            
+        
         
          
 //            int result;

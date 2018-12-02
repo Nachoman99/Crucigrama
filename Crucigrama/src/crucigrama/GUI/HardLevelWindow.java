@@ -6,7 +6,6 @@
 package crucigrama.GUI;
 
 import crucigrama.Crossword;
-import crucigrama.GridTextArea;
 import java.awt.GridLayout;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
