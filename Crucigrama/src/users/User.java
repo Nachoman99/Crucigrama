@@ -16,15 +16,17 @@ public class User implements Serializable{
     private String ID;
     private String password;
     private Progress progress;
+    private int userCode = 0;
 
     public User() {
     }
 
-    public User(String ID, String password, Progress progress, boolean instructions) {
+    public User(String ID, String password, Progress progress, boolean instructions, int userCode) {
         this.ID = ID;
         this.password = password;
         this.progress = progress;
         this.instructions = instructions;
+        this.userCode = userCode;
     }
 
     public String getID() {
@@ -59,8 +61,17 @@ public class User implements Serializable{
         this.instructions = instructions;
     }
 
+    public int getUserCode() {
+        return userCode;
+    }
+
+    public void setUserCode(int userCode) {
+        this.userCode = userCode;
+    }
+
     @Override
     public String toString() {
-        return "User{" + "instructions=" + instructions + ", ID=" + ID + ", password=" + password + ", progress=" + progress + '}';
+        return "User{" + "instructions=" + instructions + ", ID=" + ID + ", password=" + password + ", progress=" + progress + ", userCode=" + userCode + '}';
     }
+
 }

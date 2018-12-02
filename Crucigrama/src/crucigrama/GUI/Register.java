@@ -192,7 +192,6 @@ public class Register extends javax.swing.JDialog {
         }
         
         if (repeated<=0) {
-            
             user.setID(tfID.getText());
             char[] passwoord = pfPassword.getPassword(); 
             String pass = new String(passwoord);

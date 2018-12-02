@@ -11,6 +11,7 @@ import java.awt.Window;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
+import users.User;
 /**
  *In this window you will see the instructions to play
  * 
