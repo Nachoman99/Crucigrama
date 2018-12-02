@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 //import main.Main;
 
-public class WriterManager1 {
+public class WriterManagerBinary {
 
     private ObjectOutputStream writer;
 

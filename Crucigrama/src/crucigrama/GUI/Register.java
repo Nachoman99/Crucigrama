@@ -6,8 +6,8 @@
 package crucigrama.GUI;
 
 import users.User;
-import filemanager.ReaderManager1;
-import filemanager.WriterManager1;
+import filemanager.ReaderManagerBinary;
+import filemanager.WriterManagerBinary;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.JFrame;

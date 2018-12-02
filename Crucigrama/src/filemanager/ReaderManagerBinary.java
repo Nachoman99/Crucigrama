@@ -5,7 +5,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 
-public class ReaderManager1 {
+public class ReaderManagerBinary {
 
     private ObjectInputStream reader;
 
