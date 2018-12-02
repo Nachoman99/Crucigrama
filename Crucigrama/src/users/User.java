@@ -16,7 +16,7 @@ public class User implements Serializable{
     private String ID;
     private String password;
     private Progress progress;
-    private int userCode = 0;
+    private static int userCode;
 
     public User() {
     }
@@ -68,7 +68,10 @@ public class User implements Serializable{
     public void setUserCode(int userCode) {
         this.userCode = userCode;
     }
-
+    public int addUserCode(){
+        return this.userCode += 1; 
+    }
+    
     @Override
     public String toString() {
         return "User{" + "instructions=" + instructions + ", ID=" + ID + ", password=" + password + ", progress=" + progress + ", userCode=" + userCode + '}';

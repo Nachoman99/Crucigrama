@@ -196,6 +196,7 @@ public class Register extends javax.swing.JDialog {
             char[] passwoord = pfPassword.getPassword(); 
             String pass = new String(passwoord);
             user.setPassword(pass);
+            user.setUserCode(user.addUserCode());
             Game.listManager.addStudent(user);
             try {
                 writer.open("Users/userFile.ser");  //probar el parametro apend en new FileWriter(fileName, true)

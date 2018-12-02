@@ -6,10 +6,12 @@
 package crucigrama.GUI;
 
 import crucigrama.Crossword;
+import crucigrama.Game;
 import filemanager.WriterManagerBinary;
 import java.awt.Window;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.IOException;
 import javax.swing.JFrame;
 import users.User;
 /**
@@ -126,6 +128,22 @@ public class Instructions extends javax.swing.JDialog {
      */
     private void cbNotShowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbNotShowActionPerformed
         WriterManagerBinary writer = new WriterManagerBinary();
+
+
+        try {
+                writer.open("Users/userFile.ser");  //probar el parametro apend en new FileWriter(fileName, true)
+                writer.write();
+                writer.close(); //importante cerrar el archivo 
+                System.out.println("Escritura exitosa");
+                } catch (IOException ex) {
+                System.err.println("error de archivo");
+                System.err.println(ex.getMessage());
+                //ex.printStackTrace();
+                }
+
+        //No volver a mostrar la ventana
+
+        //Mostrar la ventana
         //No volver a mostrar la ventana
         
         //Mostrar la ventana

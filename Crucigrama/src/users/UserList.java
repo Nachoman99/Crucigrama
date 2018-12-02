@@ -48,6 +48,11 @@ public class UserList implements Serializable{
     public void addStudent(User user) {
         userList[counter++] = user;
     }
+    
+    public void addInstructions(boolean instructions, int userCode){
+        userList[userCode].setInstructions(instructions);
+    }
+    
 
     public String getListString() {
         String text = "";
