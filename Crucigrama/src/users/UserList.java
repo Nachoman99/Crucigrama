@@ -54,4 +54,16 @@ public class UserList {
         }
         return text;
     }
+    
+    public String getPassword(int position){
+        String txt = "";
+        txt = userList[position].getPassword();
+        return txt;
+    }
+    
+    public String getID(int position){
+        String ID = "";
+        ID = userList[position].getID();
+        return ID;
+    }
 }
