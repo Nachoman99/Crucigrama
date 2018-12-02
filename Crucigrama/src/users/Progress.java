@@ -58,8 +58,4 @@ public class Progress {
     public String toString() {
         return "Progress{" + "levelEasy=" + levelEasy + ", levelMedium=" + levelMedium + ", levelHard=" + levelHard + ", levelVeryHard=" + levelVeryHard + '}';
     }
-    
-    public String toFileString(){
-        return levelEasy + "-" + levelMedium + "-" + levelHard +"-" + levelVeryHard;
-    }
 }

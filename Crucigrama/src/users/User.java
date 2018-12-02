@@ -5,22 +5,24 @@
  */
 package users;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Kevin Trejos
  */
-public class User {
+public class User implements Serializable{
     private String ID;
     private String password;
     private Progress progress;
 
     public User() {
-        this("","");
     }
 
-    public User(String ID, String password) {
+    public User(String ID, String password, Progress progress) {
         this.ID = ID;
         this.password = password;
+        this.progress = progress;
     }
 
     public String getID() {
@@ -39,13 +41,18 @@ public class User {
         this.password = password;
     }
 
+    public Progress getProgress() {
+        return progress;
+    }
+
+    public void setProgress(Progress progress) {
+        this.progress = progress;
+    }
+
     @Override
     public String toString() {
-        return "User{" + "ID=" + ID + ", password=" + password + '}';
+        return "User{" + "ID=" + ID + ", password=" + password + ", progress=" + progress + '}';
     }
-    
-    public String toFileString(){
-        return ID + "-" + password + "-" + progress.toFileString();
-    }
-    
+
+   
 }
