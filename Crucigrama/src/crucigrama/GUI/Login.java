@@ -179,6 +179,7 @@ public class Login extends javax.swing.JDialog {
             }
         }
         if (repeated != 0) {
+            this.dispose();
             instructions.setVisible(true);
         }else{
             instructions.setVisible(false);
