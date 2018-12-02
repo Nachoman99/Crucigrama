@@ -143,7 +143,7 @@ public class Register extends javax.swing.JDialog {
     }//GEN-LAST:event_tfIDActionPerformed
 
     private void pfPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pfPasswordActionPerformed
-       String password = pfPassword.getText();
+      
     }//GEN-LAST:event_pfPasswordActionPerformed
 
     /**
@@ -158,7 +158,7 @@ public class Register extends javax.swing.JDialog {
         if (tfID.getText().length() < 4) {
             JOptionPane.showMessageDialog(this, "Por favor digite una identificación de al menos 4 caracteres");
             instructions.setVisible(false);
-        }if(pfPassword.getText().length() < 3){
+        }if(pfPassword.getPassword().length < 3){
             JOptionPane.showMessageDialog(this, "Por favor digite una contraseña de al menos 3 caracteres");
             instructions.setVisible(false);
         }
@@ -194,7 +194,9 @@ public class Register extends javax.swing.JDialog {
         if (repeated<=0) {
             
             user.setID(tfID.getText());
-            user.setPassword(pfPassword.getText());
+            char[] passwoord = pfPassword.getPassword(); 
+            String pass = new String(passwoord);
+            user.setPassword(pass);
             Game.listManager.addStudent(user);
             try {
                 writer.open("Users/userFile.ser");  //probar el parametro apend en new FileWriter(fileName, true)
@@ -208,21 +210,7 @@ public class Register extends javax.swing.JDialog {
                 }
             }else{
             JOptionPane.showMessageDialog(this, "Su identificación ya ha sido usada, por favor digite otra");
-        }
-            
-        
-        
-         
-//            int result;
-//            user.setID(tfID.getText());
-//            user.setPassword(pfPassword.getText());
-            //result = list.addUSer(user);
-//            if (result == 0) {
-//                instructions.setVisible(true);
-//            }else{
-//                JOptionPane.showMessageDialog(this, "Por favor ingrese otra identificación, ya que esta ya ha sido usada");
-//                instructions.setVisible(false);
-//            }  
+        } 
         
     }//GEN-LAST:event_btnCheckInActionPerformed
 
