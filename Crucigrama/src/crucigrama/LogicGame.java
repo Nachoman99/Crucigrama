@@ -17,7 +17,7 @@ public class LogicGame {
      * @param extraction
      * @return return the array of Letter
      */
-    public Letter[] stringToLetter(String extraction){
+    public static Letter[] stringToLetter(String extraction){
         Letter[] palabra = new Letter[extraction.length()];
         for (int i = 0; i < extraction.length(); i++) {
             char intemedio = extraction.charAt(i);

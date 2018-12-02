@@ -7,6 +7,7 @@ package crucigrama;
 
 import java.util.Arrays;
 import crucigrama.GUI.Welcome;
+import static crucigrama.LogicGame.stringToLetter;
 /**
  *
  * @version 29/11/2018
@@ -51,9 +52,9 @@ public class Game {
         
         String palabra1 = logic.extraction(1, 1,'V', crossword1);  
         String palabra2 = logic.extraction(1, 1, 'H', crossword1); 
-        Letter[] palabra3 = crossword1.stringToLetter(palabra1);
+        Letter[] palabra3 = stringToLetter(palabra1);
         System.out.println("Pruba final= "+ Arrays.toString(palabra3));//puse el Arrays solo para probar no usarlo 
-        palabra3 = crossword1.stringToLetter(palabra2);
+        palabra3 = stringToLetter(palabra2);
         System.out.println("Pruba final= "+ Arrays.toString(palabra3));
     }
     
