@@ -153,35 +153,30 @@ public class Register extends javax.swing.JDialog {
      */
     private void btnCheckInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCheckInActionPerformed
         Instructions instructions = new Instructions(this, true);
-        //Verificar en el vector que esa id no está, si no está insertarla y mostrar la siguiente ventana
-        //Si está entonces mandar un mensaje 
+        ReaderManagerBinary reader = new ReaderManagerBinary();
+        WriterManagerBinary writer = new WriterManagerBinary();
         if (tfID.getText().length() < 4) {
             JOptionPane.showMessageDialog(this, "Por favor digite una identificación de al menos 4 caracteres");
             instructions.setVisible(false);
-        }if(pfPassword.getPassword().length < 3){
+        }else if(pfPassword.getPassword().length < 3){
             JOptionPane.showMessageDialog(this, "Por favor digite una contraseña de al menos 3 caracteres");
             instructions.setVisible(false);
-        }
-        ReaderManagerBinary reader = new ReaderManagerBinary();
-        try {
-            reader.open("Users/userFile.ser");
-            Game.listManager = reader.read();
-            reader.close(); //importante cerrar el archivo
-            System.out.println("Lectura exitosa");
-            System.out.println("Contenido de la lista:\n" + Game.listManager.getListString());
-        } catch (IOException ex) {
-            System.err.println("error de archivo");
-            System.err.println(ex.getMessage());
-            //ex.printStackTrace();
-        } catch (ClassNotFoundException ex) {
-            System.err.println("error de archivo");
-            System.err.println(ex.getMessage());
-            //ex.printStackTrace();
-        }
-
-        WriterManagerBinary writer = new WriterManagerBinary();
-        int repeated = 0;
-        for (int i = 0; i < Game.listManager.getCounter(); i++) {
+        }else{
+            try {
+                reader.open("Users/userFile.ser");
+                Game.listManager = reader.read();
+                reader.close(); //importante cerrar el archivo
+                System.out.println("Lectura exitosa");
+                System.out.println("Contenido de la lista:\n" + Game.listManager.getListString());
+            } catch (IOException ex) {
+                System.err.println("error de archivo");
+                System.err.println(ex.getMessage());
+            } catch (ClassNotFoundException ex) {
+                System.err.println("error de archivo");
+                System.err.println(ex.getMessage());   
+            }
+            int repeated = 0;
+            for (int i = 0; i < Game.listManager.getCounter(); i++) {
             if (tfID.getText().equals(Game.listManager.getID(i))) {
                 repeated += 1;
                 System.err.println("Termina");
@@ -202,22 +197,20 @@ public class Register extends javax.swing.JDialog {
             }else{ 
                user.addUserCode(); 
             }
-            
             Game.listManager.addStudent(user);
             try {
                 writer.open("Users/userFile.ser");  //probar el parametro apend en new FileWriter(fileName, true)
                 writer.write();
                 writer.close(); //importante cerrar el archivo 
                 System.out.println("Escritura exitosa");
-                } catch (IOException ex) {
+            } catch (IOException ex) {
                 System.err.println("error de archivo");
                 System.err.println(ex.getMessage());
-                //ex.printStackTrace();
                 }
             }else{
             JOptionPane.showMessageDialog(this, "Su identificación ya ha sido usada, por favor digite otra");
-        } 
-        
+            } 
+        }     
     }//GEN-LAST:event_btnCheckInActionPerformed
 
     /**

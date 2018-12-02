@@ -24,7 +24,9 @@ public class Login extends javax.swing.JDialog {
 
 
     /**
-     * Creates new form Login
+     * 
+     * @param parent
+     * @param modal 
      */
     public Login(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -136,11 +138,11 @@ public class Login extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void tfIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfIDActionPerformed
-        String iD = tfID.getText();
+
     }//GEN-LAST:event_tfIDActionPerformed
 
     private void pfPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pfPasswordActionPerformed
-        String password = pfPassword.getText();
+
     }//GEN-LAST:event_pfPasswordActionPerformed
 
     /**
