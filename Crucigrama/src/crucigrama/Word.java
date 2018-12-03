@@ -19,7 +19,11 @@ public class Word {
 
     public Word() {
     }
-
+    
+    public Word(int initRow, int initColumn){
+        this.initRow = initRow;
+        this.initColumn = initColumn;
+    }
     public Word(int initRow, int initColumn, int index, char verticalHorizontal, String word, String clue) {
         this.initRow = initRow;
         this.initColumn = initColumn;

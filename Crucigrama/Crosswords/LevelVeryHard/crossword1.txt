@@ -1,0 +1,6 @@
+9-5
+1-0/1/H/SEÑOR/Caballero, Término de cortesía
+1-0/1/V/SEÑORA/Dama
+0-2/2/V/AÑO/Doce meses
+5-0/3/H/RIO/Torrente constante de agua
+4-2/4/V/POBRE/Que no tiene lo necesario para vivir desahogadamente. Sin recursos

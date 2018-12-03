@@ -7,9 +7,13 @@ package crucigrama.GUI;
 
 import crucigrama.Crossword;
 import crucigrama.Letter;
+import filemanager.ReaderManagerText;
 import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.KeyEvent;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.logging.Logger;
 import javax.swing.JTextField;
 import javax.swing.JOptionPane;
 import javax.swing.tree.DefaultTreeCellEditor;
@@ -26,6 +30,7 @@ public class GameWindow extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(parent);
+        
         
         Letter A = new Letter('A');
         Letter R = new Letter('R');
@@ -154,8 +159,25 @@ public class GameWindow extends javax.swing.JDialog {
         if (txfielField.getText().length()== limite){ 
             evt.consume();
         }
-    }                                  
-    
+    }        
+    ReaderManagerText reader = new ReaderManagerText();
+    int row; 
+        try {
+            //reader.readAll();
+            reader.open("Crossword/LevelEasy/crossword1.txt");
+            row = reader.readRow();
+            reader.close();
+            System.out.println("Lectura exitosa");
+        } catch (IOException ex) {
+            System.err.println("error de archivo");
+            System.err.println(ex.getMessage());
+            ex.printStackTrace();
+        }
+            
+            
+   
+            
+           // System.out.println("Contenido de la lista:\n" + LIST_MANAGER.getListString());
     
     
     private void initPanel(Crossword crossword){

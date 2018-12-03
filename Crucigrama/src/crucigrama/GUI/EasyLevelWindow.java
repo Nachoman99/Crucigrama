@@ -6,10 +6,12 @@
 package crucigrama.GUI;
 
 import crucigrama.Crossword;
+import filemanager.ReaderManagerText;
 import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.IOException;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -132,7 +134,7 @@ public class EasyLevelWindow extends javax.swing.JDialog {
     private void btnVerifyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerifyActionPerformed
         // Verifica si el mae ganó
     }//GEN-LAST:event_btnVerifyActionPerformed
-    
+
     /**
      * Will start the crossword puzzle
      * @param crossword 

@@ -1,5 +1,6 @@
 package filemanager;
 
+import crucigrama.Word;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -12,7 +13,41 @@ public class ReaderManagerText {
     public void open(String fileName) throws FileNotFoundException {
         reader = new BufferedReader(new FileReader(fileName));
     }
+    
+    /*private Word readRow() throws IOException {
+        Word size = null;
+        String line = reader.readLine(); //retorna null cuando no hay más registros
+        String datos[];
+        if (line != null) {
+            datos = line.split("-");
+            size = new Word(Integer.parseInt(datos[0]));
+        }
+        return size;
+    }*/
 
+    public int[] readRowColumn() throws IOException{
+        int[] size;
+        String line = reader.readLine();
+        String datos[];
+        if (line != null) {
+            datos = line.split("-");
+            int row = Integer.parseInt(datos[0]);
+            int column = Integer.parseInt(datos[1]);
+            size = {row, column};
+            return size;
+        }
+        return null;
+    }
+    
+   /*public int readColumn() throws IOException{
+        Word size = null
+        String line = reader.readLine();
+        String datos[];
+        if (line != null) {
+            datos = line.split("-");
+            size = new Word()
+        }
+   }*/
 //    private Student read() throws IOException {
 //        Student person = null;
 //        String line = reader.readLine(); //retorna null cuando no hay más registros
@@ -48,6 +83,9 @@ public class ReaderManagerText {
 //                hasNext = false;
 //            }
 //        }
+    public void close() throws IOException {
+        reader.close();
+    }
     }
 
 //    public void close() throws IOException {

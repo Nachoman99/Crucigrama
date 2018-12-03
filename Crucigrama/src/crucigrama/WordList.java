@@ -14,6 +14,7 @@ public class WordList {
     private int counter;
 
     public WordList() {
+        wordList = new Word[100];
     }
 
     public WordList(Word[] wordList, int counter) {
