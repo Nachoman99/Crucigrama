@@ -160,29 +160,30 @@ public class GameWindow extends javax.swing.JDialog {
             evt.consume();
         }
     }        
-    ReaderManagerText reader = new ReaderManagerText();
-    int row; 
+    ReaderManagerText reader = new ReaderManagerText(); 
+    int[] rowColumn;
+    
         try {
-            //reader.readAll();
-            reader.open("Crossword/LevelEasy/crossword1.txt");
-            row = reader.readRow();
+            reader.open("Crossword/LevelVeryHard/crossword1.txt");
+            rowColumn = reader.readRowColumn();
             reader.close();
             System.out.println("Lectura exitosa");
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(GameWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IOException ex) {
             System.err.println("error de archivo");
             System.err.println(ex.getMessage());
-            ex.printStackTrace();
+            Logger.getLogger(GameWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-            
-            
-   
-            
-           // System.out.println("Contenido de la lista:\n" + LIST_MANAGER.getListString());
+        
+      //  ex.printStackTrace();
+         
+        
     
     
-    private void initPanel(Crossword crossword){
-        int rows = crossword.rowlength();
-        int columns = crossword.columnLength();
+    private void initPanel(int[] rowColumn, Crossword crossword){
+        int rows = rowColumn[0];
+        int columns = rowColumn[1];
         GridLayout grid = new GridLayout(rows, columns);
         pnCrossword.setLayout(grid);
         for (int i = 0; i < rows; i++) {

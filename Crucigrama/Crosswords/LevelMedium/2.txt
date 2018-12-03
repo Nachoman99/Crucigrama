@@ -1,0 +1,12 @@
+13-13
+0-7/1/V/BOTELLA/Recipiente para líquidos, generalmente de vidrio o de plástico, alto, cilíndrico y con el cuello largo y estrecho.
+1-2/2/H/RABANO/Raíz de esta planta, comestible, carnosa, redondeada o fusiforme, de color blanco o rojo y sabor picante.
+1-9/3/V/PERSONA/Individuo de la especie humana.
+3-5/4/H/PIEDRA/Materia mineral dura y de estructura compacta que constituye las rocas.
+4-4/5/V/BANDERA/Pieza de tela rectangular generalmente con franjas de color, escudos o figuras simbólicas que se emplea como insignia de un país.
+5-3/6/CABALLO/Mamífero équido, macho, de tamaño mediano o grande, pelo corto de color generalmente uniforme y orejas cortas; Familia del burro.
+5-11/7/PIE/Parte del cuerpo humano que va desde el tobillo hasta la punta de los dedos.
+7-9/8/ABEJA/Produce la cera y la miel.
+8-0/9/BILLETE/Papel impreso o grabado, generalmente emitido por el banco central de un país, al que se le asigna un valor pecuniario determinado.
+10-1/9/ROPA/Pieza de tela confeccionada que viste a una persona.
+10-3/11/PILA/Conjunto de cosas dispuestas unas sobre otras a modo de pilar o columna.
