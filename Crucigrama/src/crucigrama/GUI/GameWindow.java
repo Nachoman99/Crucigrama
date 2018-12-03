@@ -31,27 +31,26 @@ public class GameWindow extends javax.swing.JDialog {
         initComponents();
         setLocationRelativeTo(parent);
         
+        ReaderManagerText reader = new ReaderManagerText(); 
+        int[] rowColumn = new int[1];
+    
+        try {
+            reader.open("Crosswords/LevelEasy/1.txt");
+            rowColumn = reader.readRowColumn();
+            reader.close();
+            System.out.println("Lectura exitosa");
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(GameWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            System.err.println("error de archivo");
+            System.err.println(ex.getMessage());
+            Logger.getLogger(GameWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
         
-        Letter A = new Letter('A');
-        Letter R = new Letter('R');
-        Letter O = new Letter('O');
-        Letter Z = new Letter('Z');
-        Letter T = new Letter('T');
-        Letter U = new Letter('U');
-        Letter N = new Letter('N');
-        Letter vacio = new Letter(' ');
-           
-        Crossword crossword1 = new Crossword(6, 7);
-        crossword1.setLetterPosition(1, 1, vacio);
-        crossword1.setLetterPosition(1, 2, vacio);
-        crossword1.setLetterPosition(1, 3, R);
-        crossword1.setLetterPosition(1, 4, O);
-        crossword1.setLetterPosition(1, 5, Z);
-        crossword1.setLetterPosition(2, 1, T);
-        crossword1.setLetterPosition(3, 1, U);
-        crossword1.setLetterPosition(4, 1, N);
+        Crossword crossword1 = new Crossword(rowColumn[0], rowColumn[1]);
         
-        initPanel(crossword1);
+        
+        initPanel(rowColumn ,crossword1);
     }
 
     /**
@@ -159,9 +158,9 @@ public class GameWindow extends javax.swing.JDialog {
         if (txfielField.getText().length()== limite){ 
             evt.consume();
         }
-    }        
-    ReaderManagerText reader = new ReaderManagerText(); 
-    int[] rowColumn;
+        
+        ReaderManagerText reader = new ReaderManagerText(); 
+        int[] rowColumn;
     
         try {
             reader.open("Crossword/LevelVeryHard/crossword1.txt");
@@ -176,11 +175,8 @@ public class GameWindow extends javax.swing.JDialog {
             Logger.getLogger(GameWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         
-      //  ex.printStackTrace();
-         
-        
-    
-    
+    }        
+   
     private void initPanel(int[] rowColumn, Crossword crossword){
         int rows = rowColumn[0];
         int columns = rowColumn[1];

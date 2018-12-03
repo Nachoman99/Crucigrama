@@ -56,6 +56,7 @@ public class UserList implements Serializable{
     public void addInstructions(boolean instructions, int userCode){
         userList[userCode].setInstructions(instructions);
     }
+   
     
 
     public String getListString() {

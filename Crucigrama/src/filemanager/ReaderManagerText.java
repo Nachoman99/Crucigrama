@@ -26,14 +26,15 @@ public class ReaderManagerText {
     }*/
 
     public int[] readRowColumn() throws IOException{
-        int[] size;
+        int[] size = new int[2];
         String line = reader.readLine();
         String datos[];
         if (line != null) {
             datos = line.split("-");
             int row = Integer.parseInt(datos[0]);
             int column = Integer.parseInt(datos[1]);
-            size = {row, column};
+            size[0] = row;
+            size[1] = column;
             return size;
         }
         return null;
