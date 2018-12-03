@@ -1,5 +1,6 @@
 package filemanager;
 
+import crucigrama.Game;
 import crucigrama.Word;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -49,23 +50,22 @@ public class ReaderManagerText {
             size = new Word()
         }
    }*/
-//    private Student read() throws IOException {
-//        Student person = null;
-//        String line = reader.readLine(); //retorna null cuando no hay más registros
-//        String datos[];
-//        if (line != null) {
-//            datos = line.split("-");
-//            person = new Student(datos[0], datos[1], datos[2], Double.parseDouble(datos[3]),
-//                    new Address(datos[4], datos[5], datos[6], datos[7]));
-//        }
-//        return person;
-//    }
-//
-//    public void readAll() throws IOException {
-//        Student newStudent;
-//        while ((newStudent = read()) != null) {
-//            Main.LIST_MANAGER.addStudent(newStudent);
-//        }
+    private Word read() throws IOException {
+        Word word = null;
+        String line = reader.readLine(); //retorna null cuando no hay más registros
+        String datos[];
+        if (line != null) {
+            datos = line.split("-");
+            word = new Word(Integer.parseInt(datos[2]), Integer.parseInt(datos[3]), Integer.parseInt(datos[4]), datos[5].charAt(0), datos[6], datos[7]);
+        }
+        return word;
+    }
+
+    public void readAll() throws IOException {
+        Word newWord;
+        while ((newWord = read()) != null) {
+            Game.WORD_LIST_MANAGER.addWord(newWord);
+        }
 
         //otra forma
 //        Student newStudent = read();

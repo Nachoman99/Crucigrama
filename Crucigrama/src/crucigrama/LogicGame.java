@@ -53,7 +53,8 @@ public class LogicGame {
 
         return palabra;
     }
-      private int validar(int filas, Letter[] letra, Letter[] crossword, int letrasMalas){
+      
+    private int validar(int filas, Letter[] letra, Letter[] crossword, int letrasMalas){
         if (filas > letra.length-1) {
            // System.out.println(letrasMalas + 1);
             return letrasMalas;
@@ -69,6 +70,6 @@ public class LogicGame {
         return validar(0, letra, palabraCorrecta, 0);
     }
        
-    
-    
+
+       
 }

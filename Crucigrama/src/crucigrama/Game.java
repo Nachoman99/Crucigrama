@@ -16,6 +16,7 @@ import users.UserList;
  */
 public class Game {
     public static UserList listManager = new UserList();
+    public static WordList WORD_LIST_MANAGER = new WordList();
     /**
      * @param args the command line arguments
      */

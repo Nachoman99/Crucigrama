@@ -45,7 +45,7 @@ public class UserList implements Serializable{
         return "UserList{" + "userList=" + userList + ", counter=" + counter + '}';
     }
     
-    public void addStudent(User user) {
+    public void addWord(User user) {
         userList[counter++] = user;
     }
     

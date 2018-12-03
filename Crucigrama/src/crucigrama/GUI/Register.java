@@ -196,7 +196,7 @@ public class Register extends javax.swing.JDialog {
             }else{ 
                user.addUserCode(); 
             }
-            Game.listManager.addStudent(user);
+            Game.listManager.addWord(user);
             try {
                 writer.open("Users/userFile.ser");  //probar el parametro apend en new FileWriter(fileName, true)
                 writer.write();

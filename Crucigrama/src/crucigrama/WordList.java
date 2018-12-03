@@ -42,4 +42,8 @@ public class WordList {
     public String toString() {
         return "WordList{" + "wordList=" + wordList + ", counter=" + counter + '}';
     }
+    
+    public void addWord(Word word) {
+        wordList[counter++] = word;
+    }
 }
