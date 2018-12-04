@@ -56,7 +56,14 @@ public class ReaderManagerText {
         String datos[];
         if (line != null) {
             datos = line.split("-");
-            word = new Word(Integer.parseInt(datos[2]), Integer.parseInt(datos[3]), Integer.parseInt(datos[4]), datos[5].charAt(0), datos[6], datos[7]);
+            word.setInitRow(Integer.parseInt(datos[0]));
+            word.setInitColumn(Integer.parseInt(datos[1]));
+            datos = line.split("/");
+            word.setIndex(Integer.parseInt(datos[2]));
+            word.setVerticalHorizontal( datos[3].charAt(0));
+            word.setWord(datos[4]);
+            word.setClue(datos[5]);
+    
         }
         return word;
     }
@@ -66,6 +73,7 @@ public class ReaderManagerText {
         while ((newWord = read()) != null) {
             Game.WORD_LIST_MANAGER.addWord(newWord);
         }
+    }
 
         //otra forma
 //        Student newStudent = read();

@@ -46,4 +46,28 @@ public class WordList {
     public void addWord(Word word) {
         wordList[counter++] = word;
     }
+
+    public int getInitRow(int position){
+        return wordList[position].getInitRow();
+    }
+
+    public int getInitColumn(int position){
+        return wordList[position].getInitColumn();
+    }
+
+    public int getIndex(int position){
+        return wordList[position].getIndex();
+    }
+
+    public char getVerticalHorizontal(int position){
+        return wordList[position].getVerticalHorizontal();
+    }
+
+    public String getWord(int position){
+        return wordList[position].getWord();
+    }
+
+    public String getClue(int position){
+        return wordList[position].getClue();
+    }
 }
