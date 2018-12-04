@@ -56,14 +56,13 @@ public class ReaderManagerText {
         String datos[];
         if (line != null) {
             datos = line.split("-");
-            word.setInitRow(Integer.parseInt(datos[0]));
-            word.setInitColumn(Integer.parseInt(datos[1]));
+            word.setInitRow(Integer.parseInt(datos[2]));
+            word.setInitColumn(Integer.parseInt(datos[3]));
             datos = line.split("/");
-            word.setIndex(Integer.parseInt(datos[2]));
-            word.setVerticalHorizontal( datos[3].charAt(0));
-            word.setWord(datos[4]);
-            word.setClue(datos[5]);
-    
+            word.setIndex(Integer.parseInt(datos[4]));
+            word.setVerticalHorizontal( datos[5].charAt(0));
+            word.setWord(datos[6]);
+            word.setClue(datos[7]);
         }
         return word;
     }
