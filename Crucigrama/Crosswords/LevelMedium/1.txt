@@ -9,4 +9,3 @@
 8-0/8/H/BOLSO/Recipiente útil para transportar un número reducido de objetos de uso frecuente. 
 9-5/9/H/ZAPATO/Accesorio de la vestimenta hecho con la intención de proveer protección y comodidad al pie.
 1-8/10/H/LAVA/Materia en fusión o derretida que expulsa un volcán.
-
