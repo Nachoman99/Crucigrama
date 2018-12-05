@@ -57,7 +57,7 @@ public class ReaderManagerText {
         if(caso == null){
           return null;
         }else {    
-           if(caso.length() < 5){
+           if(caso.length() < 10){
                 String line = reader.readLine(); //retorna null cuando no hay más registros
                 String datos[];
                 String datos2[];
