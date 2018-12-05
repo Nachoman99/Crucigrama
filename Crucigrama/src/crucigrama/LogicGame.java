@@ -34,7 +34,7 @@ public class LogicGame {
      * @param verticalHorizontal
      * @return return the extract word
      */
-    public String extraction(int filaInicial,int columnaInicial, char verticalHorizontal, Crossword crossword){
+    public String extraction(int filaInicial, int columnaInicial, char verticalHorizontal, Crossword crossword){
         String palabra = "";
         Letter letter = new Letter('0');
         if(verticalHorizontal == 'V'){

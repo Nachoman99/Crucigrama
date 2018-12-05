@@ -33,6 +33,15 @@ public class Word {
         this.clue = clue;
     }
 
+    public Word(int index, char verticalHorizontal, String word, String clue) {
+        this.index = index;
+        this.verticalHorizontal = verticalHorizontal;
+        this.word = word;
+        this.clue = clue;
+    }
+    
+    
+
     public int getInitRow() {
         return initRow;
     }

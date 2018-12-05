@@ -23,7 +23,7 @@ public class Game {
     public static void main(String[] args) {
         // TODO code application logic here
         Welcome welcome = new Welcome();
-        
+        System.out.println("Hola" + "\r");
         welcome.setVisible(true);
         Letter A = new Letter('A');
         Letter R = new Letter('R');
