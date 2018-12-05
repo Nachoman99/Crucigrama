@@ -50,27 +50,68 @@ public class ReaderManagerText {
             size = new Word()
         }
    }*/
-    private Word read() throws IOException {
-        Word word = null;
-        String line = reader.readLine(); //retorna null cuando no hay más registros
-        String datos[];
-        if (line != null) {
-            datos = line.split("-");
-            word.setInitRow(Integer.parseInt(datos[2]));
-            word.setInitColumn(Integer.parseInt(datos[3]));
-            datos = line.split("/");
-            word.setIndex(Integer.parseInt(datos[4]));
-            word.setVerticalHorizontal( datos[5].charAt(0));
-            word.setWord(datos[6]);
-            word.setClue(datos[7]);
+    private Word read() throws IOException{
+        Word word = new Word();
+        String caso = reader.readLine();
+        System.out.println("me cago1= "+caso);
+        if(caso == null){
+          return null;
+        }else {    
+           if(caso.length() < 5){
+                String line = reader.readLine(); //retorna null cuando no hay más registros
+                String datos[];
+                String datos2[];
+                System.out.println("me cago3= "+line);
+                if (line != null) {
+                    System.out.println("me cago= "+line);
+                    System.out.println("lengt= "+line.length());
+                    datos = line.split("/");
+                    
+                    //datos = line.split("/");
+                    word.setIndex(Integer.parseInt(datos[1]));
+                    word.setVerticalHorizontal( datos[2].charAt(0));
+                    word.setWord(datos[3]);
+                    word.setClue(datos[4]);  
+                    
+                    datos2 = line.split("-");
+                    System.out.println("lengt= "+datos2[1]);
+                    word.setInitRow(Integer.parseInt(datos2[0]));
+                    word.setInitColumn(Integer.parseInt(Character.toString(datos2[1].charAt(0))));
+                }
+            }else{
+                String datos[];
+                    String datos2[];
+                    System.out.println("me cago3= "+caso);
+
+                        System.out.println("me cago= "+caso);
+                        System.out.println("lengt= "+caso.length());
+                        datos = caso.split("/");
+
+                        //datos = line.split("/");
+                        word.setIndex(Integer.parseInt(datos[1]));
+                        word.setVerticalHorizontal( datos[2].charAt(0));
+                        word.setWord(datos[3]);
+                        word.setClue(datos[4]);  
+
+                        datos2 = caso.split("-");
+                        System.out.println("lengt= "+datos2[1]);
+                        word.setInitRow(Integer.parseInt(datos2[0]));
+                        word.setInitColumn(Integer.parseInt(Character.toString(datos2[1].charAt(0))));
+
+            } 
         }
+        
+        
         return word;
+        
     }
 
     public void readAll() throws IOException {
-        Word newWord;
-        while ((newWord = read()) != null) {
+        Word newWord = read();
+        while (newWord != null) {
             Game.WORD_LIST_MANAGER.addWord(newWord);
+            newWord = read();
+          
         }
     }
 

@@ -70,4 +70,8 @@ public class WordList {
     public String getClue(int position){
         return wordList[position].getClue();
     }
+    
+     public String getEspecificWord(int number){
+        return wordList[number].toString();
+    }
 }

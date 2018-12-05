@@ -58,7 +58,6 @@ public class UserList implements Serializable{
     }
    
     
-
     public String getListString() {
         String text = "";
         for (int i = 0; i < counter; i++) {

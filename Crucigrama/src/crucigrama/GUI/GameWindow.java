@@ -51,7 +51,7 @@ public class GameWindow extends javax.swing.JDialog {
         
         ReaderManagerText reader2 = new ReaderManagerText(); 
         
-        /* try {
+         try {
             reader2.open("Crosswords/LevelEasy/1.txt");
             reader2.readAll();
             System.out.println(Game.WORD_LIST_MANAGER.getWordList());
@@ -61,12 +61,22 @@ public class GameWindow extends javax.swing.JDialog {
             System.err.println("error de archivo");
             System.err.println(ex.getMessage());
             //ex.printStackTrace();
-        }*/
+        }
         
         Crossword crossword1 = new Crossword(rowColumn[0], rowColumn[1]);
         LogicGame logic = new LogicGame();
-//        logic.extraction(Game.WORD_LIST_MANAGER.getInitColumn(0),Game.WORD_LIST_MANAGER.getInitColumn(0) , Game.WORD_LIST_MANAGER.getVerticalHorizontal(0), crossword1);
-        
+        //logic.extraction(Game.WORD_LIST_MANAGER.getInitColumn(0),Game.WORD_LIST_MANAGER.getInitColumn(0) , Game.WORD_LIST_MANAGER.getVerticalHorizontal(0), crossword1);
+        System.out.println(Game.WORD_LIST_MANAGER.getWord(0));
+        System.out.println(Game.WORD_LIST_MANAGER.getWord(1));
+        System.out.println(Game.WORD_LIST_MANAGER.getWord(2));
+        System.out.println(Game.WORD_LIST_MANAGER.getWord(3));
+        System.out.println(Game.WORD_LIST_MANAGER.getWord(4));
+        System.out.println(Game.WORD_LIST_MANAGER.getClue(0));
+        System.out.println(Game.WORD_LIST_MANAGER.getEspecificWord(0));
+        System.out.println(Game.WORD_LIST_MANAGER.getEspecificWord(1));
+        System.out.println(Game.WORD_LIST_MANAGER.getEspecificWord(2));
+        System.out.println(Game.WORD_LIST_MANAGER.getEspecificWord(3));
+        System.out.println(Game.WORD_LIST_MANAGER.getEspecificWord(4));
         initPanel(rowColumn ,crossword1);
     }
 
