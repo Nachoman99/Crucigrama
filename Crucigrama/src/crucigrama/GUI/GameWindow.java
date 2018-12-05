@@ -79,7 +79,7 @@ public class GameWindow extends javax.swing.JDialog {
         System.out.println(Game.WORD_LIST_MANAGER.getEspecificWord(4));
         initPanel(rowColumn ,crossword1);
     }
-
+ 
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
