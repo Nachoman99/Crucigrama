@@ -23,6 +23,7 @@ import javax.swing.JOptionPane;
  */
 public class Register extends javax.swing.JDialog {
     User user = new User();
+    boolean result;
     
     /**
      * Creates new form Register
@@ -205,9 +206,19 @@ public class Register extends javax.swing.JDialog {
             } catch (IOException ex) {
                 System.err.println("error de archivo");
                 System.err.println(ex.getMessage());
-                }
-            this.dispose();
-            instructions.setVisible(true);
+            }
+            instructions.userSelected(Game.listManager.getUserCode(Game.listManager.getCounter()-1));
+            result = Game.listManager.getInstructions(Game.listManager.getCounter()-1);
+            if (result == true) {
+                Level level = new Level(this, true);
+                instructions.setVisible(false);
+                this.dispose();
+                level.setVisible(true);
+            }else{
+                this.dispose();
+                instructions.setVisible(true);
+            }
+            
             }else{
             JOptionPane.showMessageDialog(this, "Su identificación ya ha sido usada, por favor digite otra");
             } 
