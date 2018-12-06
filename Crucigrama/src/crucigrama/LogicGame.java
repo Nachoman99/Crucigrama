@@ -49,7 +49,7 @@ public class LogicGame {
         
     }
     
-    public void addCrosswordEmpty(String word, int filaInicial, int columnaInicial, char verticalHorizontal, Crossword crossword){
+    public void addCrosswordEmpty(int index,String word, int filaInicial, int columnaInicial, char verticalHorizontal, Crossword crossword){
         int contador = 0;
         if(verticalHorizontal == 'H'){
             for (int i = columnaInicial; i < crossword.columnLength(); i++) {
@@ -68,6 +68,12 @@ public class LogicGame {
                 }
             }
         }
+        
+        String newIndex = Integer.toString(index);
+        char newIndex2 = newIndex.charAt(0);
+        Letter letterEmpty = new  Letter(newIndex2);
+        crossword.setLetterPosition(filaInicial, columnaInicial, letterEmpty);
+        
         
     }
     
