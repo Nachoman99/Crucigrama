@@ -4,5 +4,4 @@
 0-2/2/V/AÑO/Doce meses
 5-0/3/H/RIO/Torrente constante de agua
 4-2/4/V/POBRE/Que no tiene lo necesario para vivir desahogadamente. Sin recursos
-1-1/5/V/ABRIGO/Prenda, tela que sirve para proteger el cuerpo del frío o evitar que se enfríe.
-8-0/6/V/MESA/Mueble compuesto de un tablero horizontal liso y sostenido a la altura conveniente, generalmente por una o varias patas
+4-2/4/V/POBRE/Que no tiene lo necesario para vivir desahogadamente. Sin recursos

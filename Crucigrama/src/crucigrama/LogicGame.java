@@ -26,6 +26,52 @@ public class LogicGame {
         }
         return palabra;
     }
+    
+    public void addCrossword(String word, int filaInicial, int columnaInicial, char verticalHorizontal, Crossword crossword){
+        int contador = 0;
+        if(verticalHorizontal == 'H'){
+            for (int i = columnaInicial; i < crossword.columnLength(); i++) {
+                if(contador != word.length()){
+                    Letter newLetter = new  Letter(word.charAt(contador));
+                    crossword.setLetterPosition(filaInicial, i, newLetter);
+                    contador += 1;
+                }
+            }
+        }else if(verticalHorizontal == 'V'){
+            for (int i = filaInicial; i < crossword.rowlength(); i++) {
+                if(contador != word.length()){
+                    Letter newLetter = new  Letter(word.charAt(contador));
+                    crossword.setLetterPosition(i, columnaInicial, newLetter);
+                    contador += 1;
+                }
+            }
+        }
+        
+    }
+    
+    public void addCrosswordEmpty(String word, int filaInicial, int columnaInicial, char verticalHorizontal, Crossword crossword){
+        int contador = 0;
+        if(verticalHorizontal == 'H'){
+            for (int i = columnaInicial; i < crossword.columnLength(); i++) {
+                if(contador != word.length()){
+                    Letter letterEmpty = new  Letter(' ');
+                    crossword.setLetterPosition(filaInicial, i, letterEmpty);
+                    contador += 1;
+                }
+            }
+        }else if(verticalHorizontal == 'V'){
+            for (int i = filaInicial; i < crossword.rowlength(); i++) {
+                if(contador != word.length()){
+                    Letter letterEmpty = new  Letter(' ');
+                    crossword.setLetterPosition(i, columnaInicial, letterEmpty);
+                    contador += 1;
+                }
+            }
+        }
+        
+    }
+    
+    
     /**
      * public String extraction(int filaInicial,int columnaInicial, char verticalHorizontal)
      * This method extracts a word from the crossword

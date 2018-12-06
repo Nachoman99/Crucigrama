@@ -37,7 +37,7 @@ public class GameWindow extends javax.swing.JDialog {
         int[] rowColumn = new int[1];
     
         try {
-            reader.open("Crosswords/LevelMedium/2.txt");
+            reader.open("Crosswords/LevelEasy/1.txt");
             rowColumn = reader.readRowColumn();
             reader.close();
             System.out.println("Lectura exitosa");
@@ -52,7 +52,7 @@ public class GameWindow extends javax.swing.JDialog {
         ReaderManagerText reader2 = new ReaderManagerText(); 
         
          try {
-            reader2.open("Crosswords/LevelMedium/2.txt");
+            reader2.open("Crosswords/LevelEasy/1.txt");
             reader2.readAll();
             System.out.println(Game.WORD_LIST_MANAGER.getWordList());
             reader2.close(); //importante cerrar el archivo
@@ -77,6 +77,11 @@ public class GameWindow extends javax.swing.JDialog {
         System.out.println(Game.WORD_LIST_MANAGER.getEspecificWord(2));
         System.out.println(Game.WORD_LIST_MANAGER.getEspecificWord(3));
         System.out.println(Game.WORD_LIST_MANAGER.getEspecificWord(4));
+        
+        for (int i = 0; i < Game.WORD_LIST_MANAGER.getCounter()-1; i++) {
+             logic.addCrosswordEmpty(Game.WORD_LIST_MANAGER.getWord(i), Game.WORD_LIST_MANAGER.getInitRow(i), Game.WORD_LIST_MANAGER.getInitColumn(i), Game.WORD_LIST_MANAGER.getVerticalHorizontal(i), crossword1);
+        }    
+        
         initPanel(rowColumn ,crossword1);
     }
  
@@ -216,6 +221,7 @@ public class GameWindow extends javax.swing.JDialog {
                 if(txt.equals(" ")){
                     txField.setText(null);
                 }
+                
                 txField.addKeyListener(new java.awt.event.KeyListener() {
                     @Override
                     public void keyTyped(java.awt.event.KeyEvent e) {
