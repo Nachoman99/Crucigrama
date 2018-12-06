@@ -17,12 +17,14 @@ import users.UserList;
 public class Game {
     public static UserList listManager = new UserList();
     public static WordList WORD_LIST_MANAGER = new WordList();
+    
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         // TODO code application logic here
         Welcome welcome = new Welcome();
+        
         System.out.println("Hola" + "\r");
         welcome.setVisible(true);
         Letter A = new Letter('A');

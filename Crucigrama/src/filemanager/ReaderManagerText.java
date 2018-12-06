@@ -97,7 +97,6 @@ public class ReaderManagerText {
                         System.out.println("lengt= "+datos2[1]);
                         word.setInitRow(Integer.parseInt(datos2[0]));
                         word.setInitColumn(Integer.parseInt(Character.toString(datos2[1].charAt(0))));
-
             } 
         }
         

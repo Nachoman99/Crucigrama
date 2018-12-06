@@ -180,9 +180,9 @@ public class Level extends javax.swing.JDialog {
      * @param evt the event that makes the button
      */
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        Instructions instructions = new Instructions(this, true);
+       /* Instructions instructions = new Instructions(this, true);
         this.dispose();
-        instructions.setVisible(true);
+        instructions.setVisible(true);*/
     }//GEN-LAST:event_btnBackActionPerformed
 
     /**

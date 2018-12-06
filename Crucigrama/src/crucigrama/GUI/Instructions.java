@@ -167,10 +167,10 @@ public class Instructions extends javax.swing.JDialog {
      * @param evt the event that makes the button
      */
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        Welcome welcome = new Welcome();
+        /*Welcome welcome = new Welcome();
         Login enter = new Login(welcome, true);
         this.dispose();
-        enter.setVisible(true);
+        enter.setVisible(true);*/
     }//GEN-LAST:event_btnBackActionPerformed
 
     public void userSelected(int index){

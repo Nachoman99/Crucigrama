@@ -1,12 +1,12 @@
-13-13
-0-7/1/V/BOTELLA/Recipiente para l√≠quidos, generalmente de vidrio o de pl√°stico, alto, cil√≠ndrico y con el cuello largo y estrecho.
-1-2/2/H/RABANO/Ra√≠z de esta planta, comestible, carnosa, redondeada o fusiforme, de color blanco o rojo y sabor picante.
-1-9/3/V/PERSONA/Individuo de la especie humana.
-3-5/4/H/PIEDRA/Materia mineral dura y de estructura compacta que constituye las rocas.
-4-4/5/V/BANDERA/Pieza de tela rectangular generalmente con franjas de color, escudos o figuras simb√≥licas que se emplea como insignia de un pa√≠s.
-5-3/6/CABALLO/Mam√≠fero √©quido, macho, de tama√±o mediano o grande, pelo corto de color generalmente uniforme y orejas cortas; Familia del burro.
-5-11/7/PIE/Parte del cuerpo humano que va desde el tobillo hasta la punta de los dedos.
-7-9/8/ABEJA/Produce la cera y la miel.
-8-0/9/BILLETE/Papel impreso o grabado, generalmente emitido por el banco central de un pa√≠s, al que se le asigna un valor pecuniario determinado.
-10-1/9/ROPA/Pieza de tela confeccionada que viste a una persona.
-10-3/11/PILA/Conjunto de cosas dispuestas unas sobre otras a modo de pilar o columna.
+13-12
+0-12/1/V/ABEJA/Produce la cera y la miel.
+1-10/2/V/PERSONA/Individuo de la especie humana.
+2-6/3/H/BILLETE/Papel impreso o grabado, generalmente emitido por el banco central de un paÌs, al que se le asigna un valor pecuniario determinado.
+5-4/4/H/CABALLO/MamÌfero Èquido, macho, de tamaÒo mediano o grande, pelo corto de color generalmente uniforme y orejas cortas, familia del burro.
+6-1/5/H/PIE/Parte del cuerpo humano que va desde el tobillo hasta la punta de los dedos.
+6-1/5/V/PILA/Conjunto de cosas dispuestas unas sobre otras a modo de pilar o columna.
+7-4/6/H/BOTELLA/Recipiente para lÌquidos, generalmente de vidrio o de pl·stico, alto, cilÌndrico y con el cuello largo y estrecho.
+7-4/6/V/BANDERA/Pieza de tela rectangular generalmente con franjas de color, escudos o figuras simbÛlicas que se emplea como insignia de un paÌs.
+9-0/7/H/RABANO/RaÌz de esta planta, comestible, carnosa, redondeada o fusiforme, de color blanco o rojo y sabor picante.
+11-2/8/H/PIEDRA/Materia mineral dura y de estructura compacta que constituye las rocas.
+13-1/9/H/ROPA/Pieza de tela confeccionada que viste a una persona.
