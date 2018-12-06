@@ -21,7 +21,8 @@ import users.User;
  * @author Kevin Trejos/Jose Ignacio Zamora/Edwin Molina
  */
 public class Instructions extends javax.swing.JDialog {
-   
+   private int positionUser;
+    
     /**
     * Creates new form Instructions
     */
@@ -133,6 +134,7 @@ public class Instructions extends javax.swing.JDialog {
         user.getUserCode();
         try {
             writer.open("Users/userFile.ser");  //probar el parametro apend en new FileWriter(fileName, true)
+            Game.listManager.setInstructios(positionUser, true);
             writer.write();
             writer.close(); //importante cerrar el archivo 
             System.out.println("Escritura exitosa");
@@ -140,7 +142,8 @@ public class Instructions extends javax.swing.JDialog {
             System.err.println("error de archivo");
             System.err.println(ex.getMessage());
         }
-
+        
+        
         //No volver a mostrar la ventana
 
         //Mostrar la ventana
@@ -170,6 +173,11 @@ public class Instructions extends javax.swing.JDialog {
         enter.setVisible(true);
     }//GEN-LAST:event_btnBackActionPerformed
 
+    public void userSelected(int index){
+        positionUser = index;
+        
+    }
+    
     /**
      * Pressing the X returns to the main window
      */

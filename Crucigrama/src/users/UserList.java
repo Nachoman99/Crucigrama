@@ -31,7 +31,23 @@ public class UserList implements Serializable{
     public void setUserList(User[] userList) {
         this.userList = userList;
     }
+    
+    public int getUserCode(int selected) {
+        return userList[selected].getUserCode();
+    }
 
+    public void setInstructios(int selected, boolean instructios){
+        userList[selected].setInstructions(instructios);
+    }
+    
+    public boolean getInstructions(int seleted){
+        return userList[seleted].isInstructions();
+    }
+    
+    public User getUser(int index){
+        return userList[index];
+    }
+    
     public int getCounter() {
         return counter;
     }

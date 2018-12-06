@@ -21,7 +21,7 @@ import javax.swing.JOptionPane;
  * @author Kevin Trejos/Jose Ignacio Zamora/Edwin Molina
  */
 public class Login extends javax.swing.JDialog {
-
+    boolean result;
 
     /**
      * 
@@ -173,6 +173,8 @@ public class Login extends javax.swing.JDialog {
             if (tfID.getText().equals(Game.listManager.getID(i))) {
                 if (pass.equals(Game.listManager.getPassword(i))) {
                     repeated += 1;
+                    instructions.userSelected(Game.listManager.getUserCode(i));
+                    result = Game.listManager.getInstructions(i);
                 }else{
                     repeated += 0;
                 }
@@ -181,14 +183,25 @@ public class Login extends javax.swing.JDialog {
             }
         }
         if (repeated != 0) {
-            this.dispose();
+            if(result == true){
+                instructions.setVisible(false);
+                Level level = new Level(this, true);
+                this.dispose();
+                level.setVisible(true);
+            }else{
+                this.dispose();
             instructions.setVisible(true);
+            }
         }else{
             instructions.setVisible(false);
             JOptionPane.showMessageDialog(this, "Su identificación o contraseña no son correctas");
         } 
     }//GEN-LAST:event_btnEnterActionPerformed
 
+    public String userName(){
+        return tfID.getText();
+    }
+    
     /**
      * Return to the previous window
      * @param evt the event that makes the button
