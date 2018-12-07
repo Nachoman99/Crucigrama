@@ -61,6 +61,7 @@ public class ReaderManagerText {
                 String line = reader.readLine(); //retorna null cuando no hay más registros
                 String datos[];
                 String datos2[];
+                String datos4[];
                 System.out.println("me cago3= "+line);
                 if (line != null) {
                     System.out.println("me cago= "+line);
@@ -76,11 +77,16 @@ public class ReaderManagerText {
                     datos2 = line.split("-");
                     System.out.println("lengt= "+datos2[1]);
                     word.setInitRow(Integer.parseInt(datos2[0]));
-                    word.setInitColumn(Integer.parseInt(Character.toString(datos2[1].charAt(0))));
+                    
+                    String datos3;
+                    datos3 = datos[0];
+                    datos4 = datos3.split("-");
+                    word.setInitColumn(Integer.parseInt(datos4[1]));
                 }
             }else{
                 String datos[];
                     String datos2[];
+                     String datos4[];
                     System.out.println("me cago3= "+caso);
 
                         System.out.println("me cago= "+caso);
@@ -96,7 +102,12 @@ public class ReaderManagerText {
                         datos2 = caso.split("-");
                         System.out.println("lengt= "+datos2[1]);
                         word.setInitRow(Integer.parseInt(datos2[0]));
-                        word.setInitColumn(Integer.parseInt(Character.toString(datos2[1].charAt(0))));
+                        
+                        String datos3;
+                        datos3 = datos[0];
+                        datos4 = datos3.split("-");
+                        word.setInitColumn(Integer.parseInt(datos4[1]));
+                      
             } 
         }
         
