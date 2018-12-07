@@ -1,8 +1,8 @@
 11-10
 0-4/1/V/ESPEJO/Superficie donde se reflejan los objetos
-1-4/2/H/SILLON/Asiento individual con brazos y respaldo que suele ser mullido, bastante grande y generalmente cÃ³modo
+1-4/2/H/SILLON/Asiento individual con brazos y respaldo que suele ser mullido, bastante grande y generalmente cómodo
 4-6/3/V/LIBRO/Una obra impresa, manuscrita o pintada en una serie de hojas de papel
 5-3/4/H/COBIJA/Cobertor de tela largo y rectangular, utilizado en la cama, en particular el empleado para abrigar
 5-3/4/V/CAMA/Mueble que se utiliza para dormir
-5-8/5/V/ABRIGO/Prenda, tela que sirve para proteger el cuerpo del frÃ­o o evitar que se enfrÃ­e
-8-0/6/V/MESA/Mueble compuesto de un tablero horizontal liso y sostenido a la altura conveniente, generalmente por una o varias patas
+5-8/5/V/ABRIGO/Prenda, tela que sirve para proteger el cuerpo del frío o evitar que se enfríe
+8-0/6/H/MESA/Mueble compuesto de un tablero horizontal liso y sostenido a la altura conveniente, generalmente por una o varias patas
