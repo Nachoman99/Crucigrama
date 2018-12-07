@@ -1,16 +1,16 @@
-17-16
-8-8/1/V/ARENA/Fragmentos de roca y minerales de muy pequeño tamano
-9-5/2/V/BRAZO/Extremidad
-0-15/3/V/LILA/Color claro pertenecente a la rama del violeta
-15-0/4/H/PIEL/Sirve de capa protectora que aisla al organismo del medio que lo rodea
-10-5/5/H/ROSTRO/Sinonimo de cara
-3-12/6/H/COPA/Recipiente semejante a un vaso, con un pie, que se usa para beber
-4-11/7/V/RATON/Roedor de pequeño tamaño 
-5-10/8/H/GATO/Felino domestico comun
-13-2/9/H/JABON/Producto de higiene personal
-13-2/9/V/JUEZ/Persona que resuelve una controversia o que decide el destino de un imputado
-9-3/10/V/BRUJA/Mujer que, segun la supersticion popular, tiene poderes magicos
-5-8/11/V/GIGANTE/Humanoides de tamano y fuerza prodigiosos segun la mitologia
-10-10/12/V/ORBE/Redondo, de forma redonda
-2-13/13/V/ROJO/Color primario
-11-2/14/H/YUCA/Arbusto perenne del que se consumen sus raices
+14-14
+5-7/1/H/ARENA/Fragmentos de roca y minerales de muy pequeño tamano
+3-11/2/V/BRAZO/Extremidad
+0-11/3/V/LILA/Color claro pertenecente a la rama del violeta
+1-9/4/H/PIEL/Sirve de capa protectora que aisla al organismo del medio que lo rodea
+5-8/5/V/ROSTRO/Sinonimo de cara
+7-10/6/H/COPA/Recipiente semejante a un vaso, con un pie, que se usa para beber
+10-5/7/H/RATON/Roedor de pequeño tamaño 
+8-3/8/V/GATO/Felino domestico comun
+3-9/9/H/JABON/Producto de higiene personal
+8-1/9/V/JUEZ/Persona que resuelve una controversia o que decide el destino de un imputado
+1-7/10/V/BRUJA/Mujer que, segun la supersticion popular, tiene poderes magicos
+8-3/11/H/GIGANTE/Humanoides de tamano y fuerza prodigiosos segun la mitologia
+13-5/12/H/ORBE/Redondo, de forma redonda
+10-5/13/V/ROJO/Color primario
+9-0/14/H/YUCA/Arbusto perenne del que se consumen sus raices
