@@ -40,7 +40,7 @@ public class MediumLevelWindow extends javax.swing.JDialog {
         int[] rowColumn = new int[1];
     
         try {
-            reader.open("Crosswords/LevelMedium/2.txt");
+            reader.open("Crosswords/LevelMedium/1.txt");
             rowColumn = reader.readRowColumn();
             reader.close();
             System.out.println("Lectura exitosa");
@@ -55,7 +55,7 @@ public class MediumLevelWindow extends javax.swing.JDialog {
         ReaderManagerText reader2 = new ReaderManagerText(); 
         
          try {
-            reader2.open("Crosswords/LevelMedium/2.txt");
+            reader2.open("Crosswords/LevelMedium/1.txt");
             reader2.readAll();
             System.out.println(Game.WORD_LIST_MANAGER.getWordList());
             reader2.close(); //importante cerrar el archivo
@@ -135,8 +135,10 @@ public class MediumLevelWindow extends javax.swing.JDialog {
             .addGap(0, 237, Short.MAX_VALUE)
         );
 
+        tpHorizontal.setEditable(false);
         jScrollPane1.setViewportView(tpHorizontal);
 
+        tpVertical.setEditable(false);
         jScrollPane2.setViewportView(tpVertical);
 
         jLabel1.setText("Horizontales");

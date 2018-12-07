@@ -121,8 +121,10 @@ public class VeryHardLevelWindow extends javax.swing.JDialog {
             .addGap(0, 248, Short.MAX_VALUE)
         );
 
+        tpHorizontal.setEditable(false);
         jScrollPane1.setViewportView(tpHorizontal);
 
+        tpVertical.setEditable(false);
         jScrollPane2.setViewportView(tpVertical);
 
         jLabel1.setText("Horizontales");

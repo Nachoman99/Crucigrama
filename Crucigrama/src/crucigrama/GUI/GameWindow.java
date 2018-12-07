@@ -281,6 +281,7 @@ public class GameWindow extends javax.swing.JDialog {
                     @Override
                     public void keyTyped(java.awt.event.KeyEvent e) {
                         int limite = 1;
+                        
                         if(txField.getText().length() == limite){
                             e.consume();
                         }
