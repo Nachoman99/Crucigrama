@@ -92,7 +92,10 @@ public class GameWindow extends javax.swing.JDialog {
         }    
         
         initPanel(rowColumn ,crossword1, crossword2);
+        showTracks();
     }
+    
+    
  
     /**
      * This method is called from within the constructor to initialize the form.
@@ -108,6 +111,10 @@ public class GameWindow extends javax.swing.JDialog {
         jpCrossword = new javax.swing.JPanel();
         btnVerify = new javax.swing.JButton();
         pnCrossword = new javax.swing.JPanel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        tpHorizontal = new javax.swing.JTextPane();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        tpVertical = new javax.swing.JTextPane();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -144,29 +151,42 @@ public class GameWindow extends javax.swing.JDialog {
             .addGap(0, 275, Short.MAX_VALUE)
         );
 
+        jScrollPane4.setViewportView(tpHorizontal);
+
+        jScrollPane5.setViewportView(tpVertical);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(pnCrossword, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(41, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGap(0, 172, Short.MAX_VALUE)
                         .addComponent(jpCrossword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGap(144, 144, 144)
                         .addComponent(btnVerify)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane5)))
                 .addContainerGap())
-            .addComponent(pnCrossword, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(pnCrossword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 312, Short.MAX_VALUE)
+                    .addComponent(jScrollPane5))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jpCrossword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(169, 169, 169)
+                .addGap(175, 175, 175)
                 .addComponent(btnVerify)
                 .addGap(38, 38, 38))
         );
@@ -188,6 +208,8 @@ public class GameWindow extends javax.swing.JDialog {
         }else{//acciones si el mae no contesta bien
             
         }
+        
+        
         //En   el   caso   de   faltar   alguna   letra   por   ingresar   no   se
         //realizará la revisión y se le indicará con el mensaje correspondiente al usuario.
         //Hacer un método para verificar que ningún espacio es null
@@ -217,6 +239,30 @@ public class GameWindow extends javax.swing.JDialog {
         }
         
     }        
+    
+    private void showTracks(){
+        String clueH = "";
+        String clueV = "";
+        int index = 0;
+        String indexString = "";
+        char verticalHorizontal;
+        for (int i = 0; i < Game.WORD_LIST_MANAGER.getCounter(); i++) {
+            verticalHorizontal = Game.WORD_LIST_MANAGER.getVerticalHorizontal(i);
+            String verticalHorizontal2 = Character.toString(verticalHorizontal);
+
+            if (verticalHorizontal2.equals("H")) {
+                index = Game.WORD_LIST_MANAGER.getIndex(i);
+                indexString = Integer.toString(index);
+                clueH += indexString +". " + Game.WORD_LIST_MANAGER.getClue(i) + "\n";
+                tpHorizontal.setText(clueH +"\n");
+            }else if (verticalHorizontal2.equals("V")) {
+                index = Game.WORD_LIST_MANAGER.getIndex(i);
+                indexString = Integer.toString(index);
+                clueV += indexString + ". " + Game.WORD_LIST_MANAGER.getClue(i) + "\n";
+                tpVertical.setText(clueV+"\n");
+            }
+        }
+    }
    
     private void initPanel(int[] rowColumn, Crossword crossword, Crossword respuestas){
         int rows = rowColumn[0];
@@ -290,8 +336,12 @@ public class GameWindow extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnVerify;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JPanel jpCrossword;
     private javax.swing.JPanel pnCrossword;
+    private javax.swing.JTextPane tpHorizontal;
+    private javax.swing.JTextPane tpVertical;
     // End of variables declaration//GEN-END:variables
 }

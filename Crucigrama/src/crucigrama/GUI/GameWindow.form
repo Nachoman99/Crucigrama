@@ -127,7 +127,7 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JTextPane" name="tpH">
+        <Component class="javax.swing.JTextPane" name="tpHorizontal">
         </Component>
       </SubComponents>
     </Container>
@@ -138,7 +138,7 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JTextPane" name="tpV">
+        <Component class="javax.swing.JTextPane" name="tpVertical">
         </Component>
       </SubComponents>
     </Container>
