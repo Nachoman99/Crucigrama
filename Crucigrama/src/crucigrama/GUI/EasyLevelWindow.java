@@ -6,12 +6,16 @@
 package crucigrama.GUI;
 
 import crucigrama.Crossword;
+import crucigrama.Game;
+import crucigrama.LogicGame;
 import filemanager.ReaderManagerText;
 import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -32,6 +36,45 @@ public class EasyLevelWindow extends javax.swing.JDialog {
         initComponents();
         setLocationRelativeTo(parent);
        // initPanel();
+       ReaderManagerText reader = new ReaderManagerText(); 
+        int[] rowColumn = new int[1];
+    
+        try {
+            reader.open("Crosswords/LevelEasy/1.txt");
+            rowColumn = reader.readRowColumn();
+            reader.close();
+            System.out.println("Lectura exitosa");
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(GameWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            System.err.println("error de archivo");
+            System.err.println(ex.getMessage());
+            Logger.getLogger(GameWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        
+        ReaderManagerText reader2 = new ReaderManagerText(); 
+        
+         try {
+            reader2.open("Crosswords/LevelEasy/1.txt");
+            reader2.readAll();
+            System.out.println(Game.WORD_LIST_MANAGER.getWordList());
+            reader2.close(); //importante cerrar el archivo
+            System.out.println("Lectura exitosa");
+        } catch (IOException ex) {
+            System.err.println("error de archivo");
+            System.err.println(ex.getMessage());
+            //ex.printStackTrace();
+        }
+        
+        Crossword crossword1 = new Crossword(rowColumn[0], rowColumn[1]);
+        Crossword crossword2 = new Crossword(rowColumn[0], rowColumn[1]);
+        LogicGame logic = new LogicGame();
+        for (int i = 0; i < Game.WORD_LIST_MANAGER.getCounter(); i++) {
+             logic.addCrosswordEmpty(Game.WORD_LIST_MANAGER.getIndex(i),Game.WORD_LIST_MANAGER.getWord(i), Game.WORD_LIST_MANAGER.getInitRow(i), Game.WORD_LIST_MANAGER.getInitColumn(i), Game.WORD_LIST_MANAGER.getVerticalHorizontal(i), crossword1);
+        }    
+        
+        initPanel(rowColumn ,crossword1, crossword2);
+        showTracks();
        closeX();
     }
 
@@ -48,6 +91,12 @@ public class EasyLevelWindow extends javax.swing.JDialog {
         btnVerify = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
         pnCrossword = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tpHorizontal = new javax.swing.JTextPane();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tpVertical = new javax.swing.JTextPane();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -78,6 +127,14 @@ public class EasyLevelWindow extends javax.swing.JDialog {
             .addGap(0, 237, Short.MAX_VALUE)
         );
 
+        jScrollPane1.setViewportView(tpHorizontal);
+
+        jScrollPane2.setViewportView(tpVertical);
+
+        jLabel1.setText("Horizontales");
+
+        jLabel2.setText("Verticales");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -86,27 +143,45 @@ public class EasyLevelWindow extends javax.swing.JDialog {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
                         .addComponent(pnCrossword, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnBack)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
+                        .addGap(62, 62, 62)
                         .addComponent(btnVerify)
-                        .addGap(79, 79, 79)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
                         .addComponent(jButton1)
-                        .addGap(18, 18, 18))))
+                        .addGap(26, 26, 26))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel2)
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(pnCrossword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2))
+                .addGap(4, 4, 4)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnBack)
                     .addComponent(btnVerify)
-                    .addComponent(btnBack))
-                .addGap(0, 11, Short.MAX_VALUE))
+                    .addComponent(jButton1))
+                .addContainerGap())
         );
 
         pack();
@@ -126,6 +201,99 @@ public class EasyLevelWindow extends javax.swing.JDialog {
             level.setVisible(true);
         }
     }//GEN-LAST:event_btnBackActionPerformed
+
+    private void showTracks(){
+        String clueH = "";
+        String clueV = "";
+        int index = 0;
+        String indexString = "";
+        char verticalHorizontal;
+        for (int i = 0; i < Game.WORD_LIST_MANAGER.getCounter(); i++) {
+            verticalHorizontal = Game.WORD_LIST_MANAGER.getVerticalHorizontal(i);
+            String verticalHorizontal2 = Character.toString(verticalHorizontal);
+
+            if (verticalHorizontal2.equals("H")) {
+                index = Game.WORD_LIST_MANAGER.getIndex(i);
+                indexString = Integer.toString(index);
+                clueH += indexString +". " + Game.WORD_LIST_MANAGER.getClue(i) + "\n";
+                tpHorizontal.setText(clueH +"\n");
+            }else if (verticalHorizontal2.equals("V")) {
+                index = Game.WORD_LIST_MANAGER.getIndex(i);
+                indexString = Integer.toString(index);
+                clueV += indexString + ". " + Game.WORD_LIST_MANAGER.getClue(i) + "\n";
+                tpVertical.setText(clueV+"\n");
+            }
+        }
+    }
+    
+    private void initPanel(int[] rowColumn, Crossword crossword, Crossword respuestas){
+        int rows = rowColumn[0];
+        int columns = rowColumn[1];
+        GridLayout grid = new GridLayout(rows, columns);
+        pnCrossword.setLayout(grid);
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                String txt = crossword.getLetters(i, j).toString();
+                JTextField txField = new JTextField(txt, 1);
+                if(txt.equals(" ")){
+                    txField.setText(null);
+                }
+                
+                txField.addKeyListener(new java.awt.event.KeyListener() {
+                    @Override
+                    public void keyTyped(java.awt.event.KeyEvent e) {
+                        int limite = 1;
+                        if(txField.getText().length() == limite){
+                            e.consume();
+                        }
+                        char car = e.getKeyChar();
+                        if(Character.isLetter(car)){
+                        
+                        }else{
+                           e.consume();
+                        }
+                    }
+                    @Override
+                    public void keyPressed(java.awt.event.KeyEvent arg2) {
+                    }
+
+                    @Override
+                    public void keyReleased(java.awt.event.KeyEvent arg1) {
+                    }
+                });
+                if(txt.equals("0")){
+                    txField.setBackground(Color.BLACK);
+                    txField.setEnabled(false);
+                    txField.setText("");
+                }
+              
+                pnCrossword.add(txField);
+                
+//                for (int k = 0; k < rows; k++) {
+//                     for (int p = 0; p < columns; p++) {
+//                         char letra; 
+//                         letra = (txField.getText()).charAt(0);
+//                         Letter newLetra = new Letter(letra);
+//                        respuestas.setLetterPosition(k, p, newLetra);
+//                        
+//                    }
+//                }
+//                   
+                /*
+                txField.addActionListener(new AbstractAction() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        respuestasUsuario[contador]= txField.getText();
+                        System.out.println("posicion especifica= "+respuestasUsuario[contador]);
+                    }
+                });
+                contador +=1;
+                */
+            }
+            
+        }
+        System.out.println(respuestas.print());
+    }
 
     /**
      * check if the user won
@@ -220,6 +388,12 @@ public class EasyLevelWindow extends javax.swing.JDialog {
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnVerify;
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JPanel pnCrossword;
+    private javax.swing.JTextPane tpHorizontal;
+    private javax.swing.JTextPane tpVertical;
     // End of variables declaration//GEN-END:variables
 }
