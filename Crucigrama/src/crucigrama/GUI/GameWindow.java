@@ -10,12 +10,16 @@ import crucigrama.Game;
 import crucigrama.Letter;
 import crucigrama.LogicGame;
 import filemanager.ReaderManagerText;
+import java.awt.AWTEventMulticaster;
 import java.awt.Color;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.logging.Logger;
+import javax.swing.AbstractAction;
 import javax.swing.JTextField;
 import javax.swing.JOptionPane;
 import javax.swing.tree.DefaultTreeCellEditor;
@@ -24,6 +28,10 @@ import javax.swing.tree.DefaultTreeCellEditor;
  * @author Kevin Trejos
  */
 public class GameWindow extends javax.swing.JDialog {
+    private String[] respuestasUsuario =new String[Game.WORD_LIST_MANAGER.getCounter()];
+    private int contador =0;
+    
+    private JTextField txField;
     
     /**
      * Creates new form Cuadricula
@@ -64,6 +72,7 @@ public class GameWindow extends javax.swing.JDialog {
         }
         
         Crossword crossword1 = new Crossword(rowColumn[0], rowColumn[1]);
+        Crossword crossword2 = new Crossword(rowColumn[0], rowColumn[1]);
         LogicGame logic = new LogicGame();
         //logic.extraction(Game.WORD_LIST_MANAGER.getInitColumn(0),Game.WORD_LIST_MANAGER.getInitColumn(0) , Game.WORD_LIST_MANAGER.getVerticalHorizontal(0), crossword1);
         System.out.println(Game.WORD_LIST_MANAGER.getWord(0));
@@ -78,11 +87,11 @@ public class GameWindow extends javax.swing.JDialog {
         System.out.println(Game.WORD_LIST_MANAGER.getEspecificWord(3));
         System.out.println(Game.WORD_LIST_MANAGER.getEspecificWord(4));
         
-        for (int i = 0; i < Game.WORD_LIST_MANAGER.getCounter()-1; i++) {
+        for (int i = 0; i < Game.WORD_LIST_MANAGER.getCounter(); i++) {
              logic.addCrosswordEmpty(Game.WORD_LIST_MANAGER.getIndex(i),Game.WORD_LIST_MANAGER.getWord(i), Game.WORD_LIST_MANAGER.getInitRow(i), Game.WORD_LIST_MANAGER.getInitColumn(i), Game.WORD_LIST_MANAGER.getVerticalHorizontal(i), crossword1);
         }    
         
-        initPanel(rowColumn ,crossword1);
+        initPanel(rowColumn ,crossword1, crossword2);
     }
  
     /**
@@ -209,7 +218,7 @@ public class GameWindow extends javax.swing.JDialog {
         
     }        
    
-    private void initPanel(int[] rowColumn, Crossword crossword){
+    private void initPanel(int[] rowColumn, Crossword crossword, Crossword respuestas){
         int rows = rowColumn[0];
         int columns = rowColumn[1];
         GridLayout grid = new GridLayout(rows, columns);
@@ -249,10 +258,33 @@ public class GameWindow extends javax.swing.JDialog {
                     txField.setEnabled(false);
                     txField.setText("");
                 }
+              
                 pnCrossword.add(txField);
+                
+//                for (int k = 0; k < rows; k++) {
+//                     for (int p = 0; p < columns; p++) {
+//                         char letra; 
+//                         letra = (txField.getText()).charAt(0);
+//                         Letter newLetra = new Letter(letra);
+//                        respuestas.setLetterPosition(k, p, newLetra);
+//                        
+//                    }
+//                }
+//                   
+                /*
+                txField.addActionListener(new AbstractAction() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        respuestasUsuario[contador]= txField.getText();
+                        System.out.println("posicion especifica= "+respuestasUsuario[contador]);
+                    }
+                });
+                contador +=1;
+                */
             }
+            
         }
-       
+        System.out.println(respuestas.print());
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
