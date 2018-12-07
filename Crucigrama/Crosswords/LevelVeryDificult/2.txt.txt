@@ -1,0 +1,21 @@
+20-22
+2-17/1/H/AVION/Método de transporte aéreo
+1-5/2/V/TERRAZA/Balcón
+9-13/3/H/LADRILLO/Material de construcción
+4-1/4/H/PILAR/Soporte para las estruccturas
+2-0/5/H/SANGRE/Tejido conectivo liquído
+8-20/6/V/TORNADO/Columna de aire
+13-8/7/H/SOMBRILLA/Para taparse de la lluvia
+7-1/8/H/VENTANA/Separa el exterior del interior de una vivienda
+0-8/9/V/ALGODON/Fibra textil mas importante del mundo 
+11-4/10/H/METAFORA/Tropo que presenta como identicos dos terminos distintos
+13-0/11/V/CRUCIGRAMA/Pasatiempo escrito que consiste en colocar palabras en orden vertical y horizontal que se entrelazan entre si
+5-5/12/H/ANTORCHA/Fuente de portátil de fuego
+11-16/13/V/ALABARDA/Arma que posee caracteristicas de hacha y de lanza
+6-15/14/H/BASTON/Vara hecha de madera que se lleva en la mano
+16-6/15/H/LAPICERO/Herramienta para escribir con tinta
+0-7/16/H/BANDERA/Pieza de tela rectangular que cuelga de un asta
+6-18/17/V/TELADO/Conjunto de teclas de un instrumento o aparato
+1-19/18/V/DIURNO/Activo de día
+8-13/19/V/ALGORITMO/Conjunto preescrito de instrucciones en la matemática
+15-9/20/V/TIGRE/Felino de gran tamaño
