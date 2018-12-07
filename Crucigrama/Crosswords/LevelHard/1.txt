@@ -1,16 +1,16 @@
 17-16
-8-8/1/V/ARENA/Fragmentos de roca y minerales de muy pequeño tamaño
+8-8/1/V/ARENA/Fragmentos de roca y minerales de muy pequeño tamano
 9-5/2/V/BRAZO/Extremidad
 0-15/3/V/LILA/Color claro pertenecente a la rama del violeta
 15-0/4/H/PIEL/Sirve de capa protectora que aisla al organismo del medio que lo rodea
-10-5/5/H/ROSTRO/Sinónimo de cara
+10-5/5/H/ROSTRO/Sinonimo de cara
 3-12/6/H/COPA/Recipiente semejante a un vaso, con un pie, que se usa para beber
 4-11/7/V/RATON/Roedor de pequeño tamaño 
-5-10/8/H/GATO/Felino domestico común
+5-10/8/H/GATO/Felino domestico comun
 13-2/9/H/JABON/Producto de higiene personal
 13-2/9/V/JUEZ/Persona que resuelve una controversia o que decide el destino de un imputado
-9-3/10/V/BRUJA/Mujer que, según la superstición popular, tiene poderes mágicos
-5-8/11/V/GIGANTE/Humanoides de tamaño y fuerza prodigiosos según la mitologia
+9-3/10/V/BRUJA/Mujer que, segun la supersticion popular, tiene poderes magicos
+5-8/11/V/GIGANTE/Humanoides de tamano y fuerza prodigiosos segun la mitologia
 10-10/12/V/ORBE/Redondo, de forma redonda
 2-13/13/V/ROJO/Color primario
 11-2/14/H/YUCA/Arbusto perenne del que se consumen sus raices

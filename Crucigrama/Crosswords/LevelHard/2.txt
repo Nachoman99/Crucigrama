@@ -4,14 +4,13 @@
 4-5/3/V/TRONO/Asiento destinado al rey
 7-3/4/V/MASCARA/Pieza normalmente adornada que oculta total o parcialmente la cara
 8-1/5/H/DRAGON/Criatura mitologica con forma de reptil con alas
-10-2/6/H/ACEITE/Líquido no soluble con el agua
-12-0/7/H/VIDRIO/Material frágil transparente
+10-2/6/H/ACEITE/Liquido no soluble con el agua
+12-0/7/H/VIDRIO/Material fragil transparente
 9-7/8/V/DEDOS/Extremidades de las manos o los pies
 12-5/9/V/ODIO/Sentimiento de rencor
 13-7/10/H/SUMA/Operación básica de la aritmética de los números
 13-8/11/V/URNA/Recipiente temporalmente sellado, generalmente en forma de paralelepípedo, aunque a veces es tan solo una bolsa resistente.
-10-7/12/H/PAPA/Tubérculo
+10-7/12/H/PAPA/Tuberculo
 11-9/13/H/LOBO/Carnivoro similar al perro
-10-10/14/V/HOJA/Órgano vegetativo y generalmente aplanado de las plantas
+10-10/14/V/HOJA/Organo vegetativo y generalmente aplanado de las plantas
 8-12/15/V/ARCO/Sistema de armas de proyectil de gran antiguedad
-

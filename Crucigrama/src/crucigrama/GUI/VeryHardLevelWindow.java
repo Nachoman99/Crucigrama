@@ -40,7 +40,7 @@ public class VeryHardLevelWindow extends javax.swing.JDialog {
         int[] rowColumn = new int[1];
     
         try {
-            reader.open("Crosswords/LevelVeryHard/1.txt");
+            reader.open("Crosswords/LevelVeryHard/2.txt");
             rowColumn = reader.readRowColumn();
             reader.close();
             System.out.println("Lectura exitosa");
@@ -55,7 +55,7 @@ public class VeryHardLevelWindow extends javax.swing.JDialog {
         ReaderManagerText reader2 = new ReaderManagerText(); 
         
          try {
-            reader2.open("Crosswords/LevelVeryHard/1.txt");
+            reader2.open("Crosswords/LevelVeryHard/2.txt");
             reader2.readAll();
             System.out.println(Game.WORD_LIST_MANAGER.getWordList());
             reader2.close(); //importante cerrar el archivo

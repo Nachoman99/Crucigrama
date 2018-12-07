@@ -1,14 +1,14 @@
 18-23
 0-16/1/H/EXEPCION/Que no se incluye
-8-7/2/H/XENOFOBIA/Rechazo a los extrangeros
-12-9/3/V/CARRETERA/Ruta de transporte público
+8-7/2/H/XENOFOBIA/Rechazo a los extranjeros
+12-9/3/V/CARRETERA/Ruta de transporte publico
 11-9/4/V/ANILLO/Adorno para la mano
 14-8/5/V/LLANTO/Accion de llorar
 12-1/6/H/LAMENTO/Manifestacion de dolor fisico o moral
 4-12/7/H/TIERRA/Tercer planeta del sistema solar
 11-6/8/V/CARNE/Tejido animal comestible
 2-14/9/H/AMARILLO/Color primario
-14-9/10/H/CONSULTA/Preguntar a una persona, visitar al médico
+14-9/10/H/CONSULTA/Preguntar a una persona, visitar al medico
 8-0/11/V/MALDICION/Expresion de deseo maligno hacia otra persona
 8-10/12/H/PLATA/Elemento de la tabla periódica
 18-7/13/V/HERALDO/Oficial de armas de la edad antigua y la edad media
@@ -16,8 +16,6 @@
 9-4/15/V/ESMERALDA/Piedra preciosa de color verde
 12-13/16/H/ESBIRRO/Ayudante, sirviente
 12-15/17/H/ESTRELLA/Astro incandecente
-7-2/18/H/LLAMA/Fenómeno lumínico que ocurre durante la combustión
+7-2/18/H/LLAMA/Fenomeno luminico que ocurre durante la combustion
 0-7/19/H/CARTERA/Objeto utilizado para llevar billetes
-4-5/20/V/TIEMPO/Medida física para medir la separacion de eventos 
-
-
+4-5/20/V/TIEMPO/Medida fisica para medir la separacion de eventos 
