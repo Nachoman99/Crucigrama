@@ -1,11 +1,10 @@
 12-12
 0-8/1/V/LLAVE/Utensilio para abrir y cerrar una cerradura
-1-10/2/V/VENTANA/Abertura practicada a cierta altura del suelo en un muro o pared que sirve para proporcionar iluminaci贸n y ventilaci贸n en e
-2-7/3/H/PARED/Obra de alba帽iler铆a vertical que limita un espacio arquitect贸nico.
-4-1/4/V/CARRO/Veh铆culo de transporte.
+2-7/3/H/PARED/Obra de alba駃ler韆 vertical que limita un espacio arquitect髇ico.
+4-1/4/V/CARRO/Veh韈ulo de transporte.
 4-4/5/V/BANCO/Empresa comercial que realiza operaciones financieras con el dinero procedente de accionistas y clientes.
 4-6/6/V/PUERTA/Abertura que permite acceder al interior de un lugar
 7-4/7/H/CORTINA/Abertura que permite acceder al interior de un lugar.
-8-0/8/H/BOLSO/Recipiente 煤til para transportar un n煤mero reducido de objetos de uso frecuente. 
-9-5/9/H/ZAPATO/Accesorio de la vestimenta hecho con la intenci贸n de proveer protecci贸n y comodidad al pie.
-1-8/10/H/LAVA/Materia en fusi贸n o derretida que expulsa un volc谩n.
+8-0/8/H/BOLSO/Recipiente 鷗il para transportar un n鷐ero reducido de objetos de uso frecuente. 
+9-5/9/H/ZAPATO/Accesorio de la vestimenta hecho con la intenci髇 de proveer protecci髇 y comodidad al pie.
+1-8/10/H/LAVA/Materia en fusi髇 o derretida que expulsa un volc醤.

@@ -1,12 +1,11 @@
-13-12
-0-12/1/V/ABEJA/Produce la cera y la miel.
-1-10/2/V/PERSONA/Individuo de la especie humana.
-2-6/3/H/BILLETE/Papel impreso o grabado, generalmente emitido por el banco central de un país, al que se le asigna un valor pecuniario determinado.
-5-4/4/H/CABALLO/Mamífero équido, macho, de tamaño mediano o grande, pelo corto de color generalmente uniforme y orejas cortas, familia del burro.
-6-1/5/H/PIE/Parte del cuerpo humano que va desde el tobillo hasta la punta de los dedos.
-6-1/5/V/PILA/Conjunto de cosas dispuestas unas sobre otras a modo de pilar o columna.
-7-4/6/H/BOTELLA/Recipiente para líquidos, generalmente de vidrio o de plástico, alto, cilíndrico y con el cuello largo y estrecho.
-7-4/6/V/BANDERA/Pieza de tela rectangular generalmente con franjas de color, escudos o figuras simbólicas que se emplea como insignia de un país.
-9-0/7/H/RABANO/Raíz de esta planta, comestible, carnosa, redondeada o fusiforme, de color blanco o rojo y sabor picante.
-11-2/8/H/PIEDRA/Materia mineral dura y de estructura compacta que constituye las rocas.
-13-1/9/H/ROPA/Pieza de tela confeccionada que viste a una persona.
+13-13
+0-11/1/V/ABEJA/Produce la cera y la miel.
+1-6/2/V/CABALLO/Mamifero equido, macho, de tamaño mediano o grande, pelo corto de color generalmente uniforme y orejas cortas, familia del burro.
+2-0/3/H/BOTELLA/Recipiente para liquidos, generalmente de vidrio o de plastico, alto, cilindrico y con el cuello largo y estrecho.
+4-5/4/H/BANDERA/Pieza de tela rectangular generalmente con franjas de color, escudos o figuras simbólicas que se emplea como insignia de un país.
+4-10/5/V/ROPA/Pieza de tela confeccionada que viste a una persona.
+5-3/6/V/PIEDRA/Materia mineral dura y de estructura compacta que constituye las rocas.
+6-8/7/V/RABANO/Raiz de esta planta, comestible, carnosa, redondeada o fusiforme, de color blanco o rojo y sabor picante.
+7-2/8/H/PERSONA/Individuo de la especie humana.
+9-5/9/V/PIE/Parte del cuerpo humano que va desde el tobillo hasta la punta de los dedos.
+9-5/9/H/PILA/Conjunto de cosas dispuestas unas sobre otras a modo de pilar o columna.

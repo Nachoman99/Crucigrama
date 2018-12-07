@@ -40,7 +40,7 @@ public class MediumLevelWindow extends javax.swing.JDialog {
         int[] rowColumn = new int[1];
     
         try {
-            reader.open("Crosswords/LevelMedium/1.txt");
+            reader.open("Crosswords/LevelMedium/2.txt");
             rowColumn = reader.readRowColumn();
             reader.close();
             System.out.println("Lectura exitosa");
@@ -55,7 +55,7 @@ public class MediumLevelWindow extends javax.swing.JDialog {
         ReaderManagerText reader2 = new ReaderManagerText(); 
         
          try {
-            reader2.open("Crosswords/LevelMedium/1.txt");
+            reader2.open("Crosswords/LevelMedium/2.txt");
             reader2.readAll();
             System.out.println(Game.WORD_LIST_MANAGER.getWordList());
             reader2.close(); //importante cerrar el archivo
@@ -128,7 +128,7 @@ public class MediumLevelWindow extends javax.swing.JDialog {
         pnCrossword.setLayout(pnCrosswordLayout);
         pnCrosswordLayout.setHorizontalGroup(
             pnCrosswordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 380, Short.MAX_VALUE)
         );
         pnCrosswordLayout.setVerticalGroup(
             pnCrosswordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -156,15 +156,15 @@ public class MediumLevelWindow extends javax.swing.JDialog {
                         .addComponent(jScrollPane2))
                     .addComponent(pnCrossword, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel2))
+                    .addGroup(layout.createSequentialGroup()
                         .addComponent(btnBack)
                         .addGap(79, 79, 79)
                         .addComponent(btnVerify)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
-                        .addComponent(btnHelp))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel2)))
+                        .addComponent(btnHelp)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -172,19 +172,19 @@ public class MediumLevelWindow extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(pnCrossword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(2, 2, 2)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jLabel2))
-                .addGap(2, 2, 2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 194, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 247, Short.MAX_VALUE)
                     .addComponent(jScrollPane2))
-                .addGap(18, 18, 18)
+                .addGap(38, 38, 38)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnBack)
                     .addComponent(btnHelp)
-                    .addComponent(btnVerify))
+                    .addComponent(btnVerify)
+                    .addComponent(btnBack))
                 .addContainerGap())
         );
 
