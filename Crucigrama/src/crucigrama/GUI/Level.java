@@ -170,9 +170,9 @@ public class Level extends javax.swing.JDialog {
         // Hacer las acciones para el nivel muy difícil
         VeryHardLevelWindow veryHardWindow = new VeryHardLevelWindow(this, true);
         this.dispose();
-        veryHardWindow.setVisible(false);
-        GameWindow game = new GameWindow(this, true);
-        game.setVisible(true);
+        veryHardWindow.setVisible(true);
+       /* GameWindow game = new GameWindow(this, true);
+        game.setVisible(true);*/
     }//GEN-LAST:event_btnVeryHardActionPerformed
 
     /**

@@ -8,11 +8,9 @@
 4-11/7/V/RATON/Roedor de pequeño tamaño 
 5-10/8/H/GATO/Felino domestico común
 13-2/9/H/JABON/Producto de higiene personal
-13-2/10/V/JUEZ/Persona que resuelve una controversia o que decide el destino de un imputado
-9-3/11/V/BRUJA/Mujer que, según la superstición popular, tiene poderes mágicos
-5-8/12/V/GIGANTE/Humanoides de tamaño y fuerza prodigiosos según la mitologia
-10-10/13/V/ORBE/Redondo, de forma redonda
-2-13/14/V/ROJO/Color primario
-11-2/15/H/YUCA/Arbusto perenne del que se consumen sus raices
-
-
+13-2/9/V/JUEZ/Persona que resuelve una controversia o que decide el destino de un imputado
+9-3/10/V/BRUJA/Mujer que, según la superstición popular, tiene poderes mágicos
+5-8/11/V/GIGANTE/Humanoides de tamaño y fuerza prodigiosos según la mitologia
+10-10/12/V/ORBE/Redondo, de forma redonda
+2-13/13/V/ROJO/Color primario
+11-2/14/H/YUCA/Arbusto perenne del que se consumen sus raices
