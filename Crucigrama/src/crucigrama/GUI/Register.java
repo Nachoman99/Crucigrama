@@ -219,9 +219,9 @@ public class Register extends javax.swing.JDialog {
                 instructions.setVisible(true);
             }
             
-            }else{
+        }else{
             JOptionPane.showMessageDialog(this, "Su identificación ya ha sido usada, por favor digite otra");
-            } 
+        } 
         }     
     }//GEN-LAST:event_btnCheckInActionPerformed
 
