@@ -12,6 +12,7 @@ import crucigrama.LogicGame;
 import filemanager.ReaderManagerText;
 import java.awt.Color;
 import java.awt.GridLayout;
+import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.FileNotFoundException;
@@ -28,12 +29,12 @@ import javax.swing.JTextField;
  * @author Kevin Trejos/Jose Ignacio Zamora/Edwin Molina
  */
 public class EasyLevelWindow extends javax.swing.JDialog {
-    
+    private Crossword respuestas1;
     /**
      * Creates new form EasyLevelWindow
      */
     public EasyLevelWindow(javax.swing.JDialog parent, boolean modal) {
-        super(parent, modal);
+         super(parent, modal);
         initComponents();
         setLocationRelativeTo(parent);
        // initPanel();
@@ -52,6 +53,7 @@ public class EasyLevelWindow extends javax.swing.JDialog {
             System.err.println(ex.getMessage());
             Logger.getLogger(GameWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        
         ReaderManagerText reader2 = new ReaderManagerText(); 
         
          try {
@@ -72,8 +74,10 @@ public class EasyLevelWindow extends javax.swing.JDialog {
         for (int i = 0; i < Game.WORD_LIST_MANAGER.getCounter(); i++) {
              logic.addCrosswordEmpty(Game.WORD_LIST_MANAGER.getIndex(i),Game.WORD_LIST_MANAGER.getWord(i), Game.WORD_LIST_MANAGER.getInitRow(i), Game.WORD_LIST_MANAGER.getInitColumn(i), Game.WORD_LIST_MANAGER.getVerticalHorizontal(i), crossword1);
         }    
-        
-        initPanel(rowColumn ,crossword1, crossword2);
+        for (int i = 0; i < Game.WORD_LIST_MANAGER.getCounter(); i++) {
+             logic.addCrossword(Game.WORD_LIST_MANAGER.getWord(i), Game.WORD_LIST_MANAGER.getInitRow(i), Game.WORD_LIST_MANAGER.getInitColumn(i), Game.WORD_LIST_MANAGER.getVerticalHorizontal(i), crossword2);
+        }  
+        initPanel(rowColumn ,crossword1);
         showTracks();
        closeX();
        
@@ -232,49 +236,64 @@ public class EasyLevelWindow extends javax.swing.JDialog {
         }
     }
     
-    private void initPanel(int[] rowColumn, Crossword crossword, Crossword respuestas){
+    private void initPanel(int[] rowColumn, Crossword crossword){
+        LogicGame logic = new LogicGame();
+        
         int rows = rowColumn[0];
         int columns = rowColumn[1];
+        respuestas1 = new Crossword(rows, columns);
         GridLayout grid = new GridLayout(rows, columns);
         pnCrossword.setLayout(grid);
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < columns; j++) {
+                int i_= i;
+                int j_ = j;
                 String txt = crossword.getLetters(i, j).toString();
                 JTextField txField = new JTextField(txt, 1);
-                
                 if(txt.equals(" ")){
                     txField.setText(null);
                 }
-                String ts = txField.getText();
-                System.out.println(ts);
+                
                 txField.addKeyListener(new java.awt.event.KeyListener() {
                     @Override
                     public void keyTyped(java.awt.event.KeyEvent e) {
                         int limite = 1;
-                        String tx = txField.getText();
-                        System.out.println(tx);
                         if(txField.getText().length() == limite){
                             e.consume();
-                        }
-                        char car = e.getKeyChar();
-                        if(Character.isLetter(car)){
-                        
-                        }else{
-                           e.consume();
-                        }
+                        }                      
                     }
                     @Override
                     public void keyPressed(java.awt.event.KeyEvent arg2) {
-                       //String tx = txField.getText();
-                       //System.out.println(tx);
                     }
 
                     @Override
                     public void keyReleased(java.awt.event.KeyEvent arg1) {
-                        String tx = txField.getText();
-                            System.out.println(tx);
-                            Letter letra1 = new Letter(tx.charAt(0));
+                        char car = arg1.getKeyChar();
+                        if((arg1.getKeyCode() == KeyEvent.VK_DELETE)){
+                            arg1.consume();
+                        }else{
+                            if(Character.isLetter(car)){
+                            String tx = txField.getText();
+                            System.out.println(tx);   
+                            Letter letra1 = new  Letter(tx.charAt(0));
+                            respuestas1.setLetterPosition(i_, j_, letra1); 
+                            }else{
+                               arg1.consume();
+                            } 
                             
+                        }
+//                        if(txField.getText() != null){
+//                            
+//                            String tx = txField.getText();
+//                            System.out.println(tx);
+//                           
+//                            Letter letra1 = new  Letter(tx.charAt(0));
+//                            respuestas1.setLetterPosition(i_, j_, letra1); 
+//                        }else{
+//                           arg1.consume();
+//                        }
+                           
+                       
                     }
                 });
                 if(txt.equals("0")){
@@ -282,7 +301,7 @@ public class EasyLevelWindow extends javax.swing.JDialog {
                     txField.setEnabled(false);
                     txField.setText("");
                 }
-              
+          
                 pnCrossword.add(txField);
                 
 //                for (int k = 0; k < rows; k++) {
@@ -304,11 +323,13 @@ public class EasyLevelWindow extends javax.swing.JDialog {
                     }
                 });
                 contador +=1;
-                */
+                */   
             }
             
+        
+      
         }
-        System.out.println(respuestas.print());
+  
     }
     
     /**
@@ -316,7 +337,14 @@ public class EasyLevelWindow extends javax.swing.JDialog {
      * @param evt the event that makes the button
      */
     private void btnVerifyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerifyActionPerformed
-       
+        // Verifica si el mae ganó
+        String[] respuestaUsuario = new String[Game.WORD_LIST_MANAGER.getCounter()];
+        LogicGame logic = new LogicGame();
+        for (int i = 0; i < Game.WORD_LIST_MANAGER.getCounter(); i++) {
+            respuestaUsuario[i]=logic.extraction(Game.WORD_LIST_MANAGER.getInitRow(i), Game.WORD_LIST_MANAGER.getInitColumn(i), Game.WORD_LIST_MANAGER.getVerticalHorizontal(i), respuestas1);
+        }
+        
+        System.out.println(respuestas1.print());
     }//GEN-LAST:event_btnVerifyActionPerformed
 
    /**

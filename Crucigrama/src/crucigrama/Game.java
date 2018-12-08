@@ -50,7 +50,7 @@ public class Game {
         crossword1.setLetterPosition(4, 1, N);
         
         System.out.println(crossword1.print());
-        System.out.println(logic.validar(ejemplo, ejemplo));
+//        System.out.println(logic.validar(ejemplo, ejemplo));
         System.out.println(logic.extraction(1, 1, 'V', crossword1));
         System.out.println(logic.extraction(1, 1, 'H', crossword1));
         

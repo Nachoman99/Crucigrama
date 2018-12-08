@@ -137,16 +137,16 @@ public class LogicGame {
      * @param letrasMalas the total of letters that are incorrect
      * @return the bad letters
      */
-    private int validate(int rows, Letter[] letter, Letter[] crossword, int badLetters){
-        if (rows > letter.length-1) {
+      private int validar(int filas, String respuesta, String crossword, int letrasMalas){
+        if (filas > respuesta.length()-1) {
            // System.out.println(letrasMalas + 1);
-            return badLetters;
+            return letrasMalas;
         } else {
-            if (letter[rows] != crossword[rows]) {
-                badLetters += 1;
+            if (respuesta.charAt(filas) != crossword.charAt(filas)) {
+                letrasMalas += 1;
                // System.out.println("Hola");
             }
-            return validate(rows + 1, letter, crossword, badLetters);
+            return validar(filas + 1, respuesta, crossword, letrasMalas);
         }
     }
     
@@ -157,8 +157,8 @@ public class LogicGame {
      * @param rightWord the correct letters
      * @return the bad letters
      */
-       public int validar(Letter[] letter, Letter[] rightWord){
-        return validate(0, letter, rightWord, 0);
+    public int validar(String respuesta, String palabraCorrecta){
+        return validar(0, respuesta, palabraCorrecta, 0);
     }
        
 
