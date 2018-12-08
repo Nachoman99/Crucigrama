@@ -6,8 +6,10 @@
 package crucigrama;
 
 /**
- *
- * @author Kevin Trejos
+ * this class handles everything related to the words of the crossword
+ * 
+ *@version 7/12/2018
+ * @author Kevin Trejos, Jose Ignacio Zamora, Edwin Molina
  */
 public class Word {
     int initRow;
@@ -40,8 +42,6 @@ public class Word {
         this.clue = clue;
     }
     
-    
-
     public int getInitRow() {
         return initRow;
     }

@@ -6,6 +6,7 @@
 package crucigrama;
 
 /**
+ * this class is in charge of handling the crossword methods
  *
  * @version 29/11/2018
  * @author Jose Ignacio Zamora/Edwin Molina/Kevin Trejos
@@ -59,12 +60,12 @@ public class Crossword {
     public void setLetterPosition(int row, int column, Letter letter){
         crossword[row][column] = letter;
     }
-     /**
+     
+    /**
      * public String print()
      * This method print the crossword matrix
      * @return return the printed matrix
      */
- 
     public String print(){
         String print ="";
         for (int i = 0; i < crossword.length; i++) {
@@ -93,16 +94,25 @@ public class Crossword {
 //        }
 //    }
 //    
-    private int validar(int filas, Letter[] letra, Letter[] crossword, int letrasMalas){
-        if (filas > letra.length-1) {
+    /**
+     * This method validates whether the words 
+     * entered by the user are correct or not
+     * @param rows the position where the letters are
+     * @param letter the correct letters
+     * @param crossword the letters that the user typed
+     * @param letrasMalas the total of letters that are incorrect
+     * @return the bad letters
+     */
+    private int validar(int rows, Letter[] letter, Letter[] crossword, int letrasMalas){
+        if (rows > letter.length-1) {
            // System.out.println(letrasMalas + 1);
             return letrasMalas;
         } else {
-            if (letra[filas] != crossword[filas]) {
+            if (letter[rows] != crossword[rows]) {
                 letrasMalas += 1;
                // System.out.println("Hola");
             }
-            return validar(filas + 1, letra, crossword, letrasMalas);
+            return validar(rows + 1, letter, crossword, letrasMalas);
         }
     }
     
@@ -159,19 +169,32 @@ public class Crossword {
     public Letter getLetters (int row,  int column){
         return crossword[row][column];
     }
-     /**
-     * public Letter getLetters (int row,  int column)
-     * This method 
-     * @return 
+    
+    /**
+     * public int rowLenght()
+     * this method returns the lenght of the crossword rows
+     * @return the lenght of the crossword rows
      */
-    public int rowlength (){
+    public int rowLength (){
         return crossword.length;
     }
     
+    /**
+     * public int columnLenght()
+     * this method returns the lenght of the crossword columns
+     * @return the lenght of the crossword columns
+     */
     public int columnLength(){
         return crossword[0].length;
     }
     
+    /**
+     * public char getChar(int row, int column)
+     * this method gets a letter from the crossword
+     * @param row row where the letter is
+     * @param column column where the letter is
+     * @return 
+     */
     public char getChar (int row, int column) {
     return crossword[row][column].getLetter();
     } 

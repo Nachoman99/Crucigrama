@@ -6,7 +6,7 @@
 package crucigrama;
 
 /**
- * 
+ * This class handles the letters
  * 
  *@version 29/11/2018
  * @author Jose Ignacio Zamora/Edwin Molina/Kevin Trejos

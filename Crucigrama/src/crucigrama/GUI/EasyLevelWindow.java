@@ -7,6 +7,7 @@ package crucigrama.GUI;
 
 import crucigrama.Crossword;
 import crucigrama.Game;
+import crucigrama.Letter;
 import crucigrama.LogicGame;
 import filemanager.ReaderManagerText;
 import java.awt.Color;
@@ -27,7 +28,7 @@ import javax.swing.JTextField;
  * @author Kevin Trejos/Jose Ignacio Zamora/Edwin Molina
  */
 public class EasyLevelWindow extends javax.swing.JDialog {
-
+    
     /**
      * Creates new form EasyLevelWindow
      */
@@ -51,7 +52,6 @@ public class EasyLevelWindow extends javax.swing.JDialog {
             System.err.println(ex.getMessage());
             Logger.getLogger(GameWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        
         ReaderManagerText reader2 = new ReaderManagerText(); 
         
          try {
@@ -76,7 +76,9 @@ public class EasyLevelWindow extends javax.swing.JDialog {
         initPanel(rowColumn ,crossword1, crossword2);
         showTracks();
        closeX();
+       
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -239,14 +241,18 @@ public class EasyLevelWindow extends javax.swing.JDialog {
             for (int j = 0; j < columns; j++) {
                 String txt = crossword.getLetters(i, j).toString();
                 JTextField txField = new JTextField(txt, 1);
+                
                 if(txt.equals(" ")){
                     txField.setText(null);
                 }
-                
+                String ts = txField.getText();
+                System.out.println(ts);
                 txField.addKeyListener(new java.awt.event.KeyListener() {
                     @Override
                     public void keyTyped(java.awt.event.KeyEvent e) {
                         int limite = 1;
+                        String tx = txField.getText();
+                        System.out.println(tx);
                         if(txField.getText().length() == limite){
                             e.consume();
                         }
@@ -259,10 +265,16 @@ public class EasyLevelWindow extends javax.swing.JDialog {
                     }
                     @Override
                     public void keyPressed(java.awt.event.KeyEvent arg2) {
+                       //String tx = txField.getText();
+                       //System.out.println(tx);
                     }
 
                     @Override
                     public void keyReleased(java.awt.event.KeyEvent arg1) {
+                        String tx = txField.getText();
+                            System.out.println(tx);
+                            Letter letra1 = new Letter(tx.charAt(0));
+                            
                     }
                 });
                 if(txt.equals("0")){
@@ -298,63 +310,14 @@ public class EasyLevelWindow extends javax.swing.JDialog {
         }
         System.out.println(respuestas.print());
     }
-
+    
     /**
      * check if the user won
      * @param evt the event that makes the button
      */
     private void btnVerifyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerifyActionPerformed
-        // Verifica si el mae ganó
-    }//GEN-LAST:event_btnVerifyActionPerformed
-
-    /**
-     * Will start the crossword puzzle
-     * @param crossword 
-     */
-   private void initPanel(Crossword crossword){
-        int rows = crossword.rowlength();
-        int columns = crossword.columnLength();
-        GridLayout grid = new GridLayout(rows, columns);
-        pnCrossword.setLayout(grid);
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < columns; j++) {
-                String txt = crossword.getLetters(i, j).toString();
-                JTextField txField = new JTextField(txt, 1);
-                if(txt.equals(" ")){
-                    txField.setText(null);
-                }
-                txField.addKeyListener(new java.awt.event.KeyListener() {
-                    @Override
-                    public void keyTyped(java.awt.event.KeyEvent e) {
-                        int limite = 1;
-                        if(txField.getText().length() == limite){
-                            e.consume();
-                        }
-                        char car = e.getKeyChar();
-                        if(Character.isLetter(car)){
-                        
-                        }else{
-                           e.consume();
-                        }
-                    }
-                    @Override
-                    public void keyPressed(java.awt.event.KeyEvent arg2) {
-                    }
-
-                    @Override
-                    public void keyReleased(java.awt.event.KeyEvent arg1) {
-                    }
-                });
-                if(txt.equals("0")){
-                    txField.setBackground(Color.BLACK);
-                    txField.setEnabled(false);
-                    txField.setText("");
-                }
-                pnCrossword.add(txField);
-            }
-        }
        
-    }
+    }//GEN-LAST:event_btnVerifyActionPerformed
 
    /**
     * Pressing the X returns to the main window

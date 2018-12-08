@@ -6,8 +6,10 @@
 package crucigrama;
 
 /**
- *
- * @author Kevin Trejos
+ * this class handles a vector of words
+ * 
+ *@version 7/12/2018
+ * @author Kevin Trejos/Jose Ignacio Zamora/Edwin Molina
  */
 public class WordList {
     private Word[] wordList;
@@ -43,34 +45,81 @@ public class WordList {
         return "WordList{" + "wordList=" + wordList + ", counter=" + counter + '}';
     }
     
+    /**
+     * public void addWord(Word word)
+     * this method adds words to the vector
+     * @param word the word to insert
+     */
     public void addWord(Word word) {
         wordList[counter++] = word;
     }
 
+    /**
+     * public int getInitRow(int position)
+     * this method returns the initial row of each word
+     * @param position position of the vector to return
+     * @return the initial row of each word
+     */
     public int getInitRow(int position){
         return wordList[position].getInitRow();
     }
-
+    
+    /**
+     * public int getInitColumn(int position)
+     * this method returns the initial column of each word
+     * @param position position of the vector to return
+     * @return the initial column of each word
+     */
     public int getInitColumn(int position){
         return wordList[position].getInitColumn();
     }
 
+    /**
+     * public int getIndex(int position)
+     * this method returns the index of each word
+     * @param position position of the vector to return
+     * @return the index of each word
+     */
     public int getIndex(int position){
         return wordList[position].getIndex();
     }
 
+    /**
+     * public char getVerticalHorizontal(int position)
+     * this method returns if the word is vertical or horizontal
+     * @param position position of the vector to return
+     * @return if the word is vertical or horizontal
+     */
     public char getVerticalHorizontal(int position){
         return wordList[position].getVerticalHorizontal();
     }
 
+    /**
+     * public String getWord(int position)
+     * This method returns a word
+     * @param position position of the vector to return
+     * @return a word
+     */
     public String getWord(int position){
         return wordList[position].getWord();
     }
 
+    /**
+     * public String getClue(int position)
+     * this method returns a hint of a word
+     * @param position position of the vector to return
+     * @return hint of a word
+     */
     public String getClue(int position){
         return wordList[position].getClue();
     }
     
+    /**
+     * public String getEspecificWord(int number)
+     * this method returns a word with their respective data
+     * @param number the position of the word
+     * @return a word with their respective data
+     */
      public String getEspecificWord(int number){
         return wordList[number].toString();
     }

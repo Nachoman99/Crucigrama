@@ -294,6 +294,8 @@ public class GameWindow extends javax.swing.JDialog {
                     }
                     @Override
                     public void keyPressed(java.awt.event.KeyEvent arg2) {
+                        String tx = txField.getText();
+                        System.out.println(tx);
                     }
 
                     @Override

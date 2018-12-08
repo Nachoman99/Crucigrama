@@ -6,8 +6,10 @@
 package crucigrama;
 
 /**
- *
- * @author Nacho
+ * This class manages the game in the logical part
+ * 
+ *@version 7/12/2018
+ * @author Jose Ignacio Zamora/Edwin Molina/Kevin Trejos
  */
 public class LogicGame {
      /**
@@ -27,21 +29,30 @@ public class LogicGame {
         return palabra;
     }
     
-    public void addCrossword(String word, int filaInicial, int columnaInicial, char verticalHorizontal, Crossword crossword){
+    /**
+     * public void addCrossword(String word, int initialRow, int initialColumn, char verticalHorizontal, Crossword crossword)
+     * This method adds a letter to the crossword
+     * @param word word to insert
+     * @param initialRow start position of the row to insert the word
+     * @param initialColumn start position of the column to insert the word
+     * @param verticalHorizontal check if the word is vertical or horizontal
+     * @param crossword crossword to insert the word
+     */
+    public void addCrossword(String word, int initialRow, int initialColumn, char verticalHorizontal, Crossword crossword){
         int contador = 0;
         if(verticalHorizontal == 'H'){
-            for (int i = columnaInicial; i < crossword.columnLength(); i++) {
+            for (int i = initialColumn; i < crossword.columnLength(); i++) {
                 if(contador != word.length()){
                     Letter newLetter = new  Letter(word.charAt(contador));
-                    crossword.setLetterPosition(filaInicial, i, newLetter);
+                    crossword.setLetterPosition(initialRow, i, newLetter);
                     contador += 1;
                 }
             }
         }else if(verticalHorizontal == 'V'){
-            for (int i = filaInicial; i < crossword.rowlength(); i++) {
+            for (int i = initialRow; i < crossword.rowLength(); i++) {
                 if(contador != word.length()){
                     Letter newLetter = new  Letter(word.charAt(contador));
-                    crossword.setLetterPosition(i, columnaInicial, newLetter);
+                    crossword.setLetterPosition(i, initialColumn, newLetter);
                     contador += 1;
                 }
             }
@@ -49,21 +60,32 @@ public class LogicGame {
         
     }
     
-    public void addCrosswordEmpty(int index,String word, int filaInicial, int columnaInicial, char verticalHorizontal, Crossword crossword){
+    /**
+     * public void addCrosswordEmpty(int index, String word, int initialRow, int initialColumn, char verticalHorizontal, Crossword crossword)
+     * this method adds the index of the words and puts blank spaces for the 
+     * user to write the words
+     * @param index word index
+     * @param word palabra a insertar "en blanco"
+     * @param initialRow start position of the row to insert the word
+     * @param initialColumn start position of the column to insert the word
+     * @param verticalHorizontal check if the word is vertical or horizontal
+     * @param crossword crossword to insert the word
+     */
+    public void addCrosswordEmpty(int index,String word, int initialRow, int initialColumn, char verticalHorizontal, Crossword crossword){
         int contador = 0;
         if(verticalHorizontal == 'H'){
-            for (int i = columnaInicial; i < crossword.columnLength(); i++) {
+            for (int i = initialColumn; i < crossword.columnLength(); i++) {
                 if(contador != word.length()){
                     Letter letterEmpty = new  Letter(' ');
-                    crossword.setLetterPosition(filaInicial, i, letterEmpty);
+                    crossword.setLetterPosition(initialRow, i, letterEmpty);
                     contador += 1;
                 }
             }
         }else if(verticalHorizontal == 'V'){
-            for (int i = filaInicial; i < crossword.rowlength(); i++) {
+            for (int i = initialRow; i < crossword.rowLength(); i++) {
                 if(contador != word.length()){
                     Letter letterEmpty = new  Letter(' ');
-                    crossword.setLetterPosition(i, columnaInicial, letterEmpty);
+                    crossword.setLetterPosition(i, initialColumn, letterEmpty);
                     contador += 1;
                 }
             }
@@ -72,33 +94,32 @@ public class LogicGame {
         String newIndex = Integer.toString(index);
         char newIndex2 = newIndex.charAt(0);
         Letter letterEmpty = new  Letter(newIndex2);
-        crossword.setLetterPosition(filaInicial, columnaInicial, letterEmpty);
+        crossword.setLetterPosition(initialRow, initialColumn, letterEmpty);
         
         
     }
-    
-    
+     
     /**
-     * public String extraction(int filaInicial,int columnaInicial, char verticalHorizontal)
+     * public String extraction(int filaInicial,int columnaInicial, char verticalHorizontal, Crossword crossword)
      * This method extracts a word from the crossword
-     * @param filaInicial the 
-     * @param columnaInicial
-     * @param verticalHorizontal
+     * @param initialRow start position of the row to extract the word
+     * @param initialColumn start position of the column to extract the word
+     * @param verticalHorizontal Verify if the word is vertical or horizontal
      * @return return the extract word
      */
-    public String extraction(int filaInicial, int columnaInicial, char verticalHorizontal, Crossword crossword){
+    public String extraction(int initialRow, int initialColumn, char verticalHorizontal, Crossword crossword){
         String palabra = "";
         Letter letter = new Letter('0');
         if(verticalHorizontal == 'V'){
-            for (int i = columnaInicial; i < crossword.columnLength(); i++) {
-                if(crossword.getChar(filaInicial, i) != letter.getLetter()){
-                    palabra += crossword.getChar(filaInicial, i);
+            for (int i = initialColumn; i < crossword.columnLength(); i++) {
+                if(crossword.getChar(initialRow, i) != letter.getLetter()){
+                    palabra += crossword.getChar(initialRow, i);
                 }
             }
         }else if(verticalHorizontal == 'H'){
-            for (int i = filaInicial; i < crossword.rowlength(); i++) {
-                if(crossword.getChar(i, columnaInicial) != letter.getLetter()){
-                    palabra += crossword.getChar(i, columnaInicial);
+            for (int i = initialRow; i < crossword.rowLength(); i++) {
+                if(crossword.getChar(i, initialColumn) != letter.getLetter()){
+                    palabra += crossword.getChar(i, initialColumn);
                 }
             }
         }
@@ -106,20 +127,38 @@ public class LogicGame {
         return palabra;
     }
       
-    private int validar(int filas, Letter[] letra, Letter[] crossword, int letrasMalas){
-        if (filas > letra.length-1) {
+   /**
+    * private int validate(int rows, Letter[] letter, Letter[] crossword, int badLetters)
+     * This method validates whether the words 
+     * entered by the user are correct or not
+     * @param rows the position where the letters are
+     * @param letter the letters that the user typed
+     * @param crossword the correct letters
+     * @param letrasMalas the total of letters that are incorrect
+     * @return the bad letters
+     */
+    private int validate(int rows, Letter[] letter, Letter[] crossword, int badLetters){
+        if (rows > letter.length-1) {
            // System.out.println(letrasMalas + 1);
-            return letrasMalas;
+            return badLetters;
         } else {
-            if (letra[filas] != crossword[filas]) {
-                letrasMalas += 1;
+            if (letter[rows] != crossword[rows]) {
+                badLetters += 1;
                // System.out.println("Hola");
             }
-            return validar(filas + 1, letra, crossword, letrasMalas);
+            return validate(rows + 1, letter, crossword, badLetters);
         }
     }
-       public int validar(Letter[] letra, Letter[] palabraCorrecta){
-        return validar(0, letra, palabraCorrecta, 0);
+    
+    /**
+     * public int validar(Letter[] letter, Letter[] right word)
+     * This method calls the private method
+     * @param letter the letters that the user typed
+     * @param rightWord the correct letters
+     * @return the bad letters
+     */
+       public int validar(Letter[] letter, Letter[] rightWord){
+        return validate(0, letter, rightWord, 0);
     }
        
 
