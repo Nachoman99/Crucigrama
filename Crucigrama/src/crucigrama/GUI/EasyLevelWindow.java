@@ -17,6 +17,7 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -406,11 +407,13 @@ public class EasyLevelWindow extends javax.swing.JDialog {
     private void btnVerifyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerifyActionPerformed
         String[] respuestaUsuario = new String[Game.WORD_LIST_MANAGER.getCounter()];
         LogicGame logic = new LogicGame();
+        
         int badWords = 0;
         for (int i = 0; i < Game.WORD_LIST_MANAGER.getCounter(); i++) {
             respuestaUsuario[i] = logic.extraction(Game.WORD_LIST_MANAGER.getInitRow(i), Game.WORD_LIST_MANAGER.getInitColumn(i), Game.WORD_LIST_MANAGER.getVerticalHorizontal(i), respuestas1);
-            badWords += logic.validar(respuestaUsuario[i], Game.WORD_LIST_MANAGER.getWord(i));
-            System.out.println(badWords);
+            
+//badWords += logic.validar(respuestaUsuario[i], Game.WORD_LIST_MANAGER.getWord(i));
+            System.out.println(Arrays.toString(respuestaUsuario));
             
         }
         if (badWords == 0) {

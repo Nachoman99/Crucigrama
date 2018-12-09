@@ -110,16 +110,22 @@ public class LogicGame {
     public String extraction(int initialRow, int initialColumn, char verticalHorizontal, Crossword crossword){
         String palabra = "";
         Letter letter = new Letter('0');
-        if(verticalHorizontal == 'V'){
-            for (int i = initialColumn; i < crossword.columnLength(); i++) {
+        if(verticalHorizontal == 'H'){
+            int limite = crossword.columnLength();
+            for (int i = initialColumn; i < limite; i++) {
                 if(crossword.getChar(initialRow, i) != letter.getLetter()){
                     palabra += crossword.getChar(initialRow, i);
+                }else{
+                   limite =0; 
                 }
             }
-        }else if(verticalHorizontal == 'H'){
-            for (int i = initialRow; i < crossword.rowLength(); i++) {
+        }else if(verticalHorizontal == 'V'){
+            int limite = crossword.rowLength();
+            for (int i = initialRow; i < limite; i++) {
                 if(crossword.getChar(i, initialColumn) != letter.getLetter()){
                     palabra += crossword.getChar(i, initialColumn);
+                }else{
+                    limite =0;
                 }
             }
         }
@@ -138,7 +144,7 @@ public class LogicGame {
      * @return the bad letters
      */
       private int validar(int filas, String respuesta, String crossword, int letrasMalas){
-        if (filas > respuesta.length()-1) {
+        if (filas > respuesta.length()) {
            // System.out.println(letrasMalas + 1);
             return letrasMalas;
         } else {
