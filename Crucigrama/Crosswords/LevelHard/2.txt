@@ -1,16 +1,16 @@
-15-13
-0-9/1/H/PAPA/Tuberculo
-3-5/2/H/TUMBA/Sepultura
-3-7/3/V/MASCARA/Pieza normalmente adornada que oculta total o parcialmente la cara
-5-1/4/V/URNA/Recipiente temporalmente sellado, generalmente en forma de paralelepípedo, aunque a veces es tan solo una bolsa resistente.
-5-5/5/V/VIDRIO/Material fragil transparente
-5-7/6/H/SUMA/Operación básica de la aritmética de los números
-6-0/7/V/ARCO/Sistema de armas de proyectil de gran antiguedad
-7-5/8/H/DRAGON/Criatura mitologica con forma de reptil con alas
-8-1/9/H/ALTAR/Mesa o piedra donde se realizan ritos religiosos
-9-7/10/H/ACEITE/Liquido no soluble con el agua
-9-11/11/V/TRONO/Asiento destinado al rey
-10-2/12/H/ODIO/Sentimiento de rencor
-11-8/13/H/DEDOS/Extremidades de las manos o los pies
-12-13/14/V/HOJA/Organo vegetativo y generalmente aplanado de las plantas
-13-10/15/H/LOBO/Carnivoro similar al perro
+16-14
+0-3/1/V/HOJA/Organo vegetativo y generalmente aplanado de las plantas
+1-2/2/H/LOBO/Carnivoro similar al perro
+3-0/3/H/SUMA/Operación básica de la aritmética de los números
+3-1/4/V/URNA/Recipiente temporalmente sellado, generalmente en forma de paralelepípedo, aunque a veces es tan solo una bolsa resistente.
+5-3/5/V/MASCARA/Pieza normalmente adornada que oculta total o parcialmente la cara
+6-0/6/H/PAPA/Tuberculo
+6-5/7/V/DRAGON/Criatura mitologica con forma de reptil con alas
+7-7/8/V/DEDOS/Extremidades de las manos o los pies
+8-1/9/V/ODIO/Sentimiento de rencor
+8-5/10/H/ACEITE/Liquido no soluble con el agua
+8-9/11/V/TUMBA/Sepultura
+10-0/12/H/VIDRIO/Material fragil transparente
+11-13/13/V/TRONO/Asiento destinado al rey
+12-9/14/H/ALTAR/Mesa o piedra donde se realizan ritos religiosos
+15-10/15/H/ARCO/Sistema de armas de proyectil de gran antiguedad

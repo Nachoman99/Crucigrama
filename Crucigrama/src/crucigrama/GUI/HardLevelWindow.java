@@ -35,7 +35,6 @@ public class HardLevelWindow extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(parent);
-        //initPanel();
         ReaderManagerText reader = new ReaderManagerText(); 
         int[] rowColumn = new int[1];
     
