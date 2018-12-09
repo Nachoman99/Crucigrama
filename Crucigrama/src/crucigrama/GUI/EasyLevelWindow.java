@@ -423,7 +423,7 @@ public class EasyLevelWindow extends javax.swing.JDialog {
             if(respuestaUsuario[i].length() < Game.WORD_LIST_MANAGER.getWord(i).length()){
                 badWords +=1;
             }else{
-                badWords += logic.validar(respuestaUsuario[i], Game.WORD_LIST_MANAGER.getWord(i).toLowerCase()); 
+                badWords += logic.validar(respuestaUsuario[i].toUpperCase(), Game.WORD_LIST_MANAGER.getWord(i).toUpperCase()); 
             }
             
             System.err.println(badWords);
