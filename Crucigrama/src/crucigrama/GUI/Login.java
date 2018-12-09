@@ -198,6 +198,10 @@ public class Login extends javax.swing.JDialog {
         } 
     }//GEN-LAST:event_btnEnterActionPerformed
 
+    /**
+     *
+     * @return
+     */
     public String userName(){
         return tfID.getText();
     }

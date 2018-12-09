@@ -35,6 +35,8 @@ public class GameWindow extends javax.swing.JDialog {
     
     /**
      * Creates new form Cuadricula
+     * @param parent
+     * @param modal
      */
     public GameWindow(javax.swing.JDialog parent, boolean modal) {
         super(parent, modal);

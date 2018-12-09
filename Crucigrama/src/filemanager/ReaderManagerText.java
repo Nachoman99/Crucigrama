@@ -7,10 +7,19 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
+/**
+ *
+ * @author Kevin Trejos
+ */
 public class ReaderManagerText {
 
     private BufferedReader reader;
 
+    /**
+     *
+     * @param fileName
+     * @throws FileNotFoundException
+     */
     public void open(String fileName) throws FileNotFoundException {
         reader = new BufferedReader(new FileReader(fileName));
     }
@@ -25,6 +34,13 @@ public class ReaderManagerText {
         }
         return size;
     }*/
+
+    /**
+     *
+     * @return
+     * @throws IOException
+     */
+
 
     public int[] readRowColumn() throws IOException{
         int[] size = new int[2];
@@ -116,6 +132,10 @@ public class ReaderManagerText {
         
     }
 
+    /**
+     *
+     * @throws IOException
+     */
     public void readAll() throws IOException {
         Word newWord = read();
         while (newWord != null) {
@@ -142,6 +162,11 @@ public class ReaderManagerText {
 //                hasNext = false;
 //            }
 //        }
+
+    /**
+     *
+     * @throws IOException
+     */
     public void close() throws IOException {
         reader.close();
     }

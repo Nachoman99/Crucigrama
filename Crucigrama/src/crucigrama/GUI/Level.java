@@ -19,6 +19,8 @@ public class Level extends javax.swing.JDialog {
 
     /**
      * Creates new form Level
+     * @param parent
+     * @param modal
      */
     public Level(javax.swing.JDialog parent, boolean modal) {
         super(parent, modal);

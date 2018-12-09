@@ -15,31 +15,59 @@ public class WordList {
     private Word[] wordList;
     private int counter;
 
+    /**
+     *
+     */
     public WordList() {
         wordList = new Word[100];
     }
 
+    /**
+     *
+     * @param wordList
+     * @param counter
+     */
     public WordList(Word[] wordList, int counter) {
         this.wordList = wordList;
         this.counter = counter;
     }
 
+    /**
+     *
+     * @return
+     */
     public Word[] getWordList() {
         return wordList;
     }
 
+    /**
+     *
+     * @param wordList
+     */
     public void setWordList(Word[] wordList) {
         this.wordList = wordList;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getCounter() {
         return counter;
     }
 
+    /**
+     *
+     * @param counter
+     */
     public void setCounter(int counter) {
         this.counter = counter;
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public String toString() {
         return "WordList{" + "wordList=" + wordList + ", counter=" + counter + '}';

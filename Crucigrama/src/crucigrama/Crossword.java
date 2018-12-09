@@ -14,6 +14,9 @@ package crucigrama;
 public class Crossword {
     private Letter[][] crossword;
 
+    /**
+     *
+     */
     public Crossword() {
     
     }
@@ -34,18 +37,34 @@ public class Crossword {
         }
     }
 
+    /**
+     *
+     * @param crossword
+     */
     public Crossword(Letter[][] crossword) {
         this.crossword = crossword;
     }
 
+    /**
+     *
+     * @return
+     */
     public Letter[][] getCrossword() {
         return crossword;
     }
 
+    /**
+     *
+     * @param crossword
+     */
     public void setCrossword(Letter[][] crossword) {
         this.crossword = crossword;
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public String toString() {
         return "Crossword{" + "crossword=" + crossword + '}';
@@ -81,6 +100,12 @@ public class Crossword {
         return print;
     }
     
+    /**
+     *
+     * @param letra
+     * @param palabraCorrecta
+     * @return
+     */
     public int validar(Letter[] letra, Letter[] palabraCorrecta){
         return validar(0, letra, palabraCorrecta, 0);
     }

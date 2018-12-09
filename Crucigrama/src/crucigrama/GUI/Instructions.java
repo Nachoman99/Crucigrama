@@ -25,6 +25,8 @@ public class Instructions extends javax.swing.JDialog {
     
     /**
     * Creates new form Instructions
+     * @param parent
+     * @param modal
     */
     public Instructions(javax.swing.JDialog parent, boolean modal) {
         super(parent, modal);
@@ -173,6 +175,10 @@ public class Instructions extends javax.swing.JDialog {
         enter.setVisible(true);*/
     }//GEN-LAST:event_btnBackActionPerformed
 
+    /**
+     *
+     * @param index
+     */
     public void userSelected(int index){
         positionUser = index;
         

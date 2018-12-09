@@ -14,22 +14,41 @@ package crucigrama;
 public class Letter {
     private char letter;
 
+    /**
+     *
+     */
     public Letter() {
         this('0');
     }
 
+    /**
+     *
+     * @param letter
+     */
     public Letter(char letter) {
         this.letter = letter;
     }
 
+    /**
+     *
+     * @return
+     */
     public char getLetter() {
         return letter;
     }
 
+    /**
+     *
+     * @param letter
+     */
     public void setLetter(char letter) {
         this.letter = letter;
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public String toString() {
         return letter + "";

@@ -434,7 +434,6 @@ public class EasyLevelWindow extends javax.swing.JDialog {
      */
     private void btnVerifyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerifyActionPerformed
         String[] respuestaUsuario = new String[Game.WORD_LIST_MANAGER.getCounter()];
-        
         LogicGame logic = new LogicGame();
         boolean isEmpty = false;
         int badWords = 0;
@@ -456,7 +455,7 @@ public class EasyLevelWindow extends javax.swing.JDialog {
                 badWords += logic.validar(respuestaUsuario[i].toUpperCase(), Game.WORD_LIST_MANAGER.getWord(i).toUpperCase()); 
                 especificBadWord = logic.validar(respuestaUsuario[i].toUpperCase(), Game.WORD_LIST_MANAGER.getWord(i).toUpperCase());
                 if(especificBadWord >0){
-                   Word word5 = new Word(Game.WORD_LIST_MANAGER.getInitColumn(i), Game.WORD_LIST_MANAGER.getInitColumn(i), Game.WORD_LIST_MANAGER.getIndex(i),Game.WORD_LIST_MANAGER.getVerticalHorizontal(i), Game.WORD_LIST_MANAGER.getWord(i), Game.WORD_LIST_MANAGER.getClue(i));
+                   Word word5 = new Word(Game.WORD_LIST_MANAGER.getInitRow(i), Game.WORD_LIST_MANAGER.getInitColumn(i), Game.WORD_LIST_MANAGER.getIndex(i),Game.WORD_LIST_MANAGER.getVerticalHorizontal(i), Game.WORD_LIST_MANAGER.getWord(i), Game.WORD_LIST_MANAGER.getClue(i));
                     System.out.println(word5.toString());
                    palabrasIncorrectas.addWord(word5);
                 }

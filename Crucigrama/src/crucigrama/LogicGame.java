@@ -105,6 +105,7 @@ public class LogicGame {
      * @param initialRow start position of the row to extract the word
      * @param initialColumn start position of the column to extract the word
      * @param verticalHorizontal Verify if the word is vertical or horizontal
+     * @param crossword
      * @return return the extract word
      */
     public String extraction(int initialRow, int initialColumn, char verticalHorizontal, Crossword crossword){
@@ -159,8 +160,8 @@ public class LogicGame {
     /**
      * public int validar(Letter[] letter, Letter[] right word)
      * This method calls the private method
-     * @param letter the letters that the user typed
-     * @param rightWord the correct letters
+     * @param respuesta
+     * @param palabraCorrecta
      * @return the bad letters
      */
     public int validar(String respuesta, String palabraCorrecta){

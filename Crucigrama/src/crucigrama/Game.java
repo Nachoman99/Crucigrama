@@ -15,7 +15,15 @@ import users.UserList;
  * @author Jose Ignacio Zamora/Edwin Molina/Kevin Trejos
  */
 public class Game {
+
+    /**
+     *
+     */
     public static UserList listManager = new UserList();
+
+    /**
+     *
+     */
     public static WordList WORD_LIST_MANAGER = new WordList();
     
     /**
