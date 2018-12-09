@@ -245,7 +245,7 @@ public class VeryHardLevelWindow extends javax.swing.JDialog {
                 JOptionPane.showMessageDialog(this, "Felicidades, ha ganado");
                 Level level = new Level(this, true);
                 this.dispose();
-                level.setVisible(true);
+                level.setVisible(true); 
             }else if(badWords >= 1){
                 attempts ++;
                 if (attempts < 3) {
