@@ -411,10 +411,12 @@ public class EasyLevelWindow extends javax.swing.JDialog {
         int badWords = 0;
         for (int i = 0; i < Game.WORD_LIST_MANAGER.getCounter(); i++) {
             respuestaUsuario[i] = logic.extraction(Game.WORD_LIST_MANAGER.getInitRow(i), Game.WORD_LIST_MANAGER.getInitColumn(i), Game.WORD_LIST_MANAGER.getVerticalHorizontal(i), respuestas1);
-            
-//badWords += logic.validar(respuestaUsuario[i], Game.WORD_LIST_MANAGER.getWord(i));
             System.out.println(Arrays.toString(respuestaUsuario));
             
+        }
+        for (int i = 0; i <  Game.WORD_LIST_MANAGER.getCounter(); i++) {
+            System.out.println(Game.WORD_LIST_MANAGER.getWord(i).toLowerCase());
+            badWords += logic.validar(respuestaUsuario[i], Game.WORD_LIST_MANAGER.getWord(i).toLowerCase()); 
         }
         if (badWords == 0) {
             JOptionPane.showMessageDialog(this, "Felicidades, ha ganado");

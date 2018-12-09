@@ -144,7 +144,7 @@ public class LogicGame {
      * @return the bad letters
      */
       private int validar(int filas, String respuesta, String crossword, int letrasMalas){
-        if (filas > respuesta.length()) {
+        if (filas >= respuesta.length()) {
            // System.out.println(letrasMalas + 1);
             return letrasMalas;
         } else {
