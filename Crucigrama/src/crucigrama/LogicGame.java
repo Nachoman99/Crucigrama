@@ -90,7 +90,7 @@ public class LogicGame {
                 }
             }
         }
-        
+         
         String newIndex = Integer.toString(index);
         char newIndex2 = newIndex.charAt(0);
         Letter letterEmpty = new  Letter(newIndex2);
