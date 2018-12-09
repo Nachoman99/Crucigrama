@@ -9,6 +9,8 @@ import crucigrama.Crossword;
 import crucigrama.Game;
 import crucigrama.Letter;
 import crucigrama.LogicGame;
+import crucigrama.Word;
+import crucigrama.WordList;
 import filemanager.ReaderManagerText;
 import java.awt.Color;
 import java.awt.GridLayout;
@@ -32,6 +34,7 @@ import javax.swing.JTextField;
 public class EasyLevelWindow extends javax.swing.JDialog {
     private Crossword respuestas1;
     private int attempts = 0;
+    public static WordList palabrasIncorrectas= new WordList();
     /**
      * Creates new form EasyLevelWindow
      */
@@ -264,59 +267,10 @@ public class EasyLevelWindow extends javax.swing.JDialog {
                         if(txField.getText().length() == limite){
                             e.consume();
                         }  
-//                        if((e.getKeyCode() != KeyEvent.VK_DELETE)){
-//                            System.out.println("PIO");
-//                            if(Character.isLetter(car)){
-//                                System.out.println("Juan perez");
-//                                String tx = "";
-//                                tx = txField.getText();
-//                                System.out.println(tx);
-//                                if (tx.length() >= 1){
-//                                    System.out.println("vacio");
-//                                    Letter letter = new Letter(tx.charAt(0));
-//                                    respuestas1.setLetterPosition(i_, j_, letter);
-//                                }else{
-//                                    System.out.println("No vacio");
-////                                    Letter letter = new Letter(tx.charAt(0));
-////                                    respuestas1.setLetterPosition(i_, j_, letter); 
-//                                }
-//                            }else{
-//                                e.consume();
-//                            } 
-//                        }else{
-//                            e.consume();
-//                        }
                     }
                     
                     @Override
                     public void keyPressed(java.awt.event.KeyEvent arg2) {
-                       
-//                        char car = arg2.getKeyChar();
-//                        if(txField.getText().length() == limite){
-//                            arg2.consume();
-//                        }  
-//                        if((arg2.getKeyCode() != KeyEvent.VK_DELETE)){
-//                            System.out.println("PIO");
-//                            if(Character.isLetter(car)){
-//                                System.out.println("Juan perez");
-//                                String tx = "";
-//                                tx = txField.getText();
-//                                System.out.println(tx);
-//                                if (tx.length() >= 1){
-//                                    System.out.println("vacio");
-//                                    Letter letter = new Letter(tx.charAt(0));
-//                                    respuestas1.setLetterPosition(i_, j_, letter);
-//                                }else{
-//                                    System.out.println("No vacio");
-////                                    Letter letter = new Letter(tx.charAt(0));
-////                                    respuestas1.setLetterPosition(i_, j_, letter); 
-//                                }
-//                            }else{
-//                                arg2.consume();
-//                            } 
-//                        }else{
-//                            arg2.consume();
-//                        }
                     }
 
                     @Override
@@ -349,18 +303,7 @@ public class EasyLevelWindow extends javax.swing.JDialog {
                         }else{
                             arg1.consume();
                         }
-//                        if(txField.getText() != null){
-//                            
-//                            String tx = txField.getText();
-//                            System.out.println(tx);
-//                           
-//                            Letter letra1 = new  Letter(tx.charAt(0));
-//                            respuestas1.setLetterPosition(i_, j_, letra1); 
-//                        }else{
-//                           arg1.consume();
-//                        }
-                           
-                       
+                
                     }
                 });
                 if(txt.equals("0")){
@@ -369,28 +312,7 @@ public class EasyLevelWindow extends javax.swing.JDialog {
                     txField.setText("");
                 }
           
-                pnCrossword.add(txField);
-                
-//                for (int k = 0; k < rows; k++) {
-//                     for (int p = 0; p < columns; p++) {
-//                         char letra; 
-//                         letra = (txField.getText()).charAt(0);
-//                         Letter newLetra = new Letter(letra);
-//                        respuestas.setLetterPosition(k, p, newLetra);
-//                        
-//                    }
-//                }
-//                   
-                /*
-                txField.addActionListener(new AbstractAction() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        respuestasUsuario[contador]= txField.getText();
-                        System.out.println("posicion especifica= "+respuestasUsuario[contador]);
-                    }
-                });
-                contador +=1;
-                */   
+                pnCrossword.add(txField);          
 
             }
             
@@ -400,12 +322,41 @@ public class EasyLevelWindow extends javax.swing.JDialog {
   
     }
     
+     private void initPanel2(Crossword crossword){
+        pnCrossword.setLayout(null);
+        LogicGame logic = new LogicGame();
+        int rows = crossword.rowLength();
+        int columns = crossword.columnLength();
+        GridLayout grid = new GridLayout(rows, columns);
+        pnCrossword.setLayout(grid);
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                int i_= i;
+                int j_= j;
+          
+                String txt = crossword.getLetters(i, j).toString();
+                JTextField txField = new JTextField(txt, 1);
+                if(txt.equals(" ")){
+                    txField.setText(null);
+                }
+                txField.setBackground(Color.green);
+                for (int k = 0; k < palabrasIncorrectas.getCounter(); k++) {
+                    if(i_ == palabrasIncorrectas.getInitRow(k)|| j_ ==palabrasIncorrectas.getInitColumn(k)){
+                        txField.setBackground(Color.green);
+                    }           
+                }
+            }
+        }
+    }
+    
+    
     /**
      * check if the user won
      * @param evt the event that makes the button
      */
     private void btnVerifyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerifyActionPerformed
         String[] respuestaUsuario = new String[Game.WORD_LIST_MANAGER.getCounter()];
+        
         LogicGame logic = new LogicGame();
         boolean isEmpty = false;
         int badWords = 0;
@@ -419,11 +370,18 @@ public class EasyLevelWindow extends javax.swing.JDialog {
             }
         }      
         for (int i = 0; i <  Game.WORD_LIST_MANAGER.getCounter(); i++) {
+            int especificBadWord = 0;
             System.out.println(Game.WORD_LIST_MANAGER.getWord(i)+"=="+respuestaUsuario[i]);
             if(respuestaUsuario[i].length() < Game.WORD_LIST_MANAGER.getWord(i).length()){
                 badWords +=1;
             }else{
                 badWords += logic.validar(respuestaUsuario[i].toUpperCase(), Game.WORD_LIST_MANAGER.getWord(i).toUpperCase()); 
+                especificBadWord = logic.validar(respuestaUsuario[i].toUpperCase(), Game.WORD_LIST_MANAGER.getWord(i).toUpperCase());
+                if(especificBadWord >0){
+                   Word word5 = new Word(Game.WORD_LIST_MANAGER.getInitColumn(i), Game.WORD_LIST_MANAGER.getInitColumn(i), Game.WORD_LIST_MANAGER.getIndex(i),Game.WORD_LIST_MANAGER.getVerticalHorizontal(i), Game.WORD_LIST_MANAGER.getWord(i), Game.WORD_LIST_MANAGER.getClue(i));
+                    System.out.println(word5.toString());
+                   palabrasIncorrectas.addWord(word5);
+                }
             }
             
             System.err.println(badWords);
@@ -458,8 +416,9 @@ public class EasyLevelWindow extends javax.swing.JDialog {
             }
         }
         System.out.println(respuestas1.print());
+        initPanel2(respuestas1);
     }//GEN-LAST:event_btnVerifyActionPerformed
-
+ 
    /**
     * Pressing the X returns to the main window
     */
