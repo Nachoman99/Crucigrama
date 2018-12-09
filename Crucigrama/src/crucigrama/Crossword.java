@@ -59,6 +59,10 @@ public class Crossword {
      */
     public void setLetterPosition(int row, int column, Letter letter){
         crossword[row][column] = letter;
+        if (crossword[row][column].toString() != null) {
+            System.out.println(crossword[row][column].toString());
+        }
+        
     }
      
     /**

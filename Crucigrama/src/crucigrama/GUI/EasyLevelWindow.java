@@ -258,29 +258,94 @@ public class EasyLevelWindow extends javax.swing.JDialog {
                     @Override
                     public void keyTyped(java.awt.event.KeyEvent e) {
                         int limite = 1;
+//                        char car = e.getKeyChar();
                         if(txField.getText().length() == limite){
                             e.consume();
-                        }                      
+                        }  
+//                        if((e.getKeyCode() != KeyEvent.VK_DELETE)){
+//                            System.out.println("PIO");
+//                            if(Character.isLetter(car)){
+//                                System.out.println("Juan perez");
+//                                String tx = "";
+//                                tx = txField.getText();
+//                                System.out.println(tx);
+//                                if (tx.length() >= 1){
+//                                    System.out.println("vacio");
+//                                    Letter letter = new Letter(tx.charAt(0));
+//                                    respuestas1.setLetterPosition(i_, j_, letter);
+//                                }else{
+//                                    System.out.println("No vacio");
+////                                    Letter letter = new Letter(tx.charAt(0));
+////                                    respuestas1.setLetterPosition(i_, j_, letter); 
+//                                }
+//                            }else{
+//                                e.consume();
+//                            } 
+//                        }else{
+//                            e.consume();
+//                        }
                     }
+                    
                     @Override
                     public void keyPressed(java.awt.event.KeyEvent arg2) {
+                       
+//                        char car = arg2.getKeyChar();
+//                        if(txField.getText().length() == limite){
+//                            arg2.consume();
+//                        }  
+//                        if((arg2.getKeyCode() != KeyEvent.VK_DELETE)){
+//                            System.out.println("PIO");
+//                            if(Character.isLetter(car)){
+//                                System.out.println("Juan perez");
+//                                String tx = "";
+//                                tx = txField.getText();
+//                                System.out.println(tx);
+//                                if (tx.length() >= 1){
+//                                    System.out.println("vacio");
+//                                    Letter letter = new Letter(tx.charAt(0));
+//                                    respuestas1.setLetterPosition(i_, j_, letter);
+//                                }else{
+//                                    System.out.println("No vacio");
+////                                    Letter letter = new Letter(tx.charAt(0));
+////                                    respuestas1.setLetterPosition(i_, j_, letter); 
+//                                }
+//                            }else{
+//                                arg2.consume();
+//                            } 
+//                        }else{
+//                            arg2.consume();
+//                        }
                     }
 
                     @Override
                     public void keyReleased(java.awt.event.KeyEvent arg1) {
+                        int limite = 1;
                         char car = arg1.getKeyChar();
-                        if((arg1.getKeyCode() == KeyEvent.VK_DELETE)){
+                        if(txField.getText().length() == limite){
                             arg1.consume();
-                        }else{
+                            System.out.println("Hola");
+                        }  
+                        if((arg1.getKeyCode() != KeyEvent.VK_DELETE)){
+                            System.out.println("PIO");
                             if(Character.isLetter(car)){
-                            String tx = txField.getText();
-                            System.out.println(tx);   
-                            Letter letra1 = new  Letter(tx.charAt(0));
-                            respuestas1.setLetterPosition(i_, j_, letra1); 
+                                System.out.println("Juan perez");
+                                String tx = "";
+                                tx = txField.getText();
+                                System.out.println(tx);
+                                if (tx.length() >= 1){
+                                    System.out.println("vacio");
+                                    Letter letter = new Letter(tx.charAt(0));
+                                    respuestas1.setLetterPosition(i_, j_, letter);
+                                }else{
+                                    System.out.println("No vacio");
+//                                    Letter letter = new Letter(tx.charAt(0));
+//                                    respuestas1.setLetterPosition(i_, j_, letter); 
+                                }
                             }else{
-                               arg1.consume();
+                                arg1.consume();
                             } 
-                            
+                        }else{
+                            arg1.consume();
                         }
 //                        if(txField.getText() != null){
 //                            
@@ -324,6 +389,7 @@ public class EasyLevelWindow extends javax.swing.JDialog {
                 });
                 contador +=1;
                 */   
+
             }
             
         
@@ -338,10 +404,13 @@ public class EasyLevelWindow extends javax.swing.JDialog {
      */
     private void btnVerifyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerifyActionPerformed
         // Verifica si el mae ganó
+        
         String[] respuestaUsuario = new String[Game.WORD_LIST_MANAGER.getCounter()];
         LogicGame logic = new LogicGame();
         for (int i = 0; i < Game.WORD_LIST_MANAGER.getCounter(); i++) {
-            respuestaUsuario[i]=logic.extraction(Game.WORD_LIST_MANAGER.getInitRow(i), Game.WORD_LIST_MANAGER.getInitColumn(i), Game.WORD_LIST_MANAGER.getVerticalHorizontal(i), respuestas1);
+            
+            respuestaUsuario[i] = logic.extraction(Game.WORD_LIST_MANAGER.getInitRow(i), Game.WORD_LIST_MANAGER.getInitColumn(i), Game.WORD_LIST_MANAGER.getVerticalHorizontal(i), respuestas1);
+            
         }
         
         System.out.println(respuestas1.print());
