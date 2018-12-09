@@ -407,40 +407,49 @@ public class EasyLevelWindow extends javax.swing.JDialog {
     private void btnVerifyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerifyActionPerformed
         String[] respuestaUsuario = new String[Game.WORD_LIST_MANAGER.getCounter()];
         LogicGame logic = new LogicGame();
-        
+        boolean isEmpty = false;
         int badWords = 0;
         for (int i = 0; i < Game.WORD_LIST_MANAGER.getCounter(); i++) {
             respuestaUsuario[i] = logic.extraction(Game.WORD_LIST_MANAGER.getInitRow(i), Game.WORD_LIST_MANAGER.getInitColumn(i), Game.WORD_LIST_MANAGER.getVerticalHorizontal(i), respuestas1);
             System.out.println(Arrays.toString(respuestaUsuario));
-            
+            if (respuestaUsuario[i].equals("")) {
+                isEmpty = true;
+            }else{
+                isEmpty = false;
+            }
         }
         for (int i = 0; i <  Game.WORD_LIST_MANAGER.getCounter(); i++) {
             System.out.println(Game.WORD_LIST_MANAGER.getWord(i).toLowerCase());
             badWords += logic.validar(respuestaUsuario[i], Game.WORD_LIST_MANAGER.getWord(i).toLowerCase()); 
         }
-        if (badWords == 0) {
-            JOptionPane.showMessageDialog(this, "Felicidades, ha ganado");
-            Level level = new Level(this, true);
-            this.dispose();
-            level.setVisible(true);
-        }else if(badWords >= 1){
-            attempts ++;
-            if (attempts < 3) {
-                JOptionPane.showMessageDialog(this, "El crucigrama está incorrecto\n"
-                    + "número de intento " + attempts);
-            }else if (attempts == 3) {
-                JOptionPane.showMessageDialog(this, "El crucigrama está incorrecto.\n"
-                        + "Este es su último intento");
-                
-            }else if (attempts > 3) {
-                JOptionPane.showMessageDialog(this, "Ha fallado 3 veces, no puede continuar");
+        
+        if (isEmpty == true) {
+            JOptionPane.showMessageDialog(this, "Por favor rellene todo el crucigrama");
+        } else if(isEmpty == false){
+            if (badWords == 0) {
+                JOptionPane.showMessageDialog(this, "Felicidades, ha ganado");
                 Level level = new Level(this, true);
                 this.dispose();
                 level.setVisible(true);
-            }
+            }else if(badWords >= 1){
+                attempts ++;
+                if (attempts < 3) {
+                    JOptionPane.showMessageDialog(this, "El crucigrama está incorrecto\n"
+                        + "número de intento " + attempts);
+                }else if (attempts == 3) {
+                    JOptionPane.showMessageDialog(this, "El crucigrama está incorrecto.\n"
+                        + "Este es su último intento");
+                
+                }else if (attempts > 3) {
+                    JOptionPane.showMessageDialog(this, "Ha fallado 3 veces, no puede continuar");
+                    Level level = new Level(this, true);
+                    this.dispose();
+                    level.setVisible(true);
+                }
             //mostrar el número de palabras malas
             //Llamar de nuevo al initPanel con un párametro que reciba las palabras malas y las resalte, eso sería en el initPanel
             //aquí solo debería llamar a ese método y mandarle por párametro las palabrasMalas
+            }
         }
         System.out.println(respuestas1.print());
     }//GEN-LAST:event_btnVerifyActionPerformed
