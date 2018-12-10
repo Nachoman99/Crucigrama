@@ -90,12 +90,21 @@ public class LogicGame {
                 }
             }
         }
-         
-        String newIndex = Integer.toString(index);
-        char newIndex2 = newIndex.charAt(0);
-        Letter letterEmpty = new  Letter(newIndex2);
-        crossword.setLetterPosition(initialRow, initialColumn, letterEmpty);
-        
+        int[] indexPosition = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25};
+       char[] charSimbol = {'☺','☻','♥','♦','♣','•','◘','♪','♫','☼','►','◄','↕','‼','╦','╔','$','↔','╣','+','╝','§','○','◙','♀'};
+       for (int i = 0; i < indexPosition.length; i++) {
+           if(index == indexPosition[i]){ 
+           Letter letterEmpty = new  Letter(charSimbol[i]);
+            crossword.setLetterPosition(initialRow, initialColumn, letterEmpty);  
+       
+           }
+       }
+
+//        String newIndex = Integer.toString(index);
+//        char newIndex2 = newIndex.charAt(0);
+//        Letter letterEmpty = new  Letter(newIndex2);
+//        crossword.setLetterPosition(initialRow, initialColumn, letterEmpty);
+//        
         
     }
      
