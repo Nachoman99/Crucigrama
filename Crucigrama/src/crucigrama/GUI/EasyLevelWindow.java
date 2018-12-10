@@ -24,6 +24,7 @@ import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import users.User;
 
 /**
  * In this window the crossword puzzle is displayed for the easy level
@@ -37,6 +38,9 @@ public class EasyLevelWindow extends javax.swing.JDialog {
     public static WordList palabrasIncorrectas= new WordList();
     private boolean [] countHelp;
     private int countsHelp;
+    private int progressCrossword;
+    private int positionUser;
+    
     /**
      * Builder
      * Creates new form EasyLevelWindow
@@ -48,31 +52,59 @@ public class EasyLevelWindow extends javax.swing.JDialog {
        ReaderManagerText reader = new ReaderManagerText(); 
         int[] rowColumn = new int[1];
     
-        try {
-            reader.open("Crosswords/LevelEasy/1.txt");
-            rowColumn = reader.readRowColumn();
-            reader.close();
-            System.out.println("Lectura exitosa");
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(GameWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            System.err.println("error de archivo");
-            System.err.println(ex.getMessage());
-            Logger.getLogger(GameWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        
-        ReaderManagerText reader2 = new ReaderManagerText(); 
-        
-         try {
-            reader2.open("Crosswords/LevelEasy/1.txt");
-            reader2.readAll();
-            System.out.println(Game.WORD_LIST_MANAGER.getWordList());
-            reader2.close(); //importante cerrar el archivo
-            System.out.println("Lectura exitosa");
-        } catch (IOException ex) {
-            System.err.println("error de archivo");
-            System.err.println(ex.getMessage());
-            //ex.printStackTrace();
+        User user = new User();
+        progressCrossword = Game.USER_LIST_MANAGER.getProgressEasy(user.getUserCode());
+        System.out.println(progressCrossword);
+        if (progressCrossword == 0) {
+            try {
+                reader.open("Crosswords/LevelEasy/1.txt");
+                rowColumn = reader.readRowColumn();
+                reader.close();
+                System.out.println("Lectura exitosa");
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(GameWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                System.err.println("error de archivo");
+                System.err.println(ex.getMessage());
+                Logger.getLogger(GameWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            }
+            ReaderManagerText reader2 = new ReaderManagerText(); 
+            try {
+                reader2.open("Crosswords/LevelEasy/1.txt");
+                reader2.readAll();
+                reader2.close(); //importante cerrar el archivo
+                System.out.println("Lectura exitosa");
+            } catch (IOException ex) {
+                System.err.println("error de archivo");
+                System.err.println(ex.getMessage());
+                //ex.printStackTrace();
+            }
+}else{
+            try {
+                reader.open("Crosswords/LevelEasy/2.txt");
+                rowColumn = reader.readRowColumn();
+                reader.close();
+                System.out.println("Lectura exitosa");
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(GameWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                System.err.println("error de archivo");
+                System.err.println(ex.getMessage());
+                Logger.getLogger(GameWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            }
+
+            ReaderManagerText reader2 = new ReaderManagerText(); 
+
+            try {
+                reader2.open("Crosswords/LevelEasy/2.txt");
+                reader2.readAll();
+                reader2.close(); //importante cerrar el archivo
+                System.out.println("Lectura exitosa");
+            } catch (IOException ex) {
+                System.err.println("error de archivo");
+                System.err.println(ex.getMessage());
+                //ex.printStackTrace();
+            }
         }
         
         Crossword crossword1 = new Crossword(rowColumn[0], rowColumn[1]);
@@ -91,7 +123,11 @@ public class EasyLevelWindow extends javax.swing.JDialog {
        
     }
     
-
+    public void userSelected(int index){
+        positionUser = index;
+        
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

@@ -21,7 +21,7 @@ import javax.swing.JOptionPane;
  * @author Kevin Trejos/Jose Ignacio Zamora/Edwin Molina
  */
 public class Login extends javax.swing.JDialog {
-    boolean result;
+    private boolean result;
 
     /**
      * 
@@ -175,11 +175,14 @@ public class Login extends javax.swing.JDialog {
                     repeated += 1;
                     instructions.userSelected(Game.USER_LIST_MANAGER.getUserCode(i));
                     result = Game.USER_LIST_MANAGER.getInstructions(i);
+                    EasyLevelWindow easy = new EasyLevelWindow(this, true);
+                    easy.userSelected(Game.USER_LIST_MANAGER.getUserCode(i));
                 }else{
                     repeated += 0;
                 }
             }else{
                 repeated += 0;
+                
             }
         }
         if (repeated != 0) {
