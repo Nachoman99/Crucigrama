@@ -484,10 +484,11 @@ public class EasyLevelWindow extends javax.swing.JDialog {
                 if (attempts < 3) {
                     JOptionPane.showMessageDialog(this, "El crucigrama está incorrecto\n"
                         + "número de intento " + attempts);
+                    initPanel2(respuestas1);
                 }else if (attempts == 3) {
                     JOptionPane.showMessageDialog(this, "El crucigrama está incorrecto.\n"
                         + "Este es su último intento");
-                
+                    initPanel2(respuestas1);
                 }else if (attempts > 3) {
                     JOptionPane.showMessageDialog(this, "Ha fallado 3 veces, no puede continuar");
                     Level level = new Level(this, true);
@@ -500,7 +501,6 @@ public class EasyLevelWindow extends javax.swing.JDialog {
             }
         }
         System.out.println(respuestas1.print());
-        initPanel2(respuestas1);
     }//GEN-LAST:event_btnVerifyActionPerformed
 
     private void btnHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHelpActionPerformed
