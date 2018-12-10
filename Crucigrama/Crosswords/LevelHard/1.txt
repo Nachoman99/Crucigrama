@@ -1,16 +1,16 @@
-14-14
-5-7/1/H/ARENA/Fragmentos de roca y minerales de muy pequeño tamano
-3-11/2/V/BRAZO/Extremidad
-0-11/3/V/LILA/Color claro pertenecente a la rama del violeta
-1-9/4/H/PIEL/Sirve de capa protectora que aisla al organismo del medio que lo rodea
-5-8/5/V/ROSTRO/Sinonimo de cara
-7-10/6/H/COPA/Recipiente semejante a un vaso, con un pie, que se usa para beber
-10-5/7/H/RATON/Roedor de pequeño tamaño 
-8-3/8/V/GATO/Felino domestico comun
-3-9/9/H/JABON/Producto de higiene personal
-8-1/9/V/JUEZ/Persona que resuelve una controversia o que decide el destino de un imputado
-1-7/10/V/BRUJA/Mujer que, segun la supersticion popular, tiene poderes magicos
-8-3/11/H/GIGANTE/Humanoides de tamano y fuerza prodigiosos segun la mitologia
-13-5/12/H/ORBE/Redondo, de forma redonda
-10-5/13/V/ROJO/Color primario
-9-0/14/H/YUCA/Arbusto perenne del que se consumen sus raices
+14-15
+0-11/1/V/COPA/Recipiente semejante a un vaso, con un pie, que se usa para beber.
+0-13/2/V/JUEZ/Persona que resuelve una controversia o que decide el destino de un imputado.
+2-9/3/V/GIGANTE/Humanoides de tamano y fuerza prodigiosos segun la mitologia.
+2-11/4/H/PIEL/Sirve de capa protectora que aisla al organismo del medio que lo rodea.
+3-8/5/H/LILA/Color claro pertenecente a la rama del violeta.
+5-8/6/H/RATON/Roedor de pequeño tamaño.
+6-6/7/V/ARENA/Fragmentos de roca y minerales de muy pequeño tamaño.
+7-6/8/H/ROSTRO/Sinonimo de cara.
+8-2/9/V/YUCA/Arbusto perenne del que se consumen sus raices.
+8-4/10/V/JABON/Producto de higiene personal.
+9-0/11/H/BRUJA/Mujer que, segun la supersticion popular, tiene poderes magicos.
+10-4/12/H/BRAZO/Extremidad.
+10-8/13/V/ORBE/Redondo, de forma redonda. 
+11-1/14/H/GATO/Felino domestico comun.
+11-8/15/H/ROJO/Color primario.

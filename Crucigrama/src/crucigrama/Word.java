@@ -57,7 +57,7 @@ public class Word {
     }
 
     /**
-     *
+     * Builder
      * @param index
      * @param verticalHorizontal
      * @param word
@@ -71,32 +71,32 @@ public class Word {
     }
     
     /**
-     *
-     * @return
+     * get
+     * @return initRow
      */
     public int getInitRow() {
         return initRow;
     }
 
     /**
-     *
-     * @param initRow
+     * set
+     * @param initRow initRow
      */
     public void setInitRow(int initRow) {
         this.initRow = initRow;
     }
 
     /**
-     *
-     * @return
+     * get
+     * @return initColumn
      */
     public int getInitColumn() {
         return initColumn;
     }
 
     /**
-     *
-     * @param initColumn
+     * set
+     * @param initColumn initColumn
      */
     public void setInitColumn(int initColumn) {
         this.initColumn = initColumn;
