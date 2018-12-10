@@ -167,10 +167,10 @@ public class Register extends javax.swing.JDialog {
         }else{
             try {
                 reader.open("Users/userFile.ser");
-                Game.listManager = reader.read();
+                Game.USER_LIST_MANAGER = reader.read();
                 reader.close(); //importante cerrar el archivo
                 System.out.println("Lectura exitosa");
-                System.out.println("Contenido de la lista:\n" + Game.listManager.getListString());
+                System.out.println("Contenido de la lista:\n" + Game.USER_LIST_MANAGER.getListString());
             } catch (IOException ex) {
                 System.err.println("error de archivo");
                 System.err.println(ex.getMessage());
@@ -179,8 +179,8 @@ public class Register extends javax.swing.JDialog {
                 System.err.println(ex.getMessage());   
             }
             int repeated = 0;
-            for (int i = 0; i < Game.listManager.getCounter(); i++) {
-            if (tfID.getText().equals(Game.listManager.getID(i))) {
+            for (int i = 0; i < Game.USER_LIST_MANAGER.getCounter(); i++) {
+            if (tfID.getText().equals(Game.USER_LIST_MANAGER.getID(i))) {
                 repeated += 1;
                 System.err.println("Termina");
             }else{
@@ -193,13 +193,13 @@ public class Register extends javax.swing.JDialog {
             char[] passwoord = pfPassword.getPassword(); 
             String pass = new String(passwoord);
             user.setPassword(pass);
-            if(Game.listManager.getCounter() >= 1){
-               int previous = Game.listManager.getEspecificUser(Game.listManager.getCounter()-1).getUserCode();
+            if(Game.USER_LIST_MANAGER.getCounter() >= 1){
+               int previous = Game.USER_LIST_MANAGER.getEspecificUser(Game.USER_LIST_MANAGER.getCounter()-1).getUserCode();
                user.addUserCodeMore(previous);
             }else{ 
                user.addUserCode(); 
             }
-            Game.listManager.addWord(user);
+            Game.USER_LIST_MANAGER.addWord(user);
             try {
                 writer.open("Users/userFile.ser");  //probar el parametro apend en new FileWriter(fileName, true)
                 writer.write();
@@ -209,8 +209,8 @@ public class Register extends javax.swing.JDialog {
                 System.err.println("error de archivo");
                 System.err.println(ex.getMessage());
             }
-            instructions.userSelected(Game.listManager.getUserCode(Game.listManager.getCounter()-1));
-            result = Game.listManager.getInstructions(Game.listManager.getCounter()-1);
+            instructions.userSelected(Game.USER_LIST_MANAGER.getUserCode(Game.USER_LIST_MANAGER.getCounter()-1));
+            result = Game.USER_LIST_MANAGER.getInstructions(Game.USER_LIST_MANAGER.getCounter()-1);
             if (result == true) {
                 Level level = new Level(this, true);
                 instructions.setVisible(false);

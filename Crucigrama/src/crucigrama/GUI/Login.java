@@ -154,10 +154,10 @@ public class Login extends javax.swing.JDialog {
         ReaderManagerBinary reader = new ReaderManagerBinary();
         try {
             reader.open("Users/userFile.ser");
-            Game.listManager = reader.read();
+            Game.USER_LIST_MANAGER = reader.read();
             reader.close(); //importante cerrar el archivo
             System.out.println("Lectura exitosa");
-            System.out.println("Contenido de la lista:\n" + Game.listManager.getListString());
+            System.out.println("Contenido de la lista:\n" + Game.USER_LIST_MANAGER.getListString());
         } catch (IOException ex) {
             System.err.println("error de archivo");
             System.err.println(ex.getMessage());
@@ -169,12 +169,12 @@ public class Login extends javax.swing.JDialog {
         }
         int repeated = 0;
         String pass = new String(pfPassword.getPassword());
-        for (int i = 0; i < Game.listManager.getCounter(); i++) {
-            if (tfID.getText().equals(Game.listManager.getID(i))) {
-                if (pass.equals(Game.listManager.getPassword(i))) {
+        for (int i = 0; i < Game.USER_LIST_MANAGER.getCounter(); i++) {
+            if (tfID.getText().equals(Game.USER_LIST_MANAGER.getID(i))) {
+                if (pass.equals(Game.USER_LIST_MANAGER.getPassword(i))) {
                     repeated += 1;
-                    instructions.userSelected(Game.listManager.getUserCode(i));
-                    result = Game.listManager.getInstructions(i);
+                    instructions.userSelected(Game.USER_LIST_MANAGER.getUserCode(i));
+                    result = Game.USER_LIST_MANAGER.getInstructions(i);
                 }else{
                     repeated += 0;
                 }

@@ -17,17 +17,17 @@ import users.UserList;
 public class Game {
 
     /**
-     *
+     * A list of registered users
      */
-    public static UserList listManager = new UserList();
+    public static UserList USER_LIST_MANAGER = new UserList();
 
     /**
-     *
+     * A list of words
      */
     public static WordList WORD_LIST_MANAGER = new WordList();
     
     /**
-     * @param args the command line arguments
+     * main
      */
     public static void main(String[] args) {
         // TODO code application logic here

@@ -28,7 +28,7 @@ public class WriterManagerBinary {
      * @throws IOException
      */
     public void write() throws IOException {
-        writer.writeObject(Game.listManager);
+        writer.writeObject(Game.USER_LIST_MANAGER);
     }
 
     /**

@@ -296,7 +296,6 @@ public class VeryHardLevelWindow extends javax.swing.JDialog {
    
     private void initPanel(int[] rowColumn, Crossword crossword){
         LogicGame logic = new LogicGame();
-        
         int rows = rowColumn[0];
         int columns = rowColumn[1];
         respuestas1 = new Crossword(rows, columns);

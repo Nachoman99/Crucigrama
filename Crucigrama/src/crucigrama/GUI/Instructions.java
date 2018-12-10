@@ -136,7 +136,7 @@ public class Instructions extends javax.swing.JDialog {
         user.getUserCode();
         try {
             writer.open("Users/userFile.ser");  //probar el parametro apend en new FileWriter(fileName, true)
-            Game.listManager.setInstructios(positionUser, true);
+            Game.USER_LIST_MANAGER.setInstructios(positionUser, true);
             writer.write();
             writer.close(); //importante cerrar el archivo 
             System.out.println("Escritura exitosa");

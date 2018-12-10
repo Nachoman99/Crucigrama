@@ -11,6 +11,8 @@ package crucigrama;
  *@version 7/12/2018
  * @author Kevin Trejos, Jose Ignacio Zamora, Edwin Molina
  */
+
+
 public class Word {
     int initRow;
     int initColumn;
@@ -20,15 +22,16 @@ public class Word {
     String clue;
 
     /**
-     *
+     * Builder
      */
     public Word() {
+        this(0,0,0,' ',"","");
     }
     
     /**
-     *
-     * @param initRow
-     * @param initColumn
+     * Builder
+     * @param initRow initial row
+     * @param initColumn initial column
      */
     public Word(int initRow, int initColumn){
         this.initRow = initRow;
@@ -36,7 +39,7 @@ public class Word {
     }
 
     /**
-     *
+     * Builder
      * @param initRow
      * @param initColumn
      * @param index

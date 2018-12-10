@@ -15,14 +15,14 @@ public class Letter {
     private char letter;
 
     /**
-     *
+     * Builder
      */
     public Letter() {
         this('0');
     }
 
     /**
-     *
+     * Builder
      * @param letter
      */
     public Letter(char letter) {
@@ -30,24 +30,24 @@ public class Letter {
     }
 
     /**
-     *
-     * @return
+     * Get
+     * @return letter
      */
     public char getLetter() {
         return letter;
     }
 
     /**
-     *
-     * @param letter
+     *set
+     * @param letter a letter
      */
     public void setLetter(char letter) {
         this.letter = letter;
     }
 
     /**
-     *
-     * @return
+     * toString
+     * @return toString
      */
     @Override
     public String toString() {

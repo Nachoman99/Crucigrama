@@ -197,6 +197,7 @@ public class HardLevelWindow extends javax.swing.JDialog {
      * @param evt the event that makes the button
      */
     private void btnVerifyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerifyActionPerformed
+        int countBadWords = 0;
         String[] respuestaUsuario = new String[Game.WORD_LIST_MANAGER.getCounter()];
         LogicGame logic = new LogicGame();
         boolean isEmpty = false;
@@ -222,6 +223,7 @@ public class HardLevelWindow extends javax.swing.JDialog {
                    Word word5 = new Word(Game.WORD_LIST_MANAGER.getInitRow(i), Game.WORD_LIST_MANAGER.getInitColumn(i), Game.WORD_LIST_MANAGER.getIndex(i),Game.WORD_LIST_MANAGER.getVerticalHorizontal(i), Game.WORD_LIST_MANAGER.getWord(i), Game.WORD_LIST_MANAGER.getClue(i));
                     System.out.println(word5.toString());
                    palabrasIncorrectas.addWord(word5);
+                   countBadWords +=1;
                 }
             }
             System.err.println(badWords);
@@ -238,10 +240,10 @@ public class HardLevelWindow extends javax.swing.JDialog {
                 attempts ++;
                 if (attempts < 3) {
                     JOptionPane.showMessageDialog(this, "El crucigrama está incorrecto\n"
-                        + "número de intento " + attempts);
+                        + "número de intento " + attempts+"\n" + "Y tiene "+countBadWords+" palabra malas");
                 }else if (attempts == 3) {
                     JOptionPane.showMessageDialog(this, "El crucigrama está incorrecto.\n"
-                        + "Este es su último intento");
+                        + "Este es su último intento"+"\n" + "Y tiene "+countBadWords+" palabra malas");
                 
                 }else if (attempts > 3) {
                     JOptionPane.showMessageDialog(this, "Ha fallado 3 veces, no puede continuar");

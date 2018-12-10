@@ -15,7 +15,7 @@ public class Crossword {
     private Letter[][] crossword;
 
     /**
-     *
+     * builder without parameters
      */
     public Crossword() {
     
@@ -38,7 +38,7 @@ public class Crossword {
     }
 
     /**
-     *
+     * builder
      * @param crossword
      */
     public Crossword(Letter[][] crossword) {
@@ -46,15 +46,15 @@ public class Crossword {
     }
 
     /**
-     *
-     * @return
+     * get
+     * @return crossword
      */
     public Letter[][] getCrossword() {
         return crossword;
     }
 
     /**
-     *
+     * set
      * @param crossword
      */
     public void setCrossword(Letter[][] crossword) {
@@ -62,8 +62,8 @@ public class Crossword {
     }
 
     /**
-     *
-     * @return
+     * toString
+     * @return toString
      */
     @Override
     public String toString() {
