@@ -11,6 +11,7 @@ import crucigrama.Game;
 import crucigrama.Letter;
 import crucigrama.LogicGame;
 import crucigrama.Word;
+import crucigrama.WordList;
 import filemanager.ReaderManagerText;
 import java.awt.Color;
 import java.awt.GridLayout;
@@ -203,6 +204,7 @@ public class VeryHardLevelWindow extends javax.swing.JDialog {
         int option;
         option = JOptionPane.showConfirmDialog(this, "Está seguro que desea volver, perderá su progreso", "VOLVER", JOptionPane.YES_NO_OPTION);
         if (option == JOptionPane.YES_OPTION) {
+            Game.WORD_LIST_MANAGER = new WordList();
             this.dispose();
             level.setVisible(true);
         }

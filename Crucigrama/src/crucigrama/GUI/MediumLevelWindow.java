@@ -11,6 +11,7 @@ import crucigrama.Game;
 import crucigrama.Letter;
 import crucigrama.LogicGame;
 import crucigrama.Word;
+import crucigrama.WordList;
 import filemanager.ReaderManagerText;
 import java.awt.Color;
 import java.awt.GridLayout;
@@ -204,6 +205,7 @@ public class MediumLevelWindow extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVerifyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerifyActionPerformed
+        int countBadWords = 0;
         String[] respuestaUsuario = new String[Game.WORD_LIST_MANAGER.getCounter()];
         LogicGame logic = new LogicGame();
         boolean isEmpty = false;
@@ -225,10 +227,11 @@ public class MediumLevelWindow extends javax.swing.JDialog {
             }else{
                 badWords += logic.validar(respuestaUsuario[i].toUpperCase(), Game.WORD_LIST_MANAGER.getWord(i).toUpperCase()); 
                 especificBadWord = logic.validar(respuestaUsuario[i].toUpperCase(), Game.WORD_LIST_MANAGER.getWord(i).toUpperCase());
-                if(especificBadWord >0){
+                if(especificBadWord > 0){
                    Word word5 = new Word(Game.WORD_LIST_MANAGER.getInitRow(i), Game.WORD_LIST_MANAGER.getInitColumn(i), Game.WORD_LIST_MANAGER.getIndex(i),Game.WORD_LIST_MANAGER.getVerticalHorizontal(i), Game.WORD_LIST_MANAGER.getWord(i), Game.WORD_LIST_MANAGER.getClue(i));
                     System.out.println(word5.toString());
                    palabrasIncorrectas.addWord(word5);
+                   
                 }
             }
             System.err.println(badWords);
@@ -264,8 +267,8 @@ public class MediumLevelWindow extends javax.swing.JDialog {
     }//GEN-LAST:event_btnVerifyActionPerformed
 
     private void btnHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHelpActionPerformed
-        /*
-        se completará una letra de forma aleatoria de una palabra
+/*
+se completará una letra de forma aleatoria de una palabra
 aleatoria, si ya se ha completado una letra de esa palabra se realizará para otra palabra. Cuando se ha
 completado   una   letra   en   todas   las   palabras   ya   no   será   posible   solicitar   más   ayuda,   lo   que   debe
 indicarse mediante un mensaje al usuario al presionar el botón de ayuda.  
@@ -282,6 +285,7 @@ indicarse mediante un mensaje al usuario al presionar el botón de ayuda.
         int option;
         option = JOptionPane.showConfirmDialog(this, "Está seguro que desea volver, perderá su progreso", "VOLVER", JOptionPane.YES_NO_OPTION);
         if (option == JOptionPane.YES_OPTION) {
+            Game.WORD_LIST_MANAGER = new WordList();
             this.dispose();
             level.setVisible(true);
         }

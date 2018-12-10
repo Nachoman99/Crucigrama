@@ -98,7 +98,7 @@ public class EasyLevelWindow extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
+        btnHelp = new javax.swing.JButton();
         btnVerify = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
         pnCrossword = new javax.swing.JPanel();
@@ -110,8 +110,14 @@ public class EasyLevelWindow extends javax.swing.JDialog {
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
 
-        jButton1.setText("jButton1");
+        btnHelp.setText("Ayuda");
+        btnHelp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHelpActionPerformed(evt);
+            }
+        });
 
         btnVerify.setText("Verificar gane");
         btnVerify.addActionListener(new java.awt.event.ActionListener() {
@@ -163,7 +169,7 @@ public class EasyLevelWindow extends javax.swing.JDialog {
                         .addGap(62, 62, 62)
                         .addComponent(btnVerify)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1)
+                        .addComponent(btnHelp)
                         .addGap(26, 26, 26))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -195,7 +201,7 @@ public class EasyLevelWindow extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnBack)
                     .addComponent(btnVerify)
-                    .addComponent(jButton1))
+                    .addComponent(btnHelp))
                 .addContainerGap())
         );
 
@@ -212,6 +218,7 @@ public class EasyLevelWindow extends javax.swing.JDialog {
         int option;
         option = JOptionPane.showConfirmDialog(this, "Está seguro que desea volver, perderá su progreso", "VOLVER", JOptionPane.YES_NO_OPTION);
         if (option == JOptionPane.YES_OPTION) {
+            Game.WORD_LIST_MANAGER = new WordList();
             this.dispose();
             level.setVisible(true);
         }
@@ -495,6 +502,10 @@ public class EasyLevelWindow extends javax.swing.JDialog {
         System.out.println(respuestas1.print());
         initPanel2(respuestas1);
     }//GEN-LAST:event_btnVerifyActionPerformed
+
+    private void btnHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHelpActionPerformed
+        
+    }//GEN-LAST:event_btnHelpActionPerformed
  
    /**
     * Pressing the X returns to the main window
@@ -530,8 +541,8 @@ public class EasyLevelWindow extends javax.swing.JDialog {
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnHelp;
     private javax.swing.JButton btnVerify;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;

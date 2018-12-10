@@ -6,6 +6,6 @@
 6-6/4/V/CARRO/Vehículo de transporte.
 7-10/5/V/PARED/Obra de albañilería vertical que limita un espacio arquitectónico.
 8-0/6/V/BOLSO/Recipiente útil para transportar un número reducido de objetos de uso frecuente. 
-8-4/7/H/CORTINA/Abertura que permite acceder al interior de un lugar.
+8-4/7/H/CORTINA/Pieza de tela o de otro material flexible y ligero, que se cuelga de la parte superior de una puerta, ventana o hueco para cubrirlo o adornarlo.
 9-2/8/V/LAVA/Materia en fusión o derretida que expulsa un volcán.
 10-0/9/H/LLAVE/Utensilio para abrir y cerrar una cerradura
