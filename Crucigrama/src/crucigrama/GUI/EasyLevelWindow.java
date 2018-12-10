@@ -35,14 +35,15 @@ public class EasyLevelWindow extends javax.swing.JDialog {
     private Crossword respuestas1;
     private int attempts = 0;
     public static WordList palabrasIncorrectas= new WordList();
+    
     /**
+     * Builder
      * Creates new form EasyLevelWindow
      */
     public EasyLevelWindow(javax.swing.JDialog parent, boolean modal) {
          super(parent, modal);
         initComponents();
         setLocationRelativeTo(parent);
-       // initPanel();
        ReaderManagerText reader = new ReaderManagerText(); 
         int[] rowColumn = new int[1];
     
@@ -224,6 +225,9 @@ public class EasyLevelWindow extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_btnBackActionPerformed
 
+    /**
+     * 
+     */
     private void showTracks(){
         String[] charSimbol = {"☺","☻","♥","♦","♣","•","◘","♪","♫","☼","►","◄","↕","‼","╦","╔","$","↔","╣","+","╝","§","○","◙","♀"};
         String clueH = "";
