@@ -8,8 +8,10 @@ package users;
 import java.io.Serializable;
 
 /**
- *
- * @author Kevin Trejos
+ * this class is responsible for the progress of each user
+ * 
+ *@version 10/12/2018
+ * @author Kevin Trejos/Jose Ignacio Zamora/Edwin Molina
  */
 public class Progress implements Serializable {
     private int levelEasy;
@@ -18,7 +20,7 @@ public class Progress implements Serializable {
     private int levelVeryHard;
 
     /**
-     *
+     *Builder
      * @param levelEasy
      * @param levelMedium
      * @param levelHard
@@ -32,7 +34,7 @@ public class Progress implements Serializable {
     }
 
     /**
-     *
+     * get
      * @return
      */
     public int getLevelEasy() {
@@ -40,7 +42,7 @@ public class Progress implements Serializable {
     }
 
     /**
-     *
+     * set
      * @param levelEasy
      */
     public void setLevelEasy(int levelEasy) {
@@ -48,7 +50,7 @@ public class Progress implements Serializable {
     }
 
     /**
-     *
+     * get
      * @return
      */
     public int getLevelMedium() {
@@ -56,7 +58,7 @@ public class Progress implements Serializable {
     }
 
     /**
-     *
+     *set
      * @param levelMedium
      */
     public void setLevelMedium(int levelMedium) {
@@ -64,7 +66,7 @@ public class Progress implements Serializable {
     }
 
     /**
-     *
+     *get
      * @return
      */
     public int getLevelHard() {
@@ -72,7 +74,7 @@ public class Progress implements Serializable {
     }
 
     /**
-     *
+     *set
      * @param levelHard
      */
     public void setLevelHard(int levelHard) {
@@ -80,7 +82,7 @@ public class Progress implements Serializable {
     }
 
     /**
-     *
+     *get
      * @return
      */
     public int getLevelVeryHard() {
@@ -88,7 +90,7 @@ public class Progress implements Serializable {
     }
 
     /**
-     *
+     * set
      * @param levelVeryHard
      */
     public void setLevelVeryHard(int levelVeryHard) {
@@ -96,7 +98,7 @@ public class Progress implements Serializable {
     }
 
     /**
-     *
+     * toString
      * @return
      */
     @Override

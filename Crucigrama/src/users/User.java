@@ -8,8 +8,10 @@ package users;
 import java.io.Serializable;
 
 /**
- *
- * @author Kevin Trejos
+ * this class is responsible for the management of all users
+ * 
+ *@version 10/12/2018
+ * @author Kevin Trejos/Jose Ignacio Zamora/Edwin Molina
  */
 public class User implements Serializable{
     private boolean instructions;
@@ -19,13 +21,13 @@ public class User implements Serializable{
     private int userCode = -1;
 
     /**
-     *
+     *Builder
      */
     public User() {
     }
 
     /**
-     *
+     *Builder
      * @param ID
      * @param password
      * @param progress
@@ -41,7 +43,7 @@ public class User implements Serializable{
     }
 
     /**
-     *
+     *get
      * @return
      */
     public String getID() {
@@ -49,7 +51,7 @@ public class User implements Serializable{
     }
 
     /**
-     *
+     *set
      * @param ID
      */
     public void setID(String ID) {
@@ -57,7 +59,7 @@ public class User implements Serializable{
     }
 
     /**
-     *
+     *get
      * @return
      */
     public String getPassword() {
@@ -65,7 +67,7 @@ public class User implements Serializable{
     }
 
     /**
-     *
+     *set
      * @param password
      */
     public void setPassword(String password) {
@@ -73,7 +75,7 @@ public class User implements Serializable{
     }
 
     /**
-     *
+     *get
      * @return
      */
     public Progress getProgress() {
@@ -81,7 +83,7 @@ public class User implements Serializable{
     }
 
     /**
-     *
+     *set
      * @param progress
      */
     public void setProgress(Progress progress) {
@@ -89,7 +91,7 @@ public class User implements Serializable{
     }
 
     /**
-     *
+     * get
      * @return
      */
     public boolean isInstructions() {
@@ -97,7 +99,7 @@ public class User implements Serializable{
     }
 
     /**
-     *
+     * set
      * @param instructions
      */
     public void setInstructions(boolean instructions) {
@@ -105,7 +107,7 @@ public class User implements Serializable{
     }
 
     /**
-     *
+     * get
      * @return
      */
     public int getUserCode() {
@@ -113,7 +115,7 @@ public class User implements Serializable{
     }
 
     /**
-     *
+     * set
      * @param userCode
      */
     public void setUserCode(int userCode) {
@@ -121,8 +123,8 @@ public class User implements Serializable{
     }
 
     /**
-     *
-     * @return
+     * this method gives each user a different code
+     * @return user code
      */
     public int addUserCode(){
         this.userCode += 1;
@@ -130,9 +132,9 @@ public class User implements Serializable{
     }
     
     /**
-     *
-     * @param previuos
-     * @return
+     * this method gives each user a different code
+     * @param previuos previous user's code
+     * @return user code
      */
     public int addUserCodeMore(int previuos){
         this.userCode = previuos;
@@ -141,7 +143,7 @@ public class User implements Serializable{
     }
      
     /**
-     *
+     * toString
      * @return
      */
     @Override

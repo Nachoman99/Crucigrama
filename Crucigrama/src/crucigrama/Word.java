@@ -11,8 +11,6 @@ package crucigrama;
  *@version 7/12/2018
  * @author Kevin Trejos, Jose Ignacio Zamora, Edwin Molina
  */
-
-
 public class Word {
     int initRow;
     int initColumn;
@@ -103,7 +101,7 @@ public class Word {
     }
 
     /**
-     *
+     *get
      * @return
      */
     public int getIndex() {
@@ -111,7 +109,7 @@ public class Word {
     }
 
     /**
-     *
+     *set
      * @param index
      */
     public void setIndex(int index) {
@@ -119,7 +117,7 @@ public class Word {
     }
 
     /**
-     *
+     *get
      * @return
      */
     public char getVerticalHorizontal() {
@@ -127,7 +125,7 @@ public class Word {
     }
 
     /**
-     *
+     *set
      * @param verticalHorizontal
      */
     public void setVerticalHorizontal(char verticalHorizontal) {
@@ -135,7 +133,7 @@ public class Word {
     }
 
     /**
-     *
+     *get
      * @return
      */
     public String getWord() {
@@ -143,7 +141,7 @@ public class Word {
     }
 
     /**
-     *
+     *set
      * @param word
      */
     public void setWord(String word) {
@@ -151,7 +149,7 @@ public class Word {
     }
 
     /**
-     *
+     *get
      * @return
      */
     public String getClue() {
@@ -159,7 +157,7 @@ public class Word {
     }
 
     /**
-     *
+     *set
      * @param clue
      */
     public void setClue(String clue) {
@@ -167,7 +165,7 @@ public class Word {
     }
 
     /**
-     *
+     *toString
      * @return
      */
     @Override

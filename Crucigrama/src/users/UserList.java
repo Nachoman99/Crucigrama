@@ -8,22 +8,24 @@ package users;
 import java.io.Serializable;
 
 /**
- *
- * @author Nacho
+ * this class manages the list of users who have registered
+ * 
+ *@version 10/12/2018
+ * @author Jose Ignacio Zamora/Kevin Trejos/Edwin Molina
  */
 public class UserList implements Serializable{
     private User[] userList;
     private int counter;
 
     /**
-     *
+     *Builder
      */
     public UserList() {
-        userList = new User[100];
+        userList = new User[1000];
     }
 
     /**
-     *
+     * Builder
      * @param userList
      * @param counter
      */
@@ -33,7 +35,7 @@ public class UserList implements Serializable{
     }
 
     /**
-     *
+     * get
      * @return
      */
     public User[] getUserList() {
@@ -41,7 +43,7 @@ public class UserList implements Serializable{
     }
 
     /**
-     *
+     * set
      * @param userList
      */
     public void setUserList(User[] userList) {
@@ -49,7 +51,7 @@ public class UserList implements Serializable{
     }
     
     /**
-     *
+     * get
      * @param selected
      * @return
      */
@@ -58,7 +60,7 @@ public class UserList implements Serializable{
     }
 
     /**
-     *
+     * set
      * @param selected
      * @param instructios
      */
@@ -67,7 +69,7 @@ public class UserList implements Serializable{
     }
     
     /**
-     *
+     * get
      * @param seleted
      * @return
      */
@@ -76,7 +78,7 @@ public class UserList implements Serializable{
     }
     
     /**
-     *
+     * get
      * @param index
      * @return
      */
@@ -85,7 +87,7 @@ public class UserList implements Serializable{
     }
     
     /**
-     *
+     * get
      * @return
      */
     public int getCounter() {
@@ -93,7 +95,7 @@ public class UserList implements Serializable{
     }
 
     /**
-     *
+     * set
      * @param counter
      */
     public void setCounter(int counter) {
@@ -101,7 +103,7 @@ public class UserList implements Serializable{
     }
     
     /**
-     *
+     *toString
      * @return
      */
     @Override
@@ -110,34 +112,34 @@ public class UserList implements Serializable{
     }
     
     /**
-     *
+     * add a new user to the list
      * @param user
      */
-    public void addWord(User user) {
+    public void addUser(User user) {
         userList[counter++] = user;
     }
     
     /**
-     *
-     * @param number
-     * @return
+     * returns a specific user from the list
+     * @param number User's position in the list
+     * @return a specific user from the list
      */
     public User getEspecificUser(int number){
         return userList[number];
     }
     
     /**
-     *
-     * @param instructions
-     * @param userCode
+     * says if the user touched the button to not show the instructions again
+     * @param instructions whether he touched it or not
+     * @param userCode user code
      */
     public void addInstructions(boolean instructions, int userCode){
         userList[userCode].setInstructions(instructions);
     }
    
     /**
-     *
-     * @return
+     * convert the list of users in String
+     * @return the list of users in String
      */
     public String getListString() {
         String text = "";
@@ -148,9 +150,9 @@ public class UserList implements Serializable{
     }
     
     /**
-     *
-     * @param position
-     * @return
+     *returns the password of a specific user
+     * @param position position of the user in the list
+     * @return the password of a specific user
      */
     public String getPassword(int position){
         String txt = "";
@@ -159,9 +161,9 @@ public class UserList implements Serializable{
     }
     
     /**
-     *
-     * @param position
-     * @return
+     * returns the identification of a specific user
+     * @param position position of the user in the list
+     * @return the identification of a specific user
      */
     public String getID(int position){
         String ID = "";

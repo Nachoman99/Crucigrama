@@ -16,14 +16,14 @@ public class WordList {
     private int counter;
 
     /**
-     *
+     * Builder
      */
     public WordList() {
-        wordList = new Word[100];
+        wordList = new Word[1000];
     }
 
     /**
-     *
+     *Builder
      * @param wordList
      * @param counter
      */
@@ -33,7 +33,7 @@ public class WordList {
     }
 
     /**
-     *
+     * get
      * @return
      */
     public Word[] getWordList() {
@@ -41,7 +41,7 @@ public class WordList {
     }
 
     /**
-     *
+     * set
      * @param wordList
      */
     public void setWordList(Word[] wordList) {
@@ -49,7 +49,7 @@ public class WordList {
     }
 
     /**
-     *
+     *  get
      * @return
      */
     public int getCounter() {
@@ -57,7 +57,7 @@ public class WordList {
     }
 
     /**
-     *
+     *  set
      * @param counter
      */
     public void setCounter(int counter) {
@@ -65,7 +65,7 @@ public class WordList {
     }
 
     /**
-     *
+     *  toString
      * @return
      */
     @Override

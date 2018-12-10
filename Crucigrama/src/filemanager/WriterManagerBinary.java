@@ -15,16 +15,17 @@ public class WriterManagerBinary {
     private ObjectOutputStream writer;
 
     /**
-     *
-     * @param fileName
-     * @throws IOException
+     * public void open(String fileName) throws IOException
+     * this method opens the document to be read
+     * @param fileName location of the document
      */
     public void open(String fileName) throws IOException {
         writer = new ObjectOutputStream(new FileOutputStream(fileName));
     }
 
     /**
-     *
+     * public void write() throws IOException
+     * this method writes about the document
      * @throws IOException
      */
     public void write() throws IOException {
@@ -32,8 +33,8 @@ public class WriterManagerBinary {
     }
 
     /**
-     *
-     * @throws IOException
+     * public void close() throws IOException
+     * this method closes the document
      */
     public void close() throws IOException {
         writer.close();

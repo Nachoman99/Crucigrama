@@ -280,7 +280,6 @@ public class VeryHardLevelWindow extends javax.swing.JDialog {
         for (int i = 0; i < Game.WORD_LIST_MANAGER.getCounter(); i++) {
             verticalHorizontal = Game.WORD_LIST_MANAGER.getVerticalHorizontal(i);
             String verticalHorizontal2 = Character.toString(verticalHorizontal);
-
             if (verticalHorizontal2.equals("H")) {
                 index = Game.WORD_LIST_MANAGER.getIndex(i);
                  indexString = charSimbol[index-1];

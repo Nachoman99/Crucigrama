@@ -8,7 +8,9 @@ import java.io.FileReader;
 import java.io.IOException;
 
 /**
- *
+ *this class is responsible for reading text files
+ * 
+ * @version 10/12/2018
  * @author Kevin Trejos
  */
 public class ReaderManagerText {
@@ -16,9 +18,9 @@ public class ReaderManagerText {
     private BufferedReader reader;
 
     /**
-     *
-     * @param fileName
-     * @throws FileNotFoundException
+     * public void open(String fileName) throws FileNotFoundException
+     * this method opens the document to be read
+     * @param fileName location of the document
      */
     public void open(String fileName) throws FileNotFoundException {
         reader = new BufferedReader(new FileReader(fileName));
@@ -36,12 +38,10 @@ public class ReaderManagerText {
     }*/
 
     /**
-     *
-     * @return
-     * @throws IOException
+     * public int[] readRowColumn()  throws IOException
+     *  this method returns the size of the matrix of each crossword
+     * @return the size of the matrix of each crossword
      */
-
-
     public int[] readRowColumn() throws IOException{
         int[] size = new int[2];
         String line = reader.readLine();
@@ -66,34 +66,34 @@ public class ReaderManagerText {
             size = new Word()
         }
    }*/
+    
+    /**
+     * private Word read() throws IOException
+     * this method reads everything related to the words of the crossword
+     * @return what he read
+     */
     private Word read() throws IOException{
         Word word = new Word();
         String caso = reader.readLine();
-        System.out.println("me cago1= "+caso);
         if(caso == null){
-          return null;
+            return null;
         }else {    
            if(caso.length() < 10){
                 String line = reader.readLine(); //retorna null cuando no hay más registros
                 String datos[];
                 String datos2[];
                 String datos4[];
-                System.out.println("me cago3= "+line);
+                
                 if (line != null) {
-                    System.out.println("me cago= "+line);
-                    System.out.println("lengt= "+line.length());
+                   
                     datos = line.split("/");
-                    
-                    //datos = line.split("/");
                     word.setIndex(Integer.parseInt(datos[1]));
                     word.setVerticalHorizontal( datos[2].charAt(0));
                     word.setWord(datos[3]);
                     word.setClue(datos[4]);  
-                    
                     datos2 = line.split("-");
                     System.out.println("lengt= "+datos2[1]);
                     word.setInitRow(Integer.parseInt(datos2[0]));
-                    
                     String datos3;
                     datos3 = datos[0];
                     datos4 = datos3.split("-");
@@ -101,40 +101,27 @@ public class ReaderManagerText {
                 }
             }else{
                 String datos[];
-                    String datos2[];
-                     String datos4[];
-                    System.out.println("me cago3= "+caso);
-
-                        System.out.println("me cago= "+caso);
-                        System.out.println("lengt= "+caso.length());
-                        datos = caso.split("/");
-
-                        //datos = line.split("/");
-                        word.setIndex(Integer.parseInt(datos[1]));
-                        word.setVerticalHorizontal( datos[2].charAt(0));
-                        word.setWord(datos[3]);
-                        word.setClue(datos[4]);  
-
-                        datos2 = caso.split("-");
-                        System.out.println("lengt= "+datos2[1]);
-                        word.setInitRow(Integer.parseInt(datos2[0]));
-                        
-                        String datos3;
-                        datos3 = datos[0];
-                        datos4 = datos3.split("-");
-                        word.setInitColumn(Integer.parseInt(datos4[1]));
-                      
+                String datos2[];
+                String datos4[];
+                datos = caso.split("/");
+                word.setIndex(Integer.parseInt(datos[1]));
+                word.setVerticalHorizontal( datos[2].charAt(0));
+                word.setWord(datos[3]);
+                word.setClue(datos[4]);  
+                datos2 = caso.split("-");
+                word.setInitRow(Integer.parseInt(datos2[0]));
+                String datos3;
+                datos3 = datos[0];
+                datos4 = datos3.split("-");
+                word.setInitColumn(Integer.parseInt(datos4[1]));   
             } 
         }
-        
-        
         return word;
-        
     }
 
     /**
-     *
-     * @throws IOException
+     * public void readAll() throws IOException
+     * this method reads the entire document
      */
     public void readAll() throws IOException {
         Word newWord = read();
@@ -164,8 +151,8 @@ public class ReaderManagerText {
 //        }
 
     /**
-     *
-     * @throws IOException
+     * public void close() throws IOException
+     * this method closes the document
      */
     public void close() throws IOException {
         reader.close();

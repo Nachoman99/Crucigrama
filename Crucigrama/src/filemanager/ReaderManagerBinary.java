@@ -7,35 +7,35 @@ import java.io.ObjectInputStream;
 import users.UserList;
 
 /**
- *
- * @author Kevin Trejos
+ * This class is responsible for reading binary files
+ * 
+ *@version 10/12/2018
+ * @author Kevin Trejos/Jose Ignacio Zamora/Edwin Molina
  */
 public class ReaderManagerBinary {
 
     private ObjectInputStream reader;
 
     /**
-     *
-     * @param fileName
-     * @throws IOException
+     * public void open(String fileName) throws IOException
+     * this method opens the document to be read
+     * @param fileName location of the document
      */
     public void open(String fileName) throws IOException {
         reader = new ObjectInputStream(new FileInputStream(fileName));
     }
 
     /**
-     *
-     * @return
-     * @throws IOException
-     * @throws ClassNotFoundException
+     * public UserList read() throws IOException, ClassNotFoundException
+     * this method reads kine by line the document
+     * @return what he read
      */
     public UserList read() throws IOException, ClassNotFoundException {
         return (UserList) reader.readObject();
     }
 
     /**
-     *
-     * @throws IOException
+     *this method closes the document
      */
     public void close() throws IOException {
         reader.close();

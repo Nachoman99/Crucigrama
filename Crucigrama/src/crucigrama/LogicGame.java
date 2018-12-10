@@ -12,7 +12,8 @@ package crucigrama;
  * @author Jose Ignacio Zamora/Edwin Molina/Kevin Trejos
  */
 public class LogicGame {
-     /**
+     
+    /**
      * public Letter[] stringToLetter(String extraction)
      * This method converts the extraction string to a 
      * array Letter
