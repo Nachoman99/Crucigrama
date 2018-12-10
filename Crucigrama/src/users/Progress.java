@@ -26,6 +26,11 @@ public class Progress implements Serializable {
      * @param levelHard
      * @param levelVeryHard
      */
+    
+    
+    public Progress() {
+    }
+
     public Progress(int levelEasy, int levelMedium, int levelHard, int levelVeryHard) {
         this.levelEasy = levelEasy;
         this.levelMedium = levelMedium;

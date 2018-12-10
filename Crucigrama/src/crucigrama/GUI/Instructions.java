@@ -147,7 +147,7 @@ public class Instructions extends javax.swing.JDialog {
         
         
         //No volver a mostrar la ventana
-
+        
         //Mostrar la ventana
         //No volver a mostrar la ventana
         

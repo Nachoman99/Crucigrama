@@ -36,7 +36,7 @@ public class EasyLevelWindow extends javax.swing.JDialog {
     private int attempts = 0;
     public static WordList palabrasIncorrectas= new WordList();
     private boolean [] countHelp;
-    
+    private int countsHelp;
     /**
      * Builder
      * Creates new form EasyLevelWindow
@@ -596,9 +596,16 @@ public class EasyLevelWindow extends javax.swing.JDialog {
 //                        txField.setBackground(Color.green); 
 //                    }           
 //                } 
+                 
+                
+                
                 System.out.println("Random= "+ random);
                 System.out.println("Numero= "+countHelp[random]);
-                if(countHelp[random] == false){
+                if(countHelp[random] == false){ 
+                    while(countHelp[random] == false && countsHelp ==Game.WORD_LIST_MANAGER.getCounter()){
+                         random = (int)(Math.random()*(Game.WORD_LIST_MANAGER.getCounter()));
+                    }
+                    
                     if(i_ == Game.WORD_LIST_MANAGER.getInitRow(random)&& j_==Game.WORD_LIST_MANAGER.getInitColumn(random)){
                        
                            String letra = Game.WORD_LIST_MANAGER.getWord(random);
@@ -610,44 +617,47 @@ public class EasyLevelWindow extends javax.swing.JDialog {
                            Letter letter = new Letter(letra2);
                            respuestas1.setLetterPosition(i_, j_, letter);
                            countHelp[random] = true;
-                           
-                       
+                           countsHelp +=1;
+                        
                     }
                 }
-                if(countHelp[random] == true){
-                    if(i_ == Game.WORD_LIST_MANAGER.getInitRow(random)&& j_==Game.WORD_LIST_MANAGER.getWord(random).length()-1){
-                        
-                            if(Game.WORD_LIST_MANAGER.getVerticalHorizontal(random)== 'H'){
-                               String letra = Game.WORD_LIST_MANAGER.getWord(random);
-                                char letra2 = letra.charAt(Game.WORD_LIST_MANAGER.getWord(random).length()-1);
-                                letra = Character.toString(letra2);
-                                txField.setText(null);
-                                txField.setText(letra);
-                                txField.setForeground(Color.red);
-                                Letter letter = new Letter(letra2);
-                               respuestas1.setLetterPosition(i_,Game.WORD_LIST_MANAGER.getWord(random).length()-1 , letter);
-                               countHelp[random] = true;
-                           }
-                        }   
-                        
-                    }
-                if(countHelp[random] == true){     
-                    if(i_ == Game.WORD_LIST_MANAGER.getWord(random).length()-1 && j_==Game.WORD_LIST_MANAGER.getInitColumn(random)){
-                        
-                            if(Game.WORD_LIST_MANAGER.getVerticalHorizontal(random)== 'V'){ 
-                                String letra = Game.WORD_LIST_MANAGER.getWord(random);
-                                char letra2 = letra.charAt(Game.WORD_LIST_MANAGER.getWord(random).length()-1);
-                                letra = Character.toString(letra2);
-                                txField.setText(null);
-                                txField.setText(letra);
-                                txField.setForeground(Color.red);
-                                Letter letter = new Letter(letra2);
-                               respuestas1.setLetterPosition(Game.WORD_LIST_MANAGER.getWord(random).length()-1,j_, letter);
-                               countHelp[random] =true;
-                           }
-                        }      
-                        
-                    } 
+                
+               
+        
+//                if(countHelp[random] == true){
+//                    if(i_ == Game.WORD_LIST_MANAGER.getInitRow(random)&& j_==Game.WORD_LIST_MANAGER.getWord(random).length()-1){
+//                        
+//                            if(Game.WORD_LIST_MANAGER.getVerticalHorizontal(random)== 'H'){
+//                               String letra = Game.WORD_LIST_MANAGER.getWord(random);
+//                                char letra2 = letra.charAt(Game.WORD_LIST_MANAGER.getWord(random).length()-1);
+//                                letra = Character.toString(letra2);
+//                                txField.setText(null);
+//                                txField.setText(letra);
+//                                txField.setForeground(Color.red);
+//                                Letter letter = new Letter(letra2);
+//                               respuestas1.setLetterPosition(i_,Game.WORD_LIST_MANAGER.getWord(random).length()-1 , letter);
+//                               countHelp[random] = true;
+//                           }
+//                        }   
+//                        
+//                    }
+//                if(countHelp[random] == true){     
+//                    if(i_ == Game.WORD_LIST_MANAGER.getWord(random).length()-1 && j_==Game.WORD_LIST_MANAGER.getInitColumn(random)){
+//                        
+//                            if(Game.WORD_LIST_MANAGER.getVerticalHorizontal(random)== 'V'){ 
+//                                String letra = Game.WORD_LIST_MANAGER.getWord(random);
+//                                char letra2 = letra.charAt(Game.WORD_LIST_MANAGER.getWord(random).length()-1);
+//                                letra = Character.toString(letra2);
+//                                txField.setText(null);
+//                                txField.setText(letra);
+//                                txField.setForeground(Color.red);
+//                                Letter letter = new Letter(letra2);
+//                               respuestas1.setLetterPosition(Game.WORD_LIST_MANAGER.getWord(random).length()-1,j_, letter);
+//                               countHelp[random] =true;
+//                           }
+//                        }      
+//                        
+//                    } 
                        
                    
                 

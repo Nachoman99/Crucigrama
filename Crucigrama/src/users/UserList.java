@@ -5,6 +5,7 @@
  */
 package users;
 
+import com.sun.org.apache.bcel.internal.generic.AALOAD;
 import java.io.Serializable;
 
 /**
@@ -68,6 +69,12 @@ public class UserList implements Serializable{
         userList[selected].setInstructions(instructios);
     }
     
+    
+    public void setProgressEasy(int position, Progress progress, int avance){
+        Progress progress1 = new Progress();
+        progress1.setLevelEasy(avance);
+        userList[position].setProgress(progress1);
+    }
     /**
      * get
      * @param seleted
