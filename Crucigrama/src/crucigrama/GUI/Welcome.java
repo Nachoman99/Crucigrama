@@ -71,10 +71,10 @@ public class Welcome extends javax.swing.JFrame {
         jLabel2.setText("Autores de la aplicación:");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel3.setText("Jose Ignacio Zamora Carné: B7....");
+        jLabel3.setText("Jose Ignacio Zamora Carné: B78541");
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel4.setText("Edwin Molina Carné: B8....");
+        jLabel4.setText("Edwin Molina Carné: B84997");
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel5.setText("Kevin Trejos Cubero Carné: B87902");
