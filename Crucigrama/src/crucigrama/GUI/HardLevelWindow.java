@@ -227,7 +227,7 @@ public class HardLevelWindow extends javax.swing.JDialog {
                 }
             }
             System.err.println(badWords);
-        }
+        } 
         if (isEmpty == true) {
             JOptionPane.showMessageDialog(this, "Por favor rellene todo el crucigrama");
         } else if(isEmpty == false){
