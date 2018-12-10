@@ -226,7 +226,8 @@ public class EasyLevelWindow extends javax.swing.JDialog {
     }//GEN-LAST:event_btnBackActionPerformed
 
     /**
-     * 
+     * private void showTracks()
+     * this method shows the clues to the user
      */
     private void showTracks(){
         String[] charSimbol = {"☺","☻","♥","♦","♣","•","◘","♪","♫","☼","►","◄","↕","‼","╦","╔","$","↔","╣","+","╝","§","○","◙","♀"};
@@ -255,6 +256,12 @@ public class EasyLevelWindow extends javax.swing.JDialog {
         }
     }
     
+    /**
+     * private void initPanel(int[] rowColumn, Crossword crossword)
+     * this method initializes the empty crossword so that the user can write the letters
+     * @param rowColumn size of the matrix
+     * @param crossword crossword with the words
+     */
     private void initPanel(int[] rowColumn, Crossword crossword){
         LogicGame logic = new LogicGame();
         
@@ -336,7 +343,7 @@ public class EasyLevelWindow extends javax.swing.JDialog {
   
     }
     
-     private void initPanel2(Crossword crossword){
+    private void initPanel2(Crossword crossword){
         LogicGame logic = new LogicGame();
         int rows = crossword.rowLength();
         int columns = crossword.columnLength();
@@ -510,6 +517,83 @@ public class EasyLevelWindow extends javax.swing.JDialog {
         System.out.println(respuestas1.print());
     }//GEN-LAST:event_btnVerifyActionPerformed
 
+    private void initPanel3(Crossword crossword){
+        LogicGame logic = new LogicGame();
+        int rows = crossword.rowLength();
+        int columns = crossword.columnLength();
+        GridLayout grid = new GridLayout(rows, columns);
+        pnCrossword.removeAll();
+        pnCrossword.setLayout(grid);
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                int i_= i;
+                int j_ = j;
+                String txt = crossword.getLetters(i, j).toString();
+                JTextField txField = new JTextField(txt, 1);
+                if(txt.equals(" ")){
+                    txField.setText(null);
+                }
+                
+                txField.addKeyListener(new java.awt.event.KeyListener() {
+                    @Override
+                    public void keyTyped(java.awt.event.KeyEvent e) {
+                        int limite = 1;
+//                        char car = e.getKeyChar();
+                        if(txField.getText().length() == limite){
+                            e.consume();
+                        }  
+                    }
+                    
+                    @Override
+                    public void keyPressed(java.awt.event.KeyEvent arg2) {
+                    }
+
+                    @Override
+                    public void keyReleased(java.awt.event.KeyEvent arg1) {
+                        int limite = 1;
+                        char car = arg1.getKeyChar();
+                        if(txField.getText().length() == limite){
+                            arg1.consume();
+                            System.out.println("Hola");
+                        }  
+                        if((arg1.getKeyCode() != KeyEvent.VK_DELETE)){
+                            System.out.println("PIO");
+                            if(Character.isLetter(car)){
+                                System.out.println("Juan perez");
+                                String tx = "";
+                                tx = txField.getText();
+                                System.out.println(tx);
+                                if (tx.length() >= 1){
+                                    System.out.println("vacio");
+                                    Letter letter = new Letter(tx.charAt(0));
+                                    respuestas1.setLetterPosition(i_, j_, letter);
+                                }else{
+                                    System.out.println("No vacio"); 
+                                }
+                            }else{
+                                arg1.consume();
+                            } 
+                        }else{
+                            arg1.consume();
+                        }
+                    }
+                });
+                if(txt.equals("0")){
+                    txField.setBackground(Color.BLACK);
+                    txField.setEnabled(false);
+                    txField.setText("");
+                }
+//                for (int k = 0; k < palabrasIncorrectas.getCounter(); k++) {
+//                    if(i_ == palabrasIncorrectas.getInitRow(k)&& j_ ==palabrasIncorrectas.getInitColumn(k)){
+//                        txField.setBackground(Color.green); 
+//                    }           
+//                }
+                pnCrossword.add(txField);          
+            }
+        }
+           pnCrossword.updateUI();     
+    }
+    
     private void btnHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHelpActionPerformed
         
     }//GEN-LAST:event_btnHelpActionPerformed
