@@ -237,13 +237,13 @@ public class EasyLevelWindow extends javax.swing.JDialog {
 
             if (verticalHorizontal2.equals("H")) {
                 index = Game.WORD_LIST_MANAGER.getIndex(i);
-                indexString = charSimbol[index];
+                indexString = charSimbol[index-1];
                 //indexString = Integer.toString(index);
                 clueH += indexString +". " + Game.WORD_LIST_MANAGER.getClue(i) + "\n";
                 tpHorizontal.setText(clueH +"\n");
             }else if (verticalHorizontal2.equals("V")) {
                 index = Game.WORD_LIST_MANAGER.getIndex(i);
-                indexString = charSimbol[index];
+                indexString = charSimbol[index-1];
 //                indexString = Integer.toString(index);
                 clueV += indexString + ". " + Game.WORD_LIST_MANAGER.getClue(i) + "\n";
                 tpVertical.setText(clueV+"\n");
