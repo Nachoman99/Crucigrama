@@ -41,6 +41,7 @@ public class EasyLevelWindow extends javax.swing.JDialog {
     private int countsHelp;
     private int progressCrossword;
     private int positionUser;
+    private int progressUser;
     
     /**
      * Builder
@@ -52,11 +53,11 @@ public class EasyLevelWindow extends javax.swing.JDialog {
         setLocationRelativeTo(parent);
        ReaderManagerText reader = new ReaderManagerText(); 
         int[] rowColumn = new int[1];
-    
-        //User user = new User();
-        //progressCrossword = Game.USER_LIST_MANAGER.getProgressEasy(user.getUserCode());
-       // System.out.println(progressCrossword);
-        //if (progressCrossword == 0) {
+        progressCrossword =0;
+        User user = new User();
+        progressCrossword = Game.USER_LIST_MANAGER.getProgressEasy(positionUser);
+        System.out.println(progressCrossword);
+        if (progressCrossword == 0) {
             try {
                 reader.open("Crosswords/LevelEasy/1.txt");
                 rowColumn = reader.readRowColumn();
@@ -80,33 +81,33 @@ public class EasyLevelWindow extends javax.swing.JDialog {
                 System.err.println(ex.getMessage());
                 //ex.printStackTrace();
             }
-       // }else{
-//            try {
-//                reader.open("Crosswords/LevelEasy/2.txt");
-//                rowColumn = reader.readRowColumn();
-//                reader.close();
-//                System.out.println("Lectura exitosa");
-//            } catch (FileNotFoundException ex) {
-//                Logger.getLogger(GameWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//            } catch (IOException ex) {
-//                System.err.println("error de archivo");
-//                System.err.println(ex.getMessage());
-//                Logger.getLogger(GameWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//            }
-//
-//            ReaderManagerText reader2 = new ReaderManagerText(); 
-//
-//            try {
-//                reader2.open("Crosswords/LevelEasy/2.txt");
-//                reader2.readAll();
-//                reader2.close(); //importante cerrar el archivo
-//                System.out.println("Lectura exitosa");
-//            } catch (IOException ex) {
-//                System.err.println("error de archivo");
-//                System.err.println(ex.getMessage());
-//                //ex.printStackTrace();
-//            }
-//        }
+        }else{
+            try {
+                reader.open("Crosswords/LevelEasy/2.txt");
+                rowColumn = reader.readRowColumn();
+                reader.close();
+                System.out.println("Lectura exitosa");
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(GameWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                System.err.println("error de archivo");
+                System.err.println(ex.getMessage());
+                Logger.getLogger(GameWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            }
+
+            ReaderManagerText reader2 = new ReaderManagerText(); 
+
+            try {
+                reader2.open("Crosswords/LevelEasy/2.txt");
+                reader2.readAll();
+                reader2.close(); //importante cerrar el archivo
+                System.out.println("Lectura exitosa");
+            } catch (IOException ex) {
+                System.err.println("error de archivo");
+                System.err.println(ex.getMessage());
+                //ex.printStackTrace();
+            }
+        }
         
         Crossword crossword1 = new Crossword(rowColumn[0], rowColumn[1]);
         Crossword crossword2 = new Crossword(rowColumn[0], rowColumn[1]);
@@ -523,12 +524,30 @@ public class EasyLevelWindow extends javax.swing.JDialog {
             
             System.err.println(badWords);
         }
-        WriterManagerBinary writer = new WriterManagerBinary();
+   
         if (isEmpty == true) {
             JOptionPane.showMessageDialog(this, "Por favor rellene todo el crucigrama");
         } else if(isEmpty == false){
             if (badWords == 0) {
                 JOptionPane.showMessageDialog(this, "Felicidades, ha ganado");
+                
+                WriterManagerBinary writer = new WriterManagerBinary();
+
+                User user = new User();
+                user.getUserCode();
+                try {
+                    writer.open("Users/userFile.ser");  //probar el parametro apend en new FileWriter(fileName, true)
+                    progressUser +=1; 
+                    Game.USER_LIST_MANAGER.setProgressEasy(positionUser, progressUser);
+                    writer.write();
+                    writer.close(); //importante cerrar el archivo 
+                    System.out.println("Escritura exitosa");
+                } catch (IOException ex) {
+                    System.err.println("error de archivo");
+                    System.err.println(ex.getMessage());
+                }
+                
+                
                 Level level = new Level(this, true);
                 this.dispose();
                 level.setVisible(true);

@@ -5,7 +5,6 @@
  */
 package users;
 
-import com.sun.org.apache.bcel.internal.generic.AALOAD;
 import java.io.Serializable;
 
 /**

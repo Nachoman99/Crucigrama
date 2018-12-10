@@ -29,6 +29,7 @@ public class Progress implements Serializable {
     
     
     public Progress() {
+        this(0,0,0,0);
     }
 
     public Progress(int levelEasy, int levelMedium, int levelHard, int levelVeryHard) {
