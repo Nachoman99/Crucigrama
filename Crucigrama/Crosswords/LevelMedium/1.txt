@@ -1,10 +1,11 @@
-12-12
-0-8/1/V/LLAVE/Utensilio para abrir y cerrar una cerradura
-2-7/3/H/PARED/Obra de albañilería vertical que limita un espacio arquitectónico.
-4-1/4/V/CARRO/Vehículo de transporte.
-4-4/5/V/BANCO/Empresa comercial que realiza operaciones financieras con el dinero procedente de accionistas y clientes.
-4-6/6/V/PUERTA/Abertura que permite acceder al interior de un lugar
-7-4/7/H/CORTINA/Abertura que permite acceder al interior de un lugar.
-8-0/8/H/BOLSO/Recipiente útil para transportar un número reducido de objetos de uso frecuente. 
-9-5/9/H/ZAPATO/Accesorio de la vestimenta hecho con la intención de proveer protección y comodidad al pie.
-1-8/10/H/LAVA/Materia en fusión o derretida que expulsa un volcán.
+13-12
+0-8/1/V/ZAPATO/Accesorio de la vestimenta hecho con la intenciOn de proveer protecciOn y comodidad al pie.
+1-7/2/H/BANCO/Empresa comercial que realiza operaciones financieras con el dinero procedente de accionistas y clientes.
+4-4/3/H/PUERTA/Abertura que permite acceder al interior de un lugar
+4-4/3/V/PELUCHE/Tela, generalmente de seda, lana o alguna fibra sintética, parecida al terciopelo pero de pelo más largo y aspecto más brillante; se utiliza sobre todo para forrar prendas de invierno y confeccionar muñecos.
+6-6/4/V/CARRO/Vehículo de transporte.
+7-10/5/V/PARED/Obra de albañilería vertical que limita un espacio arquitectónico.
+8-0/6/V/BOLSO/Recipiente útil para transportar un número reducido de objetos de uso frecuente. 
+8-4/7/H/CORTINA/Abertura que permite acceder al interior de un lugar.
+9-2/8/V/LAVA/Materia en fusión o derretida que expulsa un volcán.
+10-0/9/H/LLAVE/Utensilio para abrir y cerrar una cerradura
