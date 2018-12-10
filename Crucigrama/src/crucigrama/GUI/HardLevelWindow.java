@@ -400,6 +400,7 @@ public class HardLevelWindow extends javax.swing.JDialog {
         int result;
         result = JOptionPane.showConfirmDialog(this, "Está seguro que desea salir, perderá su progreso", "CONFIRMACIÓN", JOptionPane.YES_NO_OPTION);
         if (result == JOptionPane.YES_OPTION) {
+            Game.WORD_LIST_MANAGER = new WordList();
             this.dispose();
             welcome.setVisible(true);
         }else{
