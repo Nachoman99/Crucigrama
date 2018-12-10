@@ -35,6 +35,7 @@ public class EasyLevelWindow extends javax.swing.JDialog {
     private Crossword respuestas1;
     private int attempts = 0;
     public static WordList palabrasIncorrectas= new WordList();
+    private int[] countHelp = new int[Game.WORD_LIST_MANAGER.getCounter()];
     
     /**
      * Builder
@@ -518,6 +519,8 @@ public class EasyLevelWindow extends javax.swing.JDialog {
     }//GEN-LAST:event_btnVerifyActionPerformed
 
     private void initPanel3(Crossword crossword){
+        int random = (int)(Math.random())*Game.WORD_LIST_MANAGER.getCounter();
+        System.out.println(random);
         LogicGame logic = new LogicGame();
         int rows = crossword.rowLength();
         int columns = crossword.columnLength();
@@ -578,16 +581,34 @@ public class EasyLevelWindow extends javax.swing.JDialog {
                         }
                     }
                 });
+                String txt2 = respuestas1.getLetters(i, j).toString();
+                txField.setText(txt2);
                 if(txt.equals("0")){
                     txField.setBackground(Color.BLACK);
                     txField.setEnabled(false);
                     txField.setText("");
                 }
+                if(txt2.equals("0")){   
+                    txField.setText(null);
+                }
 //                for (int k = 0; k < palabrasIncorrectas.getCounter(); k++) {
 //                    if(i_ == palabrasIncorrectas.getInitRow(k)&& j_ ==palabrasIncorrectas.getInitColumn(k)){
 //                        txField.setBackground(Color.green); 
 //                    }           
-//                }
+//                }  
+                if(i_ == Game.WORD_LIST_MANAGER.getInitRow(random)&& j_==Game.WORD_LIST_MANAGER.getInitColumn(random)){
+                    if(txField.getForeground() != Color.red){
+                        String letra = Game.WORD_LIST_MANAGER.getWord(random);
+                        char letra2 = letra.charAt(0);
+                        letra = Character.toString(letra2);
+                        txField.setText(null);
+                        txField.setText(letra);
+                        txField.setForeground(Color.red);
+                    }
+                }
+                
+                
+
                 pnCrossword.add(txField);          
             }
         }
@@ -595,7 +616,12 @@ public class EasyLevelWindow extends javax.swing.JDialog {
     }
     
     private void btnHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHelpActionPerformed
-        
+        LogicGame logic = new LogicGame();
+        Crossword crossword2 = new Crossword(respuestas1.rowLength(), respuestas1.columnLength());
+        for (int i = 0; i < Game.WORD_LIST_MANAGER.getCounter(); i++) {
+             logic.addCrossword(Game.WORD_LIST_MANAGER.getWord(i), Game.WORD_LIST_MANAGER.getInitRow(i), Game.WORD_LIST_MANAGER.getInitColumn(i), Game.WORD_LIST_MANAGER.getVerticalHorizontal(i), crossword2);
+        } 
+        initPanel3(crossword2);
     }//GEN-LAST:event_btnHelpActionPerformed
  
    /**
