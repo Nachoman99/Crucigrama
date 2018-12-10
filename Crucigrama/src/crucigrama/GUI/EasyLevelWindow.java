@@ -35,7 +35,7 @@ public class EasyLevelWindow extends javax.swing.JDialog {
     private Crossword respuestas1;
     private int attempts = 0;
     public static WordList palabrasIncorrectas= new WordList();
-    private int[] countHelp = new int[Game.WORD_LIST_MANAGER.getCounter()];
+    private boolean [] countHelp;
     
     /**
      * Builder
@@ -84,6 +84,7 @@ public class EasyLevelWindow extends javax.swing.JDialog {
         for (int i = 0; i < Game.WORD_LIST_MANAGER.getCounter(); i++) {
              logic.addCrossword(Game.WORD_LIST_MANAGER.getWord(i), Game.WORD_LIST_MANAGER.getInitRow(i), Game.WORD_LIST_MANAGER.getInitColumn(i), Game.WORD_LIST_MANAGER.getVerticalHorizontal(i), crossword2);
         }  
+        countHelp = new boolean[Game.WORD_LIST_MANAGER.getCounter()];
         initPanel(rowColumn ,crossword1);
         showTracks();
        closeX();
@@ -518,9 +519,8 @@ public class EasyLevelWindow extends javax.swing.JDialog {
         System.out.println(respuestas1.print());
     }//GEN-LAST:event_btnVerifyActionPerformed
 
-    private void initPanel3(Crossword crossword){
-        int random = (int)(Math.random())*Game.WORD_LIST_MANAGER.getCounter();
-        System.out.println(random);
+    private void initPanel3(Crossword crossword, int random){
+        
         LogicGame logic = new LogicGame();
         int rows = crossword.rowLength();
         int columns = crossword.columnLength();
@@ -595,17 +595,63 @@ public class EasyLevelWindow extends javax.swing.JDialog {
 //                    if(i_ == palabrasIncorrectas.getInitRow(k)&& j_ ==palabrasIncorrectas.getInitColumn(k)){
 //                        txField.setBackground(Color.green); 
 //                    }           
-//                }  
-                if(i_ == Game.WORD_LIST_MANAGER.getInitRow(random)&& j_==Game.WORD_LIST_MANAGER.getInitColumn(random)){
-                    if(txField.getForeground() != Color.red){
-                        String letra = Game.WORD_LIST_MANAGER.getWord(random);
-                        char letra2 = letra.charAt(0);
-                        letra = Character.toString(letra2);
-                        txField.setText(null);
-                        txField.setText(letra);
-                        txField.setForeground(Color.red);
+//                } 
+                System.out.println("Random= "+ random);
+                System.out.println("Numero= "+countHelp[random]);
+                if(countHelp[random] == false){
+                    if(i_ == Game.WORD_LIST_MANAGER.getInitRow(random)&& j_==Game.WORD_LIST_MANAGER.getInitColumn(random)){
+                       
+                           String letra = Game.WORD_LIST_MANAGER.getWord(random);
+                           char letra2 = letra.charAt(0);
+                           letra = Character.toString(letra2);
+                           txField.setText(null);
+                           txField.setText(letra);
+                           txField.setForeground(Color.red);
+                           Letter letter = new Letter(letra2);
+                           respuestas1.setLetterPosition(i_, j_, letter);
+                           countHelp[random] = true;
+                           
+                       
                     }
                 }
+                if(countHelp[random] == true){
+                    if(i_ == Game.WORD_LIST_MANAGER.getInitRow(random)&& j_==Game.WORD_LIST_MANAGER.getWord(random).length()-1){
+                        
+                            if(Game.WORD_LIST_MANAGER.getVerticalHorizontal(random)== 'H'){
+                               String letra = Game.WORD_LIST_MANAGER.getWord(random);
+                                char letra2 = letra.charAt(Game.WORD_LIST_MANAGER.getWord(random).length()-1);
+                                letra = Character.toString(letra2);
+                                txField.setText(null);
+                                txField.setText(letra);
+                                txField.setForeground(Color.red);
+                                Letter letter = new Letter(letra2);
+                               respuestas1.setLetterPosition(i_,Game.WORD_LIST_MANAGER.getWord(random).length()-1 , letter);
+                               countHelp[random] = true;
+                           }
+                        }   
+                        
+                    }
+                if(countHelp[random] == true){     
+                    if(i_ == Game.WORD_LIST_MANAGER.getWord(random).length()-1 && j_==Game.WORD_LIST_MANAGER.getInitColumn(random)){
+                        
+                            if(Game.WORD_LIST_MANAGER.getVerticalHorizontal(random)== 'V'){ 
+                                String letra = Game.WORD_LIST_MANAGER.getWord(random);
+                                char letra2 = letra.charAt(Game.WORD_LIST_MANAGER.getWord(random).length()-1);
+                                letra = Character.toString(letra2);
+                                txField.setText(null);
+                                txField.setText(letra);
+                                txField.setForeground(Color.red);
+                                Letter letter = new Letter(letra2);
+                               respuestas1.setLetterPosition(Game.WORD_LIST_MANAGER.getWord(random).length()-1,j_, letter);
+                               countHelp[random] =true;
+                           }
+                        }      
+                        
+                    } 
+                       
+                   
+                
+               
                 
                 
 
@@ -621,7 +667,8 @@ public class EasyLevelWindow extends javax.swing.JDialog {
         for (int i = 0; i < Game.WORD_LIST_MANAGER.getCounter(); i++) {
              logic.addCrossword(Game.WORD_LIST_MANAGER.getWord(i), Game.WORD_LIST_MANAGER.getInitRow(i), Game.WORD_LIST_MANAGER.getInitColumn(i), Game.WORD_LIST_MANAGER.getVerticalHorizontal(i), crossword2);
         } 
-        initPanel3(crossword2);
+        int random = (int)(Math.random()*(Game.WORD_LIST_MANAGER.getCounter()));
+        initPanel3(crossword2, random);
     }//GEN-LAST:event_btnHelpActionPerformed
  
    /**
