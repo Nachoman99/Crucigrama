@@ -46,7 +46,7 @@ public class Crossword {
 
     /**
      * get
-     * @return crossword
+     * @return 
      */
     public Letter[][] getCrossword() {
         return crossword;
@@ -62,7 +62,7 @@ public class Crossword {
 
     /**
      * toString
-     * @return toString
+     * @return 
      */
     @Override
     public String toString() {
@@ -102,7 +102,7 @@ public class Crossword {
      *
      * @param letra
      * @param palabraCorrecta
-     * @return
+     * @return 
      */
     public int validar(Letter[] letra, Letter[] palabraCorrecta){
         return validar(0, letra, palabraCorrecta, 0);

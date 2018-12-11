@@ -369,12 +369,12 @@ public class HardLevelWindow extends javax.swing.JDialog {
         try {
             this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
             addWindowListener(new WindowAdapter(){
+                @Override
                 public void windowClosing(WindowEvent e){
                     confirm();
                 }
             });
         } catch (Exception e) {
-            e.printStackTrace();
         }
     }
     

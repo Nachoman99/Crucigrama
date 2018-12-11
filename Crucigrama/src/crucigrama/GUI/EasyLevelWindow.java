@@ -12,7 +12,6 @@ import crucigrama.LogicGame;
 import crucigrama.Word;
 import crucigrama.WordList;
 import filemanager.ReaderManagerText;
-import filemanager.WriterManagerBinary;
 import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.KeyEvent;
@@ -25,7 +24,6 @@ import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
-import users.User;
 
 /**
  * In this window the crossword puzzle is displayed for the easy level
@@ -43,6 +41,8 @@ public class EasyLevelWindow extends javax.swing.JDialog {
     /**
      * Builder
      * Creates new form EasyLevelWindow
+     * @param parent
+     * @param modal
      */
     public EasyLevelWindow(javax.swing.JDialog parent, boolean modal) {
         super(parent, modal);
@@ -568,12 +568,12 @@ public class EasyLevelWindow extends javax.swing.JDialog {
         try {
             this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
             addWindowListener(new WindowAdapter(){
+                @Override
                 public void windowClosing(WindowEvent e){
                     confirm();
                 }
             });
         } catch (Exception e) {
-            e.printStackTrace();
         }
     }
     

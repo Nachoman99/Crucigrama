@@ -34,7 +34,7 @@ public class WordList {
 
     /**
      * get
-     * @return
+     * @return 
      */
     public Word[] getWordList() {
         return wordList;
@@ -50,7 +50,7 @@ public class WordList {
 
     /**
      *  get
-     * @return
+     * @return 
      */
     public int getCounter() {
         return counter;
@@ -66,7 +66,7 @@ public class WordList {
 
     /**
      *  toString
-     * @return
+     * @return 
      */
     @Override
     public String toString() {

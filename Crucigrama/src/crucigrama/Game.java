@@ -7,10 +7,10 @@ package crucigrama;
 
 import java.util.Arrays;
 import crucigrama.GUI.Welcome;
-import static crucigrama.LogicGame.stringToLetter;
 import users.UserList;
 /**
- *
+ *This is the main
+ * 
  * @version 29/11/2018
  * @author Jose Ignacio Zamora/Edwin Molina/Kevin Trejos
  */
@@ -28,6 +28,7 @@ public class Game {
     
     /**
      * main
+     * @param args
      */
     public static void main(String[] args) {
         // TODO code application logic here

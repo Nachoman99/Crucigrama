@@ -42,8 +42,8 @@ public class Word {
      * @param initColumn
      * @param index
      * @param verticalHorizontal
-     * @param word
      * @param clue
+     * @param word
      */
     public Word(int initRow, int initColumn, int index, char verticalHorizontal, String word, String clue) {
         this.initRow = initRow;
@@ -61,6 +61,7 @@ public class Word {
      * @param word
      * @param clue
      */
+
     public Word(int index, char verticalHorizontal, String word, String clue) {
         this.index = index;
         this.verticalHorizontal = verticalHorizontal;
@@ -102,7 +103,7 @@ public class Word {
 
     /**
      *get
-     * @return
+     * @return 
      */
     public int getIndex() {
         return index;
@@ -118,7 +119,7 @@ public class Word {
 
     /**
      *get
-     * @return
+     * @return 
      */
     public char getVerticalHorizontal() {
         return verticalHorizontal;
@@ -134,7 +135,7 @@ public class Word {
 
     /**
      *get
-     * @return
+     * @return 
      */
     public String getWord() {
         return word;
@@ -150,7 +151,7 @@ public class Word {
 
     /**
      *get
-     * @return
+     * @return 
      */
     public String getClue() {
         return clue;
@@ -166,7 +167,7 @@ public class Word {
 
     /**
      *toString
-     * @return
+     * @return 
      */
     @Override
     public String toString() {

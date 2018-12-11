@@ -44,14 +44,17 @@ public class User implements Serializable{
 
     /**
      *get
-     * @return
+     * 
+     * @return 
      */
+
     public String getID() {
         return ID;
     }
 
     /**
      *set
+     * 
      * @param ID
      */
     public void setID(String ID) {
@@ -60,7 +63,8 @@ public class User implements Serializable{
 
     /**
      *get
-     * @return
+     * 
+     * @return 
      */
     public String getPassword() {
         return password;
@@ -68,6 +72,7 @@ public class User implements Serializable{
 
     /**
      *set
+     * 
      * @param password
      */
     public void setPassword(String password) {
@@ -84,6 +89,7 @@ public class User implements Serializable{
 
     /**
      *set
+     * 
      * @param progress
      */
     public void setProgress(Progress progress) {
@@ -92,7 +98,8 @@ public class User implements Serializable{
 
     /**
      * get
-     * @return
+     * 
+     * @return 
      */
     public boolean isInstructions() {
         return instructions;
@@ -100,6 +107,7 @@ public class User implements Serializable{
 
     /**
      * set
+     * 
      * @param instructions
      */
     public void setInstructions(boolean instructions) {
@@ -108,7 +116,8 @@ public class User implements Serializable{
 
     /**
      * get
-     * @return
+     * 
+     * @return 
      */
     public int getUserCode() {
         return userCode;
@@ -116,6 +125,7 @@ public class User implements Serializable{
 
     /**
      * set
+     * 
      * @param userCode
      */
     public void setUserCode(int userCode) {
@@ -144,7 +154,8 @@ public class User implements Serializable{
      
     /**
      * toString
-     * @return
+     * 
+     * @return 
      */
     @Override
     public String toString() {

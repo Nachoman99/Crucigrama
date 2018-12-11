@@ -6,6 +6,7 @@
 package users;
 
 import java.io.Serializable;
+import java.util.Arrays;
 
 /**
  * this class manages the list of users who have registered
@@ -36,7 +37,7 @@ public class UserList implements Serializable{
 
     /**
      * get
-     * @return
+     * @return 
      */
     public User[] getUserList() {
         return userList;
@@ -53,8 +54,9 @@ public class UserList implements Serializable{
     /**
      * get
      * @param selected
-     * @return
+     * @return 
      */
+
     public int getUserCode(int selected) {
         return userList[selected].getUserCode();
     }
@@ -73,7 +75,7 @@ public class UserList implements Serializable{
     /**
      * get
      * @param seleted
-     * @return
+     * @return 
      */
     public boolean getInstructions(int seleted){
         return userList[seleted].isInstructions();
@@ -82,7 +84,7 @@ public class UserList implements Serializable{
     /**
      * get
      * @param index
-     * @return
+     * @return 
      */
     public User getUser(int index){
         return userList[index];
@@ -90,7 +92,8 @@ public class UserList implements Serializable{
     
     /**
      * get
-     * @return
+     *
+     * @return 
      */
     public int getCounter() {
         return counter;
@@ -98,6 +101,7 @@ public class UserList implements Serializable{
 
     /**
      * set
+     * 
      * @param counter
      */
     public void setCounter(int counter) {
@@ -106,15 +110,17 @@ public class UserList implements Serializable{
     
     /**
      *toString
-     * @return
+     *
+     * @return 
      */
     @Override
     public String toString() {
-        return "UserList{" + "userList=" + userList + ", counter=" + counter + '}';
+        return "UserList{" + "userList=" + Arrays.toString(userList) + ", counter=" + counter + '}';
     }
     
     /**
      * add a new user to the list
+     *
      * @param user
      */
     public void addUser(User user) {

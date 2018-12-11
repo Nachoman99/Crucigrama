@@ -31,7 +31,7 @@ public class Letter {
 
     /**
      * Get
-     * @return letter
+     * @return 
      */
     public char getLetter() {
         return letter;

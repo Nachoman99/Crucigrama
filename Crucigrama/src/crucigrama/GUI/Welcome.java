@@ -153,12 +153,12 @@ public class Welcome extends javax.swing.JFrame {
         try {
             this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             addWindowListener(new WindowAdapter(){
+                @Override
                 public void windowClosing(WindowEvent e){
                     confirm();
                 }
             });
         } catch (Exception e) {
-            e.printStackTrace();
         }
     }
     

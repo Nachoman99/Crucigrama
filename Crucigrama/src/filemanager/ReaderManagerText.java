@@ -21,6 +21,7 @@ public class ReaderManagerText {
      * public void open(String fileName) throws FileNotFoundException
      * this method opens the document to be read
      * @param fileName location of the document
+     * @throws java.io.FileNotFoundException
      */
     public void open(String fileName) throws FileNotFoundException {
         reader = new BufferedReader(new FileReader(fileName));
@@ -30,6 +31,7 @@ public class ReaderManagerText {
      * public int[] readRowColumn()  throws IOException
      *  this method returns the size of the matrix of each crossword
      * @return the size of the matrix of each crossword
+     * @throws java.io.IOException
      */
     public int[] readRowColumn() throws IOException{
         int[] size = new int[2];
@@ -99,6 +101,7 @@ public class ReaderManagerText {
     /**
      * public void readAll() throws IOException
      * this method reads the entire document
+     * @throws java.io.IOException
      */
     public void readAll() throws IOException {
         Word newWord = read();
@@ -112,6 +115,7 @@ public class ReaderManagerText {
     /**
      * public void close() throws IOException
      * this method closes the document
+     * @throws java.io.IOException
      */
     public void close() throws IOException {
         reader.close();

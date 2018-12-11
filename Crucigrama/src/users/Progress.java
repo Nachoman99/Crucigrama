@@ -21,10 +21,7 @@ public class Progress implements Serializable {
 
     /**
      *Builder
-     * @param levelEasy
-     * @param levelMedium
-     * @param levelHard
-     * @param levelVeryHard
+
      */
     
     

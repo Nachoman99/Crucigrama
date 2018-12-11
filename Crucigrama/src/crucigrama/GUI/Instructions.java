@@ -5,10 +5,8 @@
  */
 package crucigrama.GUI;
 
-import crucigrama.Crossword;
 import crucigrama.Game;
 import filemanager.WriterManagerBinary;
-import java.awt.Window;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.IOException;
@@ -159,12 +157,12 @@ public class Instructions extends javax.swing.JDialog {
         try {
             this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
             addWindowListener(new WindowAdapter(){
+                @Override
                 public void windowClosing(WindowEvent e){
                     confirm();
                 }
             });
         } catch (Exception e) {
-            e.printStackTrace();
         }
     }
     

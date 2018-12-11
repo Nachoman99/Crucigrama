@@ -20,6 +20,7 @@ public class WriterManagerBinary {
      * public void open(String fileName) throws IOException
      * this method opens the document to be read
      * @param fileName location of the document
+     * @throws java.io.IOException
      */
     public void open(String fileName) throws IOException {
         writer = new ObjectOutputStream(new FileOutputStream(fileName));
@@ -37,6 +38,7 @@ public class WriterManagerBinary {
     /**
      * public void close() throws IOException
      * this method closes the document
+     * @throws java.io.IOException
      */
     public void close() throws IOException {
         writer.close();
