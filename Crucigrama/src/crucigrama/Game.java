@@ -32,43 +32,7 @@ public class Game {
     public static void main(String[] args) {
         // TODO code application logic here
         Welcome welcome = new Welcome();
-        
-        System.out.println("Hola" + "\r");
         welcome.setVisible(true);
-        Letter A = new Letter('A');
-        Letter R = new Letter('R');
-        Letter O = new Letter('O');
-        Letter Z = new Letter('Z');
-        Letter T = new Letter('T');
-        Letter U = new Letter('U');
-        Letter N = new Letter('N');
-        Letter[] ejemplo = {A,T,U,N};
-        Letter[] malo = {A,R,O,Z};
-        Letter[] prueba = {N,U,A, O};
-        
-        Crossword crossword1 = new Crossword(6, 7);
-        LogicGame logic = new LogicGame();
-        crossword1.setLetterPosition(1, 1, A);
-        crossword1.setLetterPosition(1, 2, R);
-        crossword1.setLetterPosition(1, 3, R);
-        crossword1.setLetterPosition(1, 4, O);
-        crossword1.setLetterPosition(1, 5, Z);
-        crossword1.setLetterPosition(2, 1, T);
-        crossword1.setLetterPosition(3, 1, U);
-        crossword1.setLetterPosition(4, 1, N);
-        
-        System.out.println(crossword1.print());
-//        System.out.println(logic.validar(ejemplo, ejemplo));
-        System.out.println(logic.extraction(1, 1, 'V', crossword1));
-        System.out.println(logic.extraction(1, 1, 'H', crossword1));
-        
-        
-        String palabra1 = logic.extraction(1, 1,'V', crossword1);  
-        String palabra2 = logic.extraction(1, 1, 'H', crossword1); 
-        Letter[] palabra3 = stringToLetter(palabra1);
-        System.out.println("Pruba final= "+ Arrays.toString(palabra3));//puse el Arrays solo para probar no usarlo 
-        palabra3 = stringToLetter(palabra2);
-        System.out.println("Pruba final= "+ Arrays.toString(palabra3));
     }
     
 }

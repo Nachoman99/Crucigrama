@@ -150,5 +150,4 @@ public class User implements Serializable{
     public String toString() {
         return "User{" + "instructions=" + instructions + ", ID=" + ID + ", password=" + password + ", progress=" + progress + ", userCode=" + userCode + '}';
     }
-
 }

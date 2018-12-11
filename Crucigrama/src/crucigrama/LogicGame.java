@@ -95,18 +95,10 @@ public class LogicGame {
        char[] charSimbol = {'☺','☻','♥','♦','♣','•','◘','♪','♫','☼','►','◄','↕','‼','╦','╔','$','↔','╣','+','╝','§','○','◙','♀'};
        for (int i = 0; i < indexPosition.length; i++) {
            if(index == indexPosition[i]){ 
-           Letter letterEmpty = new  Letter(charSimbol[i]);
-            crossword.setLetterPosition(initialRow, initialColumn, letterEmpty);  
-       
+                Letter letterEmpty = new  Letter(charSimbol[i]);
+                crossword.setLetterPosition(initialRow, initialColumn, letterEmpty);  
            }
-       }
-
-//        String newIndex = Integer.toString(index);
-//        char newIndex2 = newIndex.charAt(0);
-//        Letter letterEmpty = new  Letter(newIndex2);
-//        crossword.setLetterPosition(initialRow, initialColumn, letterEmpty);
-//        
-        
+       }        
     }
      
     /**
@@ -140,7 +132,6 @@ public class LogicGame {
                 }
             }
         }
-
         return palabra;
     }
       
@@ -156,12 +147,10 @@ public class LogicGame {
      */
       private int validar(int filas, String respuesta, String crossword, int letrasMalas){
         if (filas >= respuesta.length()) {
-           // System.out.println(letrasMalas + 1);
             return letrasMalas;
         } else {
             if (respuesta.charAt(filas) != crossword.charAt(filas)) {
                 letrasMalas += 1;
-               // System.out.println("Hola");
             }
             return validar(filas + 1, respuesta, crossword, letrasMalas);
         }
@@ -176,8 +165,5 @@ public class LogicGame {
      */
     public int validar(String respuesta, String palabraCorrecta){
         return validar(0, respuesta, palabraCorrecta, 0);
-    }
-       
-
-       
+    } 
 }

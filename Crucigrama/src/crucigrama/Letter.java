@@ -53,6 +53,4 @@ public class Letter {
     public String toString() {
         return letter + "";
     }
-    
-    
 }

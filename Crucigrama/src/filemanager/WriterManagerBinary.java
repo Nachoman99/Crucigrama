@@ -7,8 +7,10 @@ import java.io.ObjectOutputStream;
 //import main.Main;
 
 /**
- *
- * @author Kevin Trejos
+ * this class is responsible for writing in binary
+ * 
+ *@version 10/12/2018
+ * @author Kevin Trejos/Jose Ignacio Zamora/Edwin Molina
  */
 public class WriterManagerBinary {
 

@@ -24,7 +24,7 @@ public class Login extends javax.swing.JDialog {
     private boolean result;
 
     /**
-     * 
+     * Builder
      * @param parent
      * @param modal 
      */
@@ -155,17 +155,15 @@ public class Login extends javax.swing.JDialog {
         try {
             reader.open("Users/userFile.ser");
             Game.USER_LIST_MANAGER = reader.read();
-            reader.close(); //importante cerrar el archivo
+            reader.close(); 
             System.out.println("Lectura exitosa");
             System.out.println("Contenido de la lista:\n" + Game.USER_LIST_MANAGER.getListString());
         } catch (IOException ex) {
             System.err.println("error de archivo");
             System.err.println(ex.getMessage());
-            //ex.printStackTrace();
         } catch (ClassNotFoundException ex) {
             System.err.println("error de archivo");
             System.err.println(ex.getMessage());
-            //ex.printStackTrace();
         }
         int repeated = 0;
         String pass = new String(pfPassword.getPassword());
@@ -175,8 +173,6 @@ public class Login extends javax.swing.JDialog {
                     repeated += 1;
                     instructions.userSelected(Game.USER_LIST_MANAGER.getUserCode(i));
                     result = Game.USER_LIST_MANAGER.getInstructions(i);
-                    EasyLevelWindow easy = new EasyLevelWindow(this, true);
-                    easy.userSelected(Game.USER_LIST_MANAGER.getUserCode(i));
                 }else{
                     repeated += 0;
                 }
@@ -202,8 +198,8 @@ public class Login extends javax.swing.JDialog {
     }//GEN-LAST:event_btnEnterActionPerformed
 
     /**
-     *
-     * @return
+     * returns the user ID
+     * @return the user ID
      */
     public String userName(){
         return tfID.getText();

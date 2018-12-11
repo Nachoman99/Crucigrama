@@ -141,8 +141,7 @@ public class Register extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void tfIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfIDActionPerformed
-
-        String iD = tfID.getText();         
+         
     }//GEN-LAST:event_tfIDActionPerformed
 
     private void pfPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pfPasswordActionPerformed
@@ -201,9 +200,9 @@ public class Register extends javax.swing.JDialog {
             }
             Game.USER_LIST_MANAGER.addUser(user);
             try {
-                writer.open("Users/userFile.ser");  //probar el parametro apend en new FileWriter(fileName, true)
+                writer.open("Users/userFile.ser"); 
                 writer.write();
-                writer.close(); //importante cerrar el archivo 
+                writer.close(); 
                 System.out.println("Escritura exitosa");
             } catch (IOException ex) {
                 System.err.println("error de archivo");
@@ -220,7 +219,6 @@ public class Register extends javax.swing.JDialog {
                 this.dispose();
                 instructions.setVisible(true);
             }
-            
         }else{
             JOptionPane.showMessageDialog(this, "Su identificación ya ha sido usada, por favor digite otra");
         } 
@@ -232,7 +230,6 @@ public class Register extends javax.swing.JDialog {
      * @param evt the event that makes the button
      */
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-
         Welcome welcome = new Welcome();
         this.dispose();
         welcome.setVisible(true);

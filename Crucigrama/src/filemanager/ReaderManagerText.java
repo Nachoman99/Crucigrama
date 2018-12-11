@@ -11,7 +11,7 @@ import java.io.IOException;
  *this class is responsible for reading text files
  * 
  * @version 10/12/2018
- * @author Kevin Trejos
+ * @author Kevin Trejos/Jose Ignacio Zamora/Edwin Molina
  */
 public class ReaderManagerText {
 
@@ -26,17 +26,6 @@ public class ReaderManagerText {
         reader = new BufferedReader(new FileReader(fileName));
     }
     
-    /*private Word readRow() throws IOException {
-        Word size = null;
-        String line = reader.readLine(); //retorna null cuando no hay más registros
-        String datos[];
-        if (line != null) {
-            datos = line.split("-");
-            size = new Word(Integer.parseInt(datos[0]));
-        }
-        return size;
-    }*/
-
     /**
      * public int[] readRowColumn()  throws IOException
      *  this method returns the size of the matrix of each crossword
@@ -57,16 +46,6 @@ public class ReaderManagerText {
         return null;
     }
     
-   /*public int readColumn() throws IOException{
-        Word size = null
-        String line = reader.readLine();
-        String datos[];
-        if (line != null) {
-            datos = line.split("-");
-            size = new Word()
-        }
-   }*/
-    
     /**
      * private Word read() throws IOException
      * this method reads everything related to the words of the crossword
@@ -79,13 +58,11 @@ public class ReaderManagerText {
             return null;
         }else {    
            if(caso.length() < 10){
-                String line = reader.readLine(); //retorna null cuando no hay más registros
+                String line = reader.readLine();
                 String datos[];
                 String datos2[];
                 String datos4[];
-                
                 if (line != null) {
-                   
                     datos = line.split("/");
                     word.setIndex(Integer.parseInt(datos[1]));
                     word.setVerticalHorizontal( datos[2].charAt(0));
@@ -132,24 +109,6 @@ public class ReaderManagerText {
         }
     }
 
-        //otra forma
-//        Student newStudent = read();
-//        while(newStudent != null) {
-//            Main.LIST_MANAGER.addStudent(newStudent);
-//            newStudent = read();
-//        }
-        //otra forma
-//        Student newStudent;
-//        boolean hasNext = true;
-//        while(hasNext) {
-//            newStudent = read();
-//            if (newStudent != null) {
-//                Main.LIST_MANAGER.addStudent(newStudent);
-//            } else {
-//                hasNext = false;
-//            }
-//        }
-
     /**
      * public void close() throws IOException
      * this method closes the document
@@ -157,9 +116,4 @@ public class ReaderManagerText {
     public void close() throws IOException {
         reader.close();
     }
-    }
-
-//    public void close() throws IOException {
-//        reader.close();
-//    }
-//}
+}

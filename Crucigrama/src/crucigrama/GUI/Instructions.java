@@ -49,7 +49,6 @@ public class Instructions extends javax.swing.JDialog {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         btnContinue = new javax.swing.JButton();
-        btnBack = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("INSTRUCCIONES");
@@ -80,45 +79,35 @@ public class Instructions extends javax.swing.JDialog {
             }
         });
 
-        btnBack.setText("Atrás");
-        btnBack.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBackActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(116, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(86, 86, 86))
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1)
-                .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(44, 44, 44)
-                .addComponent(btnBack)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(35, 35, 35)
                 .addComponent(btnContinue)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(cbNotShow)
                 .addGap(13, 13, 13))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1)
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(89, 89, 89)
+                .addComponent(jLabel1)
+                .addContainerGap(113, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cbNotShow)
-                    .addComponent(btnContinue)
-                    .addComponent(btnBack))
+                    .addComponent(btnContinue))
                 .addGap(20, 20, 20))
         );
 
@@ -131,27 +120,18 @@ public class Instructions extends javax.swing.JDialog {
      */
     private void cbNotShowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbNotShowActionPerformed
         WriterManagerBinary writer = new WriterManagerBinary();
-
         User user = new User();
         user.getUserCode();
         try {
-            writer.open("Users/userFile.ser");  //probar el parametro apend en new FileWriter(fileName, true)
+            writer.open("Users/userFile.ser"); 
             Game.USER_LIST_MANAGER.setInstructios(positionUser, true);
             writer.write();
-            writer.close(); //importante cerrar el archivo 
+            writer.close();
             System.out.println("Escritura exitosa");
         } catch (IOException ex) {
             System.err.println("error de archivo");
             System.err.println(ex.getMessage());
         }
-        
-        
-        //No volver a mostrar la ventana
-        
-        //Mostrar la ventana
-        //No volver a mostrar la ventana
-        
-        //Mostrar la ventana
     }//GEN-LAST:event_cbNotShowActionPerformed
 
     /**
@@ -165,23 +145,11 @@ public class Instructions extends javax.swing.JDialog {
     }//GEN-LAST:event_btnContinueActionPerformed
 
     /**
-     * Close the current window and show the previous one
-     * @param evt the event that makes the button
-     */
-    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        /*Welcome welcome = new Welcome();
-        Login enter = new Login(welcome, true);
-        this.dispose();
-        enter.setVisible(true);*/
-    }//GEN-LAST:event_btnBackActionPerformed
-
-    /**
-     *
-     * @param index
+     * this method returns to the current user
+     * @param index the user's code
      */
     public void userSelected(int index){
-        positionUser = index;
-        
+        positionUser = index;  
     }
     
     /**
@@ -210,7 +178,6 @@ public class Instructions extends javax.swing.JDialog {
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnContinue;
     private javax.swing.JCheckBox cbNotShow;
     private javax.swing.JLabel jLabel1;

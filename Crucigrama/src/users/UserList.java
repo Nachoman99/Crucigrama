@@ -172,44 +172,4 @@ public class UserList implements Serializable{
         ID = userList[position].getID();
         return ID;
     }
-    
-    public void setProgressEasy(int position, int avance){
-        Progress progress1 = new Progress();
-        progress1.setLevelEasy(avance);
-        userList[position].setProgress(progress1);
-    }
-    
-    public void setProgressMedium(int position, int avance){
-        Progress progress1 = new Progress();
-        progress1.setLevelEasy(avance);
-        userList[position].setProgress(progress1);
-    }
-    
-    public void setProgressHard(int position, int avance){
-        Progress progress1 = new Progress();
-        progress1.setLevelEasy(avance);
-        userList[position].setProgress(progress1);
-    }
-    
-    public void setProgressVeryHard(int position, int avance){
-        Progress progress1 = new Progress();
-        progress1.setLevelEasy(avance);
-        userList[position].setProgress(progress1);
-    }
-    
-    public int getProgressEasy(int position){
-        return userList[position].getProgress().getLevelEasy();
-    }
-    
-    public int getProgressMediun(int position){
-        return userList[position].getProgress().getLevelMedium();
-    }
-    
-    public int getProgressHard(int position){
-        return userList[position].getProgress().getLevelHard();
-    }
-    
-    public int getProgressVeryHard(int position){
-        return userList[position].getProgress().getLevelVeryHard();
-    }
 }

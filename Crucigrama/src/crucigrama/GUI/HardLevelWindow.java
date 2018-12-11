@@ -46,34 +46,29 @@ public class HardLevelWindow extends javax.swing.JDialog {
         setLocationRelativeTo(parent);
         ReaderManagerText reader = new ReaderManagerText(); 
         int[] rowColumn = new int[1];
-    
         try {
             reader.open("Crosswords/LevelHard/1.txt");
             rowColumn = reader.readRowColumn();
             reader.close();
             System.out.println("Lectura exitosa");
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(GameWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            Logger.getLogger(HardLevelWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IOException ex) {
             System.err.println("error de archivo");
             System.err.println(ex.getMessage());
-            Logger.getLogger(GameWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            Logger.getLogger(HardLevelWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        
         ReaderManagerText reader2 = new ReaderManagerText(); 
-        
          try {
             reader2.open("Crosswords/LevelHard/1.txt");
             reader2.readAll();
             System.out.println(Game.WORD_LIST_MANAGER.getWordList());
-            reader2.close(); //importante cerrar el archivo
+            reader2.close(); 
             System.out.println("Lectura exitosa");
         } catch (IOException ex) {
             System.err.println("error de archivo");
             System.err.println(ex.getMessage());
-            //ex.printStackTrace();
         }
-        
         Crossword crossword1 = new Crossword(rowColumn[0], rowColumn[1]);
         Crossword crossword2 = new Crossword(rowColumn[0], rowColumn[1]);
         LogicGame logic = new LogicGame();
@@ -251,9 +246,6 @@ public class HardLevelWindow extends javax.swing.JDialog {
                     this.dispose();
                     level.setVisible(true);
                 }
-            //mostrar el número de palabras malas
-            //Llamar de nuevo al initPanel con un párametro que reciba las palabras malas y las resalte, eso sería en el initPanel
-            //aquí solo debería llamar a ese método y mandarle por párametro las palabrasMalas
             }
         }
     }//GEN-LAST:event_btnVerifyActionPerformed
@@ -274,6 +266,9 @@ public class HardLevelWindow extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_btnBackActionPerformed
 
+    /**
+     * this method shows the clues to the user
+     */
     private void showTracks(){
         String[] charSimbol = {"☺","☻","♥","♦","♣","•","◘","♪","♫","☼","►","◄","↕","‼","╦","╔","$","↔","╣","+","╝","§","○","◙","♀"};
         String clueH = "";
@@ -284,26 +279,26 @@ public class HardLevelWindow extends javax.swing.JDialog {
         for (int i = 0; i < Game.WORD_LIST_MANAGER.getCounter(); i++) {
             verticalHorizontal = Game.WORD_LIST_MANAGER.getVerticalHorizontal(i);
             String verticalHorizontal2 = Character.toString(verticalHorizontal);
-
             if (verticalHorizontal2.equals("H")) {
                 index = Game.WORD_LIST_MANAGER.getIndex(i);
                  indexString = charSimbol[index-1];
-                //indexString = Integer.toString(index);
                 clueH += indexString +". " + Game.WORD_LIST_MANAGER.getClue(i) + "\n";
                 tpHorizontal.setText(clueH +"\n");
             }else if (verticalHorizontal2.equals("V")) {
                 index = Game.WORD_LIST_MANAGER.getIndex(i);
                  indexString = charSimbol[index-1];
-                //indexString = Integer.toString(index);
                 clueV += indexString + ". " + Game.WORD_LIST_MANAGER.getClue(i) + "\n";
                 tpVertical.setText(clueV+"\n");
             }
         }
     }
    
+    /**
+     * this method initializes the crossword
+     * @param rowColumn size of the grid
+     * @param crossword the crossword
+     */
     private void initPanel(int[] rowColumn, Crossword crossword){
-        LogicGame logic = new LogicGame();
-        
         int rows = rowColumn[0];
         int columns = rowColumn[1];
         respuestas1 = new Crossword(rows, columns);
@@ -318,7 +313,6 @@ public class HardLevelWindow extends javax.swing.JDialog {
                 if(txt.equals(" ")){
                     txField.setText(null);
                 }
-                
                 txField.addKeyListener(new java.awt.event.KeyListener() {
                     @Override
                     public void keyTyped(java.awt.event.KeyEvent e) {
@@ -339,23 +333,16 @@ public class HardLevelWindow extends javax.swing.JDialog {
                         char car = arg1.getKeyChar();
                         if(txField.getText().length() == limite){
                             arg1.consume();
-                            System.out.println("Hola");
                         }  
                         if((arg1.getKeyCode() != KeyEvent.VK_DELETE)){
-                            System.out.println("PIO");
                             if(Character.isLetter(car)){
-                                System.out.println("Juan perez");
                                 String tx = "";
                                 tx = txField.getText();
                                 System.out.println(tx);
                                 if (tx.length() >= 1){
-                                    System.out.println("vacio");
                                     Letter letter = new Letter(tx.charAt(0));
                                     respuestas1.setLetterPosition(i_, j_, letter);
-                                }else{
-                                    System.out.println("No vacio");
-//                                    Letter letter = new Letter(tx.charAt(0));
-//                                    respuestas1.setLetterPosition(i_, j_, letter); 
+                                }else{ 
                                 }
                             }else{
                                 arg1.consume();

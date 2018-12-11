@@ -35,6 +35,7 @@ import javax.swing.JTextField;
 public class MediumLevelWindow extends javax.swing.JDialog {
     private Crossword respuestas1;
     private int attempts = 0;
+    
     /**
      * Creates new form MediumLevelWindow
      * @param parent
@@ -44,7 +45,6 @@ public class MediumLevelWindow extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(parent);
-       // initPanel();
        ReaderManagerText reader = new ReaderManagerText(); 
         int[] rowColumn = new int[1];
     
@@ -54,27 +54,23 @@ public class MediumLevelWindow extends javax.swing.JDialog {
             reader.close();
             System.out.println("Lectura exitosa");
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(GameWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            Logger.getLogger(MediumLevelWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IOException ex) {
             System.err.println("error de archivo");
             System.err.println(ex.getMessage());
-            Logger.getLogger(GameWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            Logger.getLogger(MediumLevelWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        
         ReaderManagerText reader2 = new ReaderManagerText(); 
-        
-         try {
+        try {
             reader2.open("Crosswords/LevelMedium/1.txt");
             reader2.readAll();
             System.out.println(Game.WORD_LIST_MANAGER.getWordList());
-            reader2.close(); //importante cerrar el archivo
+            reader2.close();
             System.out.println("Lectura exitosa");
         } catch (IOException ex) {
             System.err.println("error de archivo");
             System.err.println(ex.getMessage());
-            //ex.printStackTrace();
         }
-        
         Crossword crossword1 = new Crossword(rowColumn[0], rowColumn[1]);
         Crossword crossword2 = new Crossword(rowColumn[0], rowColumn[1]);
         LogicGame logic = new LogicGame();
@@ -203,7 +199,10 @@ public class MediumLevelWindow extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+/**
+ * check if the user won
+ * @param evt a event
+ */
     private void btnVerifyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerifyActionPerformed
         int countBadWords = 0;
         String[] respuestaUsuario = new String[Game.WORD_LIST_MANAGER.getCounter()];
@@ -232,7 +231,6 @@ public class MediumLevelWindow extends javax.swing.JDialog {
                     System.out.println(word5.toString());
                    palabrasIncorrectas.addWord(word5);
                    countBadWords +=1;
-                   
                 }
             }
             System.err.println(badWords);
@@ -260,20 +258,12 @@ public class MediumLevelWindow extends javax.swing.JDialog {
                     this.dispose();
                     level.setVisible(true);
                 }
-            //mostrar el número de palabras malas
-            //Llamar de nuevo al initPanel con un párametro que reciba las palabras malas y las resalte, eso sería en el initPanel
-            //aquí solo debería llamar a ese método y mandarle por párametro las palabrasMalas
             }
         }
     }//GEN-LAST:event_btnVerifyActionPerformed
 
     private void btnHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHelpActionPerformed
-/*
-se completará una letra de forma aleatoria de una palabra
-aleatoria, si ya se ha completado una letra de esa palabra se realizará para otra palabra. Cuando se ha
-completado   una   letra   en   todas   las   palabras   ya   no   será   posible   solicitar   más   ayuda,   lo   que   debe
-indicarse mediante un mensaje al usuario al presionar el botón de ayuda.  
-        */
+
     }//GEN-LAST:event_btnHelpActionPerformed
 
     /**
@@ -292,6 +282,9 @@ indicarse mediante un mensaje al usuario al presionar el botón de ayuda.
         }
     }//GEN-LAST:event_btnBackActionPerformed
 
+    /**
+     * this method shows the clues
+     */
     private void showTracks(){
          String[] charSimbol = {"☺","☻","♥","♦","♣","•","◘","♪","♫","☼","►","◄","↕","‼","╦","╔","$","↔","╣","+","╝","§","○","◙","♀"};
         String clueH = "";
@@ -302,17 +295,14 @@ indicarse mediante un mensaje al usuario al presionar el botón de ayuda.
         for (int i = 0; i < Game.WORD_LIST_MANAGER.getCounter(); i++) {
             verticalHorizontal = Game.WORD_LIST_MANAGER.getVerticalHorizontal(i);
             String verticalHorizontal2 = Character.toString(verticalHorizontal);
-
             if (verticalHorizontal2.equals("H")) {
                 index = Game.WORD_LIST_MANAGER.getIndex(i);
                  indexString = charSimbol[index-1];
-                //indexString = Integer.toString(index);
                 clueH += indexString +". " + Game.WORD_LIST_MANAGER.getClue(i) + "\n";
                 tpHorizontal.setText(clueH +"\n");
             }else if (verticalHorizontal2.equals("V")) {
                 index = Game.WORD_LIST_MANAGER.getIndex(i);
                 indexString = charSimbol[index-1];
-                //indexString = Integer.toString(index);
                 clueV += indexString + ". " + Game.WORD_LIST_MANAGER.getClue(i) + "\n";
                 tpVertical.setText(clueV+"\n");
             }
@@ -324,8 +314,6 @@ indicarse mediante un mensaje al usuario al presionar el botón de ayuda.
      * @param crossword 
      */
     private void initPanel(int[] rowColumn, Crossword crossword){
-        LogicGame logic = new LogicGame();
-        
         int rows = rowColumn[0];
         int columns = rowColumn[1];
         respuestas1 = new Crossword(rows, columns);
@@ -340,12 +328,10 @@ indicarse mediante un mensaje al usuario al presionar el botón de ayuda.
                 if(txt.equals(" ")){
                     txField.setText(null);
                 }
-                
                 txField.addKeyListener(new java.awt.event.KeyListener() {
                     @Override
                     public void keyTyped(java.awt.event.KeyEvent e) {
                         int limite = 1;
-//                        char car = e.getKeyChar();
                         if(txField.getText().length() == limite){
                             e.consume();
                         }  
@@ -375,9 +361,7 @@ indicarse mediante un mensaje al usuario al presionar el botón de ayuda.
                                     Letter letter = new Letter(tx.charAt(0));
                                     respuestas1.setLetterPosition(i_, j_, letter);
                                 }else{
-                                    System.out.println("No vacio");
-//                                    Letter letter = new Letter(tx.charAt(0));
-//                                    respuestas1.setLetterPosition(i_, j_, letter); 
+                                    System.out.println("No vacio"); 
                                 }
                             }else{
                                 arg1.consume();
@@ -385,7 +369,6 @@ indicarse mediante un mensaje al usuario al presionar el botón de ayuda.
                         }else{
                             arg1.consume();
                         }
-                
                     }
                 });
                 if(txt.equals("0")){
@@ -397,14 +380,9 @@ indicarse mediante un mensaje al usuario al presionar el botón de ayuda.
                 pnCrossword.add(txField);          
 
             }
-            
-        
-      
         }
-  
     }
 
-    
     /**
      * Pressing the X returns to the main window
      */

@@ -39,76 +39,39 @@ public class EasyLevelWindow extends javax.swing.JDialog {
     public static WordList palabrasIncorrectas= new WordList();
     private boolean [] countHelp;
     private int countsHelp;
-    private int progressCrossword;
-    private int positionUser;
-    private int progressUser;
     
     /**
      * Builder
      * Creates new form EasyLevelWindow
      */
     public EasyLevelWindow(javax.swing.JDialog parent, boolean modal) {
-         super(parent, modal);
+        super(parent, modal);
         initComponents();
         setLocationRelativeTo(parent);
-       ReaderManagerText reader = new ReaderManagerText(); 
+        ReaderManagerText reader = new ReaderManagerText(); 
         int[] rowColumn = new int[1];
-        progressCrossword =0;
-        User user = new User();
-        progressCrossword = Game.USER_LIST_MANAGER.getProgressEasy(positionUser);
-        System.out.println(progressCrossword);
-        if (progressCrossword == 0) {
-            try {
-                reader.open("Crosswords/LevelEasy/1.txt");
-                rowColumn = reader.readRowColumn();
-                reader.close();
-                System.out.println("Lectura exitosa");
-            } catch (FileNotFoundException ex) {
-                Logger.getLogger(GameWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-            } catch (IOException ex) {
-                System.err.println("error de archivo");
-                System.err.println(ex.getMessage());
-                Logger.getLogger(GameWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-            }
-            ReaderManagerText reader2 = new ReaderManagerText(); 
-            try {
-                reader2.open("Crosswords/LevelEasy/1.txt");
-                reader2.readAll();
-                reader2.close(); //importante cerrar el archivo
-                System.out.println("Lectura exitosa");
-            } catch (IOException ex) {
-                System.err.println("error de archivo");
-                System.err.println(ex.getMessage());
-                //ex.printStackTrace();
-            }
-        }else{
-            try {
-                reader.open("Crosswords/LevelEasy/2.txt");
-                rowColumn = reader.readRowColumn();
-                reader.close();
-                System.out.println("Lectura exitosa");
-            } catch (FileNotFoundException ex) {
-                Logger.getLogger(GameWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-            } catch (IOException ex) {
-                System.err.println("error de archivo");
-                System.err.println(ex.getMessage());
-                Logger.getLogger(GameWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-            }
-
-            ReaderManagerText reader2 = new ReaderManagerText(); 
-
-            try {
-                reader2.open("Crosswords/LevelEasy/2.txt");
-                reader2.readAll();
-                reader2.close(); //importante cerrar el archivo
-                System.out.println("Lectura exitosa");
-            } catch (IOException ex) {
-                System.err.println("error de archivo");
-                System.err.println(ex.getMessage());
-                //ex.printStackTrace();
-            }
+        try {
+            reader.open("Crosswords/LevelEasy/1.txt");
+            rowColumn = reader.readRowColumn();
+            reader.close();
+            System.out.println("Lectura exitosa");
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(EasyLevelWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            System.err.println("error de archivo");
+            System.err.println(ex.getMessage());
+            Logger.getLogger(EasyLevelWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        
+        ReaderManagerText reader2 = new ReaderManagerText(); 
+        try {
+            reader2.open("Crosswords/LevelEasy/1.txt");
+            reader2.readAll();
+            reader2.close();
+            System.out.println("Lectura exitosa");
+        } catch (IOException ex) {
+            System.err.println("error de archivo");
+            System.err.println(ex.getMessage());
+        }
         Crossword crossword1 = new Crossword(rowColumn[0], rowColumn[1]);
         Crossword crossword2 = new Crossword(rowColumn[0], rowColumn[1]);
         LogicGame logic = new LogicGame();
@@ -121,13 +84,7 @@ public class EasyLevelWindow extends javax.swing.JDialog {
         countHelp = new boolean[Game.WORD_LIST_MANAGER.getCounter()];
         initPanel(rowColumn ,crossword1);
         showTracks();
-       closeX();
-       
-    }
-    
-    public void userSelected(int index){
-        positionUser = index;
-        
+        closeX(); 
     }
     
     /**
@@ -279,17 +236,14 @@ public class EasyLevelWindow extends javax.swing.JDialog {
         for (int i = 0; i < Game.WORD_LIST_MANAGER.getCounter(); i++) {
             verticalHorizontal = Game.WORD_LIST_MANAGER.getVerticalHorizontal(i);
             String verticalHorizontal2 = Character.toString(verticalHorizontal);
-
             if (verticalHorizontal2.equals("H")) {
                 index = Game.WORD_LIST_MANAGER.getIndex(i);
                 indexString = charSimbol[index-1];
-                //indexString = Integer.toString(index);
                 clueH += indexString +". " + Game.WORD_LIST_MANAGER.getClue(i) + "\n";
                 tpHorizontal.setText(clueH +"\n");
             }else if (verticalHorizontal2.equals("V")) {
                 index = Game.WORD_LIST_MANAGER.getIndex(i);
                 indexString = charSimbol[index-1];
-//                indexString = Integer.toString(index);
                 clueV += indexString + ". " + Game.WORD_LIST_MANAGER.getClue(i) + "\n";
                 tpVertical.setText(clueV+"\n");
             }
@@ -303,8 +257,6 @@ public class EasyLevelWindow extends javax.swing.JDialog {
      * @param crossword crossword with the words
      */
     private void initPanel(int[] rowColumn, Crossword crossword){
-        LogicGame logic = new LogicGame();
-        
         int rows = rowColumn[0];
         int columns = rowColumn[1];
         respuestas1 = new Crossword(rows, columns);
@@ -319,17 +271,14 @@ public class EasyLevelWindow extends javax.swing.JDialog {
                 if(txt.equals(" ")){
                     txField.setText(null);
                 }
-                
                 txField.addKeyListener(new java.awt.event.KeyListener() {
                     @Override
                     public void keyTyped(java.awt.event.KeyEvent e) {
                         int limite = 1;
-//                        char car = e.getKeyChar();
                         if(txField.getText().length() == limite){
                             e.consume();
                         }  
                     }
-                    
                     @Override
                     public void keyPressed(java.awt.event.KeyEvent arg2) {
                     }
@@ -340,23 +289,16 @@ public class EasyLevelWindow extends javax.swing.JDialog {
                         char car = arg1.getKeyChar();
                         if(txField.getText().length() == limite){
                             arg1.consume();
-                            System.out.println("Hola");
                         }  
                         if((arg1.getKeyCode() != KeyEvent.VK_DELETE)){
-                            System.out.println("PIO");
                             if(Character.isLetter(car)){
-                                System.out.println("Juan perez");
                                 String tx = "";
                                 tx = txField.getText();
                                 System.out.println(tx);
                                 if (tx.length() >= 1){
-                                    System.out.println("vacio");
                                     Letter letter = new Letter(tx.charAt(0));
                                     respuestas1.setLetterPosition(i_, j_, letter);
-                                }else{
-                                    System.out.println("No vacio");
-//                                    Letter letter = new Letter(tx.charAt(0));
-//                                    respuestas1.setLetterPosition(i_, j_, letter); 
+                                }else{ 
                                 }
                             }else{
                                 arg1.consume();
@@ -364,7 +306,6 @@ public class EasyLevelWindow extends javax.swing.JDialog {
                         }else{
                             arg1.consume();
                         }
-                
                     }
                 });
                 if(txt.equals("0")){
@@ -372,19 +313,17 @@ public class EasyLevelWindow extends javax.swing.JDialog {
                     txField.setEnabled(false);
                     txField.setText("");
                 }
-          
                 pnCrossword.add(txField);          
-
             }
-            
-        
-      
         }
-  
     }
     
+    /**
+     * private void initPanel2(Crossword crossword)
+     * This method verifies which words the user had bad and shows the word bad
+     * @param crossword the crossword
+     */
     private void initPanel2(Crossword crossword){
-        LogicGame logic = new LogicGame();
         int rows = crossword.rowLength();
         int columns = crossword.columnLength();
         GridLayout grid = new GridLayout(rows, columns);
@@ -399,12 +338,10 @@ public class EasyLevelWindow extends javax.swing.JDialog {
                 if(txt.equals(" ")){
                     txField.setText(null);
                 }
-                
                 txField.addKeyListener(new java.awt.event.KeyListener() {
                     @Override
                     public void keyTyped(java.awt.event.KeyEvent e) {
                         int limite = 1;
-//                        char car = e.getKeyChar();
                         if(txField.getText().length() == limite){
                             e.consume();
                         }  
@@ -420,23 +357,16 @@ public class EasyLevelWindow extends javax.swing.JDialog {
                         char car = arg1.getKeyChar();
                         if(txField.getText().length() == limite){
                             arg1.consume();
-                            System.out.println("Hola");
                         }  
                         if((arg1.getKeyCode() != KeyEvent.VK_DELETE)){
-                            System.out.println("PIO");
                             if(Character.isLetter(car)){
-                                System.out.println("Juan perez");
                                 String tx = "";
                                 tx = txField.getText();
                                 System.out.println(tx);
                                 if (tx.length() >= 1){
-                                    System.out.println("vacio");
                                     Letter letter = new Letter(tx.charAt(0));
                                     respuestas1.setLetterPosition(i_, j_, letter);
-                                }else{
-                                    System.out.println("No vacio");
-//                                    Letter letter = new Letter(tx.charAt(0));
-//                                    respuestas1.setLetterPosition(i_, j_, letter); 
+                                }else{                                
                                 }
                             }else{
                                 arg1.consume();
@@ -444,7 +374,6 @@ public class EasyLevelWindow extends javax.swing.JDialog {
                         }else{
                             arg1.consume();
                         }
-                
                     }
                 });
                 if(txt.equals("0")){
@@ -457,35 +386,10 @@ public class EasyLevelWindow extends javax.swing.JDialog {
                         txField.setBackground(Color.green); 
                     }           
                 }
-          
                 pnCrossword.add(txField);          
-
             }
-            
-        
-      
         }
            pnCrossword.updateUI();     
-                
-                
-//                int i_= i;
-//                int j_= j;
-//          
-//                String txt = crossword.getLetters(i, j).toString();
-//                JTextField txField = new JTextField(txt, 1);
-//                if(txt.equals(" ")){
-//                    txField.setText(null);
-//                }
-//                
-//                for (int k = 0; k < palabrasIncorrectas.getCounter(); k++) {
-//                    if(i_ == palabrasIncorrectas.getInitRow(k)|| j_ ==palabrasIncorrectas.getInitColumn(k)){
-//                        txField.setBackground(Color.green); 
-//                    }           
-//                }
-//                 pnCrossword.add(txField);   
-//            }
-//        }
-//       pnCrossword.updateUI();
     }
     
     
@@ -521,37 +425,16 @@ public class EasyLevelWindow extends javax.swing.JDialog {
                    palabrasIncorrectas.addWord(word5);
                 }
             }
-            
             System.err.println(badWords);
         }
-   
         if (isEmpty == true) {
             JOptionPane.showMessageDialog(this, "Por favor rellene todo el crucigrama");
         } else if(isEmpty == false){
             if (badWords == 0) {
                 JOptionPane.showMessageDialog(this, "Felicidades, ha ganado");
-                
-                WriterManagerBinary writer = new WriterManagerBinary();
-
-                User user = new User();
-                user.getUserCode();
-                try {
-                    writer.open("Users/userFile.ser");  //probar el parametro apend en new FileWriter(fileName, true)
-                    progressUser +=1; 
-                    Game.USER_LIST_MANAGER.setProgressEasy(positionUser, progressUser);
-                    writer.write();
-                    writer.close(); //importante cerrar el archivo 
-                    System.out.println("Escritura exitosa");
-                } catch (IOException ex) {
-                    System.err.println("error de archivo");
-                    System.err.println(ex.getMessage());
-                }
-                
-                
                 Level level = new Level(this, true);
                 this.dispose();
-                level.setVisible(true);
-                
+                level.setVisible(true); 
             }else if(badWords >= 1){
                 attempts ++;
                 if (attempts < 3) {
@@ -568,17 +451,17 @@ public class EasyLevelWindow extends javax.swing.JDialog {
                     this.dispose();
                     level.setVisible(true);
                 }
-            //mostrar el número de palabras malas
-            //Llamar de nuevo al initPanel con un párametro que reciba las palabras malas y las resalte, eso sería en el initPanel
-            //aquí solo debería llamar a ese método y mandarle por párametro las palabrasMalas
             }
         }
-        System.out.println(respuestas1.print());
     }//GEN-LAST:event_btnVerifyActionPerformed
 
+    /**
+     * private void initPanel3(Crossword crossword, int random)
+     * this method serves to show the help
+     * @param crossword the crossword
+     * @param random Random number
+     */
     private void initPanel3(Crossword crossword, int random){
-        
-        LogicGame logic = new LogicGame();
         int rows = crossword.rowLength();
         int columns = crossword.columnLength();
         GridLayout grid = new GridLayout(rows, columns);
@@ -593,12 +476,10 @@ public class EasyLevelWindow extends javax.swing.JDialog {
                 if(txt.equals(" ")){
                     txField.setText(null);
                 }
-                
                 txField.addKeyListener(new java.awt.event.KeyListener() {
                     @Override
                     public void keyTyped(java.awt.event.KeyEvent e) {
                         int limite = 1;
-//                        char car = e.getKeyChar();
                         if(txField.getText().length() == limite){
                             e.consume();
                         }  
@@ -614,21 +495,16 @@ public class EasyLevelWindow extends javax.swing.JDialog {
                         char car = arg1.getKeyChar();
                         if(txField.getText().length() == limite){
                             arg1.consume();
-                            System.out.println("Hola");
                         }  
                         if((arg1.getKeyCode() != KeyEvent.VK_DELETE)){
-                            System.out.println("PIO");
                             if(Character.isLetter(car)){
-                                System.out.println("Juan perez");
                                 String tx = "";
                                 tx = txField.getText();
                                 System.out.println(tx);
                                 if (tx.length() >= 1){
-                                    System.out.println("vacio");
                                     Letter letter = new Letter(tx.charAt(0));
                                     respuestas1.setLetterPosition(i_, j_, letter);
-                                }else{
-                                    System.out.println("No vacio"); 
+                                }else{ 
                                 }
                             }else{
                                 arg1.consume();
@@ -648,86 +524,33 @@ public class EasyLevelWindow extends javax.swing.JDialog {
                 if(txt2.equals("0")){   
                     txField.setText(null);
                 }
-//                for (int k = 0; k < palabrasIncorrectas.getCounter(); k++) {
-//                    if(i_ == palabrasIncorrectas.getInitRow(k)&& j_ ==palabrasIncorrectas.getInitColumn(k)){
-//                        txField.setBackground(Color.green); 
-//                    }           
-//                } 
-                 
-                
-                
-                System.out.println("Random= "+ random);
-                System.out.println("Numero= "+countHelp[random]);
                 if(countHelp[random] == false){ 
                     while(countHelp[random] == false && countsHelp ==Game.WORD_LIST_MANAGER.getCounter()){
                          random = (int)(Math.random()*(Game.WORD_LIST_MANAGER.getCounter()));
-                    }
-                    
-                    if(i_ == Game.WORD_LIST_MANAGER.getInitRow(random)&& j_==Game.WORD_LIST_MANAGER.getInitColumn(random)){
-                       
-                           String letra = Game.WORD_LIST_MANAGER.getWord(random);
-                           char letra2 = letra.charAt(0);
-                           letra = Character.toString(letra2);
-                           txField.setText(null);
-                           txField.setText(letra);
-                           txField.setForeground(Color.red);
-                           Letter letter = new Letter(letra2);
-                           respuestas1.setLetterPosition(i_, j_, letter);
-                           countHelp[random] = true;
-                           countsHelp +=1;
-                        
+                    }   
+                    if(i_ == Game.WORD_LIST_MANAGER.getInitRow(random)&& j_==Game.WORD_LIST_MANAGER.getInitColumn(random)){     
+                        String letra = Game.WORD_LIST_MANAGER.getWord(random);
+                        char letra2 = letra.charAt(0);
+                        letra = Character.toString(letra2);
+                        txField.setText(null);
+                        txField.setText(letra);
+                        txField.setForeground(Color.red);
+                        Letter letter = new Letter(letra2);
+                        respuestas1.setLetterPosition(i_, j_, letter);
+                        countHelp[random] = true;
+                        countsHelp +=1;   
                     }
                 }
-                
-               
-        
-//                if(countHelp[random] == true){
-//                    if(i_ == Game.WORD_LIST_MANAGER.getInitRow(random)&& j_==Game.WORD_LIST_MANAGER.getWord(random).length()-1){
-//                        
-//                            if(Game.WORD_LIST_MANAGER.getVerticalHorizontal(random)== 'H'){
-//                               String letra = Game.WORD_LIST_MANAGER.getWord(random);
-//                                char letra2 = letra.charAt(Game.WORD_LIST_MANAGER.getWord(random).length()-1);
-//                                letra = Character.toString(letra2);
-//                                txField.setText(null);
-//                                txField.setText(letra);
-//                                txField.setForeground(Color.red);
-//                                Letter letter = new Letter(letra2);
-//                               respuestas1.setLetterPosition(i_,Game.WORD_LIST_MANAGER.getWord(random).length()-1 , letter);
-//                               countHelp[random] = true;
-//                           }
-//                        }   
-//                        
-//                    }
-//                if(countHelp[random] == true){     
-//                    if(i_ == Game.WORD_LIST_MANAGER.getWord(random).length()-1 && j_==Game.WORD_LIST_MANAGER.getInitColumn(random)){
-//                        
-//                            if(Game.WORD_LIST_MANAGER.getVerticalHorizontal(random)== 'V'){ 
-//                                String letra = Game.WORD_LIST_MANAGER.getWord(random);
-//                                char letra2 = letra.charAt(Game.WORD_LIST_MANAGER.getWord(random).length()-1);
-//                                letra = Character.toString(letra2);
-//                                txField.setText(null);
-//                                txField.setText(letra);
-//                                txField.setForeground(Color.red);
-//                                Letter letter = new Letter(letra2);
-//                               respuestas1.setLetterPosition(Game.WORD_LIST_MANAGER.getWord(random).length()-1,j_, letter);
-//                               countHelp[random] =true;
-//                           }
-//                        }      
-//                        
-//                    } 
-                       
-                   
-                
-               
-                
-                
-
                 pnCrossword.add(txField);          
             }
         }
-           pnCrossword.updateUI();     
+        pnCrossword.updateUI();     
     }
     
+    /**
+     * this method makes the actions of the back button
+     * @param evt a event
+     */
     private void btnHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHelpActionPerformed
         LogicGame logic = new LogicGame();
         Crossword crossword2 = new Crossword(respuestas1.rowLength(), respuestas1.columnLength());
